@@ -10,33 +10,27 @@ class ScreenplayLoader(BaseLoader):
         super().__init__()
         
         self.file_path = file_path
-        # self.scene_regex = "(?:INT\\.|EXT\\.)\\s([A-Z0-9]+)(?:\\s-\\s[A-Z]+)" #TODO: to be checked for its validity
-        self.scene_regex = "(?:INT\\.|EXT\\.)\\s([A-Z0-9\\s\\-]+)" #TODO: to be checked for its validity
+        self.scene_regex = "(?:INT\\.|EXT\\.)\\s([A-Z0-9\\s\\-\\']+)"
 
         
     def lazy_load(self) -> Iterator[Document]:
         whole_doc = ""
 
         with pdfplumber.open(self.file_path) as fp:
-            # fp.pages[0].extract_text()
             for i, page in enumerate(fp.pages):
-                # print("starting to process page {}".format(i))
                 text_in_page = page.extract_text()
-                # print(text_in_page)
-                
                 whole_doc += text_in_page
-                # print("appended\n")
         
         
         matches = list(re.finditer(self.scene_regex, whole_doc))
         
         for i, match in enumerate(matches):
             start = match.start()
-            end = matches[i+1].start()
-            
-            print("start index: {}".format(start))
-            print("end index: {}".format(end))
-            
+            end = matches[i+1].start() if i+1 < len(matches) else len(whole_doc)
+            print("current index {}; start: {}; end: {}; len(matches): {}; len(whole_doc): {}".format(
+                i, start, end, len(matches), len(whole_doc)
+            ))
+
             current_scene = whole_doc[start:end]
             scene_header = match.group().strip()
         
