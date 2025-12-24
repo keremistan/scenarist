@@ -1,3 +1,5 @@
 .env
 
 scenarist.ai*
+
+*/__pycache__
