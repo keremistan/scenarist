@@ -27,11 +27,16 @@ assert len(scene_docs) == len(scene_analysises)
 
 # insert the analysis into the original doc
 for i, scene_doc in enumerate(scene_docs):
-    relevant_analysis = scene_analysises[i]
+    original_text = scene_doc.page_content
     
-    scene_doc.metadata['happening'] = relevant_analysis.happening
-    scene_doc.metadata['subtext_level_happening'] = relevant_analysis.subtext_level_happening
-    scene_doc.metadata['reader_reaction'] = relevant_analysis.reader_reaction
+    relevant_analysis = scene_analysises[i]
+    scene_doc.page_content = "HAPPENING: {} \nSUBTEXT_LEVEL_HAPPENING: {} \nREADER_REACTION: {}".format(
+        relevant_analysis.happening,
+        relevant_analysis.subtext_level_happening,
+        relevant_analysis.reader_reaction
+    )
+    
+    scene_doc.metadata['original_text'] = original_text
     
 
 embedding_model = OllamaEmbeddings(model="nomic-embed-text")

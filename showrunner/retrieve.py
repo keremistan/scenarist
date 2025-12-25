@@ -19,10 +19,10 @@ mmr_res = screenplays_vector_store_collection.max_marginal_relevance_search(quer
 # print(sim_res)
 # print(mmr_res)
 
-# print("\n\nmmr_res:\n")
-# for res in mmr_res:
-#     pprint(res.model_dump_json())    
+print("\n\nmmr_res:\n")
+for res in mmr_res:
+    pprint(res.model_dump_json())    
 
-print("doc count: {}".format(screenplays_vector_store_collection._collection.count()))
-print("first doc: {}".format(screenplays_vector_store_collection._collection.peek(1)))
+# print("doc count: {}".format(screenplays_vector_store_collection._collection.count()))
+# print("first doc: {}".format(screenplays_vector_store_collection._collection.peek(1)))
 

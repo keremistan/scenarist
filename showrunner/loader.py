@@ -27,9 +27,9 @@ class ScreenplayLoader(BaseLoader):
         for i, match in enumerate(matches):
             start = match.start()
             end = matches[i+1].start() if i+1 < len(matches) else len(whole_doc)
-            print("current index {}; start: {}; end: {}; len(matches): {}; len(whole_doc): {}".format(
-                i, start, end, len(matches), len(whole_doc)
-            ))
+            # print("current index {}; start: {}; end: {}; len(matches): {}; len(whole_doc): {}".format(
+            #     i, start, end, len(matches), len(whole_doc)
+            # ))
 
             current_scene = whole_doc[start:end]
             scene_header = match.group().strip()
