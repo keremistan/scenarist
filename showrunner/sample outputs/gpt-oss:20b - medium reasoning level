@@ -1,0 +1,286 @@
+gpt-oss:20b - medium reasoning level
+it did not call any tools
+
+(.scenarist_venv) (base) keremdede@Keremin-Bilgisayar scenarist % python showrunner/writer.py
+{'messages': [HumanMessage(content='write an introductory scene', additional_kwargs={}, response_metadata={}, id='ecd6132a-1ce0-4058-9b4e-5edd483aea13'), AIMessage(content='**INT. AHMET’S APARTMENT – MORNING**\n\n*A small, cluttered apartment. The ceiling fan whirs. An alarm clock blares “You’re Late!” Ahmet, 19, lanky, hair sticking out, yells “No! I’m not!” and hits snooze. He groans, rolls over, and tries to stand up. His hand lands on a stack of unpaid bills and a framed photo of his parents. He looks at the photo.*\n\n**AHMET**  \n*(softly)*  \nMom, Dad… I’m sorry.  \n\n*A beat. His mother, FATMA, a sharp‑eyed woman in her 40s, is in the kitchen, flipping a pancake.*\n\n**FATMA**  \n*(calling out)*  \nAhmet! The coffee shop wants you by 8:30! And you still can’t even make a decent cup of coffee!  \n\n**AHMET**  \n*(confused)*  \nYou said “by 8:30,” not “by 8:30 AM.” I think you’re confusing me with my class schedule.  \n\n**FATMA**  \nAhmet! You’re not a college kid. You’re a *working* kid. Kids must be taught that they deserve respect *and* that they must respect others.  \n\n**AHMET**  \n*(pauses)*  \nSo I should respect you by waking up at the same time you woke up?  \n\n*She rolls her eyes. Ahmet looks around, his face a mix of panic and curiosity.*\n\n**CUT TO:**\n\n**EXT. COFFEE SHOP – MORNING**\n\n*Ahmet pulls up in a beat-up car, wearing a t‑shirt that says “World’s Okayest Employee.” He bumps the front door, and a bell rings.*\n\n**INT. COFFEE SHOP – CONTINUOUS**\n\n*The shop is bustling. LAYOUT: a barista desk with a huge espresso machine, a register, a cramped fridge. HAKAN, mid‑20s, a sarcastic barista with a permanent “I’ll take a latte if I can” grin, is behind the counter. A regular CUSTOMER, MR. YILMAZ, mid‑50s, is waiting.*\n\n**AHMET**  \n*(to Hakan)*  \nI…uh… I think I should do something with the…coffee?  \n\n**HAKAN**  \n*(deadpan)*  \nSure, just put a *pudding* in the espresso machine, will that do?  \n\n*Ahmet looks baffled.*\n\n**AHMET**  \nPudding? Why would I put pudding in the espresso machine?  \n\n**HAKAN**  \n*(winks)*  \nBecause your boss always said, “Ahmet, if you can’t handle the espresso, maybe handle the dessert.”  \n\n*Mr. YILMAZ eyes Ahmet suspiciously.*\n\n**MR. YILMAZ**  \n*(to Ahmet)*  \nFirst time here, huh?  \n\n**AHMET**  \n*(nervously)*  \nI am… I was just told… by the…by Fatma to do… coffee.  \n\n**MR. YILMAZ**  \nFatma, huh? She sounds… authoritative.  \n\n**AHMET**  \nShe’s my mother. She says we deserve respect.  \n\n*Mr. YILMAZ raises an eyebrow, amused.*\n\n**MR. YILMAZ**  \nSo you’re here to serve us coffee and learn respect?  \n\n*Ahmet nods. The bell jingles as a new CUSTOMER, LAYLA, 20s, walks in. Ahmet’s heart skips.*\n\n**AHMET**  \n*(to Layla)*  \nHi, I’m Ahmet. I’ll—  \n\n*He freezes.*\n\n**LAYLA**  \n*(laughing)*  \nThat’s okay. I’m Layla.  \n\n*She looks at the barista counter.*\n\n**LAYLA**  \n*(to Hakan)*  \nCan you get me a latte? And can I get a *smile* in it too?  \n\n**HAKAN**  \n*(to Layla)*  \nYou got it, lady.  \n\n*Ahmet glances at Hakan, who’s now holding a steaming latte and a grin.*\n\n**AHMET**  \n*(to Hakan, whispering)*  \nWhat does a latte do? Is it like… a love potion?  \n\n**HAKAN**  \n*(whispers back)*  \nJust a regular drink. But it’s about respecting the order.  \n\n*Ahmet watches Layla sip her latte, looking happy. He takes a deep breath.*\n\n**AHMET**  \n*(to Layla, louder now)*  \nUm, I— I have… a confession. I’m new here.  \n\n**LAYLA**  \n*(smiles)*  \nNew is good. We all started somewhere.  \n\n*Ahmet nods, realizing the subtle lesson: respect is a two‑way street. He glances at the photo on the counter—his parents smiling.*\n\n**FATMA** (V.O.)  \n*(off‑screen, gentle)*  \nAhmet, remember: kids deserve respect. But you have to give it back, even in the little things—like a smile, a quick “yes,” or a correct order.  \n\n*Ahmet smiles, a small, genuine grin. He turns to Hakan.*\n\n**AHMET**  \nOkay, Hakan. I’ll get the espresso.  \n\n**HAKAN**  \n*(laughing)*  \nThat’s the spirit.  \n\n*Ahmet rushes to the espresso machine. The camera zooms in on his face—a mixture of nerves, determination, and a dawning understanding that respect is earned, not just given.*\n\n**FADE OUT.**\n\n*END OF INTRODUCTORY SCENE.*', additional_kwargs={'reasoning_content': 'We need to write an introductory scene. The guidelines: theme: kids must be taught that they deserve respect so that they can be mature individuals later on in life. Genre: sitcom. Character: Ahmet faces challenges when communicating with others, including his friends, colleagues and lovers. He is not taught be an adult and cannot handle adult life. Tone: light, meaningful, yet funny.\n\nWe need to write an introductory scene. Likely setting: some typical everyday scenario. Maybe Ahmet is in a family dinner, or at office. He tries to communicate but fails, comedic but meaningful.\n\nWe should incorporate kids being taught respect. Could be Ahmet is a kid? Actually "Ahmet faces challenges... He is not taught be an adult." He could be a child? But "he cannot handle adult life" suggests he\'s a young adult? Maybe he\'s a teenager. The theme: kids must be taught that they deserve respect so they can be mature later. So we could show Ahmet interacting with his parents, friends, colleagues. Show his communication difficulties, but we also show him learning something about respect. Also comedic elements.\n\nWe can write in a sitcom style: opening line, cut to set, voiceover, etc.\n\nWe may also want to include some comedic misunderstandings. Perhaps Ahmet has a job at a coffee shop, and he miscommunicates orders.\n\nMaybe we could incorporate a comedic "respect chain" where kids treat parents with respect.\n\nWe can show him at a party, his mother is upset that he didn\'t ask permission to bring friends, etc.\n\nWe need to set up the character: Ahmet\'s personality: he\'s naive, well-meaning but not taught to be an adult. He has trouble communicating. He thinks he deserves respect but doesn\'t understand how to show respect. The humor comes from his attempts and misinterpretations.\n\nWe should open with an establishing shot: "Ahmet\'s apartment, messy." Then maybe his phone rings. The theme: kids must be taught that they deserve respect. Maybe his mother is giving him a pep talk.\n\nLet\'s outline: opening: Ahmet wakes up, he has a job at a coffee shop. He goes to work, misinterprets orders, jokes. He also is trying to impress his crush. The scene ends with a comedic but meaningful message about respect, maybe with his mom giving advice.\n\nLet\'s write in a comedic script format, with stage directions.\n\nWe\'ll incorporate the theme subtly: perhaps his mom says "You deserve respect, Ahmet, but you have to show it back to others." The comedic line: "I want to be a boss."\n\nOk, let\'s write. We\'ll keep tone light, meaningful, funny.\n\nWe\'ll incorporate the guidelines: theme, genre, characters, tone.\n\nWe\'ll include "kids must be taught that they deserve respect" as a line.\n\nAlso maybe we can show the show tagline.\n\nLet\'s write scene in script format.\n\nWe\'ll have characters: Ahmet, Fatma (his mother), Leyla (his crush), Hakan (colleague), and maybe a regular customer.\n\nWe\'ll write in a sitcom style.\n\nOk.'}, response_metadata={'model': 'gpt-oss:20b', 'created_at': '2025-12-25T16:22:05.272804Z', 'done': True, 'done_reason': 'stop', 'total_duration': 38200965291, 'load_duration': 3390025208, 'prompt_eval_count': 273, 'prompt_eval_duration': 459754709, 'eval_count': 1823, 'eval_duration': 33942915224, 'logprobs': None, 'model_name': 'gpt-oss:20b', 'model_provider': 'ollama'}, id='lc_run--019b5650-af9e-72c2-95a7-7fa0f7d75d31-0', usage_metadata={'input_tokens': 273, 'output_tokens': 1823, 'total_tokens': 2096})]} 
+
+
+write an introductory scene
+**INT. AHMET’S APARTMENT – MORNING**
+
+*A small, cluttered apartment. The ceiling fan whirs. An alarm clock blares “You’re Late!” Ahmet, 19, lanky, hair sticking out, yells “No! I’m not!” and hits snooze. He groans, rolls over, and tries to stand up. His hand lands on a stack of unpaid bills and a framed photo of his parents. He looks at the photo.*
+
+**AHMET**  
+*(softly)*  
+Mom, Dad… I’m sorry.  
+
+*A beat. His mother, FATMA, a sharp‑eyed woman in her 40s, is in the kitchen, flipping a pancake.*
+
+**FATMA**  
+*(calling out)*  
+Ahmet! The coffee shop wants you by 8:30! And you still can’t even make a decent cup of coffee!  
+
+**AHMET**  
+*(confused)*  
+You said “by 8:30,” not “by 8:30 AM.” I think you’re confusing me with my class schedule.  
+
+**FATMA**  
+Ahmet! You’re not a college kid. You’re a *working* kid. Kids must be taught that they deserve respect *and* that they must respect others.  
+
+**AHMET**  
+*(pauses)*  
+So I should respect you by waking up at the same time you woke up?  
+
+*She rolls her eyes. Ahmet looks around, his face a mix of panic and curiosity.*
+
+**CUT TO:**
+
+**EXT. COFFEE SHOP – MORNING**
+
+*Ahmet pulls up in a beat-up car, wearing a t‑shirt that says “World’s Okayest Employee.” He bumps the front door, and a bell rings.*
+
+**INT. COFFEE SHOP – CONTINUOUS**
+
+*The shop is bustling. LAYOUT: a barista desk with a huge espresso machine, a register, a cramped fridge. HAKAN, mid‑20s, a sarcastic barista with a permanent “I’ll take a latte if I can” grin, is behind the counter. A regular CUSTOMER, MR. YILMAZ, mid‑50s, is waiting.*
+
+**AHMET**  
+*(to Hakan)*  
+I…uh… I think I should do something with the…coffee?  
+
+**HAKAN**  
+*(deadpan)*  
+Sure, just put a *pudding* in the espresso machine, will that do?  
+
+*Ahmet looks baffled.*
+
+**AHMET**  
+Pudding? Why would I put pudding in the espresso machine?  
+
+**HAKAN**  
+*(winks)*  
+Because your boss always said, “Ahmet, if you can’t handle the espresso, maybe handle the dessert.”  
+
+*Mr. YILMAZ eyes Ahmet suspiciously.*
+
+**MR. YILMAZ**  
+*(to Ahmet)*  
+First time here, huh?  
+
+**AHMET**  
+*(nervously)*  
+I am… I was just told… by the…by Fatma to do… coffee.  
+
+**MR. YILMAZ**  
+Fatma, huh? She sounds… authoritative.  
+
+**AHMET**  
+She’s my mother. She says we deserve respect.  
+
+*Mr. YILMAZ raises an eyebrow, amused.*
+
+**MR. YILMAZ**  
+So you’re here to serve us coffee and learn respect?  
+
+*Ahmet nods. The bell jingles as a new CUSTOMER, LAYLA, 20s, walks in. Ahmet’s heart skips.*
+
+**AHMET**  
+*(to Layla)*  
+Hi, I’m Ahmet. I’ll—  
+
+*He freezes.*
+
+**LAYLA**  
+*(laughing)*  
+That’s okay. I’m Layla.  
+
+*She looks at the barista counter.*
+
+**LAYLA**  
+*(to Hakan)*  
+Can you get me a latte? And can I get a *smile* in it too?  
+
+**HAKAN**  
+*(to Layla)*  
+You got it, lady.  
+
+*Ahmet glances at Hakan, who’s now holding a steaming latte and a grin.*
+
+**AHMET**  
+*(to Hakan, whispering)*  
+What does a latte do? Is it like… a love potion?  
+
+**HAKAN**  
+*(whispers back)*  
+Just a regular drink. But it’s about respecting the order.  
+
+*Ahmet watches Layla sip her latte, looking happy. He takes a deep breath.*
+
+**AHMET**  
+*(to Layla, louder now)*  
+Um, I— I have… a confession. I’m new here.  
+
+**LAYLA**  
+*(smiles)*  
+New is good. We all started somewhere.  
+
+*Ahmet nods, realizing the subtle lesson: respect is a two‑way street. He glances at the photo on the counter—his parents smiling.*
+
+**FATMA** (V.O.)  
+*(off‑screen, gentle)*  
+Ahmet, remember: kids deserve respect. But you have to give it back, even in the little things—like a smile, a quick “yes,” or a correct order.  
+
+*Ahmet smiles, a small, genuine grin. He turns to Hakan.*
+
+**AHMET**  
+Okay, Hakan. I’ll get the espresso.  
+
+**HAKAN**  
+*(laughing)*  
+That’s the spirit.  
+
+*Ahmet rushes to the espresso machine. The camera zooms in on his face—a mixture of nerves, determination, and a dawning understanding that respect is earned, not just given.*
+
+**FADE OUT.**
+
+*END OF INTRODUCTORY SCENE.*
+
+
+Result:
+ **INT. AHMET’S APARTMENT – MORNING**
+
+*A small, cluttered apartment. The ceiling fan whirs. An alarm clock blares “You’re Late!” Ahmet, 19, lanky, hair sticking out, yells “No! I’m not!” and hits snooze. He groans, rolls over, and tries to stand up. His hand lands on a stack of unpaid bills and a framed photo of his parents. He looks at the photo.*
+
+**AHMET**  
+*(softly)*  
+Mom, Dad… I’m sorry.  
+
+*A beat. His mother, FATMA, a sharp‑eyed woman in her 40s, is in the kitchen, flipping a pancake.*
+
+**FATMA**  
+*(calling out)*  
+Ahmet! The coffee shop wants you by 8:30! And you still can’t even make a decent cup of coffee!  
+
+**AHMET**  
+*(confused)*  
+You said “by 8:30,” not “by 8:30 AM.” I think you’re confusing me with my class schedule.  
+
+**FATMA**  
+Ahmet! You’re not a college kid. You’re a *working* kid. Kids must be taught that they deserve respect *and* that they must respect others.  
+
+**AHMET**  
+*(pauses)*  
+So I should respect you by waking up at the same time you woke up?  
+
+*She rolls her eyes. Ahmet looks around, his face a mix of panic and curiosity.*
+
+**CUT TO:**
+
+**EXT. COFFEE SHOP – MORNING**
+
+*Ahmet pulls up in a beat-up car, wearing a t‑shirt that says “World’s Okayest Employee.” He bumps the front door, and a bell rings.*
+
+**INT. COFFEE SHOP – CONTINUOUS**
+
+*The shop is bustling. LAYOUT: a barista desk with a huge espresso machine, a register, a cramped fridge. HAKAN, mid‑20s, a sarcastic barista with a permanent “I’ll take a latte if I can” grin, is behind the counter. A regular CUSTOMER, MR. YILMAZ, mid‑50s, is waiting.*
+
+**AHMET**  
+*(to Hakan)*  
+I…uh… I think I should do something with the…coffee?  
+
+**HAKAN**  
+*(deadpan)*  
+Sure, just put a *pudding* in the espresso machine, will that do?  
+
+*Ahmet looks baffled.*
+
+**AHMET**  
+Pudding? Why would I put pudding in the espresso machine?  
+
+**HAKAN**  
+*(winks)*  
+Because your boss always said, “Ahmet, if you can’t handle the espresso, maybe handle the dessert.”  
+
+*Mr. YILMAZ eyes Ahmet suspiciously.*
+
+**MR. YILMAZ**  
+*(to Ahmet)*  
+First time here, huh?  
+
+**AHMET**  
+*(nervously)*  
+I am… I was just told… by the…by Fatma to do… coffee.  
+
+**MR. YILMAZ**  
+Fatma, huh? She sounds… authoritative.  
+
+**AHMET**  
+She’s my mother. She says we deserve respect.  
+
+*Mr. YILMAZ raises an eyebrow, amused.*
+
+**MR. YILMAZ**  
+So you’re here to serve us coffee and learn respect?  
+
+*Ahmet nods. The bell jingles as a new CUSTOMER, LAYLA, 20s, walks in. Ahmet’s heart skips.*
+
+**AHMET**  
+*(to Layla)*  
+Hi, I’m Ahmet. I’ll—  
+
+*He freezes.*
+
+**LAYLA**  
+*(laughing)*  
+That’s okay. I’m Layla.  
+
+*She looks at the barista counter.*
+
+**LAYLA**  
+*(to Hakan)*  
+Can you get me a latte? And can I get a *smile* in it too?  
+
+**HAKAN**  
+*(to Layla)*  
+You got it, lady.  
+
+*Ahmet glances at Hakan, who’s now holding a steaming latte and a grin.*
+
+**AHMET**  
+*(to Hakan, whispering)*  
+What does a latte do? Is it like… a love potion?  
+
+**HAKAN**  
+*(whispers back)*  
+Just a regular drink. But it’s about respecting the order.  
+
+*Ahmet watches Layla sip her latte, looking happy. He takes a deep breath.*
+
+**AHMET**  
+*(to Layla, louder now)*  
+Um, I— I have… a confession. I’m new here.  
+
+**LAYLA**  
+*(smiles)*  
+New is good. We all started somewhere.  
+
+*Ahmet nods, realizing the subtle lesson: respect is a two‑way street. He glances at the photo on the counter—his parents smiling.*
+
+**FATMA** (V.O.)  
+*(off‑screen, gentle)*  
+Ahmet, remember: kids deserve respect. But you have to give it back, even in the little things—like a smile, a quick “yes,” or a correct order.  
+
+*Ahmet smiles, a small, genuine grin. He turns to Hakan.*
+
+**AHMET**  
+Okay, Hakan. I’ll get the espresso.  
+
+**HAKAN**  
+*(laughing)*  
+That’s the spirit.  
+
+*Ahmet rushes to the espresso machine. The camera zooms in on his face—a mixture of nerves, determination, and a dawning understanding that respect is earned, not just given.*
+
+**FADE OUT.**
+
+*END OF INTRODUCTORY SCENE.*
+(.scenarist_venv) (base) keremdede@Keremin-Bilgisayar scenarist % 

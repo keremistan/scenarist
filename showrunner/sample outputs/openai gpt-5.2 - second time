@@ -1,0 +1,554 @@
+openai gpt-5.2 - second time
+
+(.scenarist_venv) (base) keremdede@Keremin-Bilgisayar scenarist % python showrunner/writer.py
+chat model initialized.
+{'messages': [HumanMessage(content='write an introductory scene', additional_kwargs={}, response_metadata={}, id='d278050f-566c-45f6-87e1-ee3e2dc01d51'), AIMessage(content='', additional_kwargs={'refusal': None}, response_metadata={'token_usage': {'completion_tokens': 41, 'prompt_tokens': 275, 'total_tokens': 316, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 0, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 0}}, 'model_provider': 'openai', 'model_name': 'gpt-5.2-2025-12-11', 'system_fingerprint': None, 'id': 'chatcmpl-Cqil4LoKhudeM59droVcPsntHvcEQ', 'service_tier': 'default', 'finish_reason': 'tool_calls', 'logprobs': None}, id='lc_run--019b5666-e0ea-70b3-b73c-4796cc9558b6-0', tool_calls=[{'name': 'get_reference_scenes', 'args': {'scene_retrieval_query': 'introductory scene sitcom establishing character Ahmet communication challenges not taught adult respect theme kids deserve respect'}, 'id': 'call_k46gtuB7065u0hmAM2fVL7ND', 'type': 'tool_call'}], usage_metadata={'input_tokens': 275, 'output_tokens': 41, 'total_tokens': 316, 'input_token_details': {'audio': 0, 'cache_read': 0}, 'output_token_details': {'audio': 0, 'reasoning': 0}}), ToolMessage(content="\n        --- Style Reference 1 --\n        INT. BEDROOM\nCandles flicker on the dresser. A syringe on the bedside\ntable, next to a sleeping figure curled up under the\nsheets.\nBoth men starting to pull guns, but --\nDEX\nThis one's personal.\nDex's partner shrugs, holsters his weapon and steps back\nthrough the doorway, watching as --\nDex spins and fires.Not the traditional booming gunfire, but rather the\nstrange sound of electronic hissing as laser-fire rips the\nperson to shreds.\nDex finally stops firing and moves to the bed to verify\nthe kill, only on close inspection he sees it's not a\nperson.\nHe's just blown the hell out of a MANNEQUIN.\nDex smiles, blows out the candle and heads out of the\nroom.\nCUT TO:\n\n        \n        \n        --- Style Reference 2 --\n        INT. APARTMENT - CONTINUOUS\nThe men rush inside and straight into --\n\n        \n        \n        --- Style Reference 3 --\n        INT. HIGH RISE APARTMENT BUILDING - LOBBY - CONTINUOUS\nThe doorman at his post flipping through a magazine, rap\nmusic pounding from his radio.\nGlass suddenly shatters as a gloved hand punches through\nthe window, reaching in, unlocking the front door.\nTwo men in dark suits blur inside. The doorman rushes to\nstop them, only --\nDEX, the taller of the two men, slams the barrel of his\ngun into the doorman's throat.\nDEX\nLife can be an illusion.\n(low and deadly)\nSometimes we see what isn't there,\nand sometimes we don't see what is\nthere.\nThe doorman, wide eyed with terror, nods his consent.\nDex removes the gun.\nDoorman plants himself in the chair, eyes glued to his\nmagazine, making it clear he doesn't 'see' the men as they\nstroll into --\n\n        \n        \n        --- Style Reference 4 --\n        EXT. MANHATTAN - MIDDLE OF THE NIGHT\nFreezing wind shutters through the shadows. Relentless\ndarkness. No sign of life, save for --\nThe SOUND of determined footsteps.\n        \n        \n        --- Style Reference 5 --\n        INT. ELEVATOR - CONTINUOUS\nOld fashioned steel box struggling its way up the shaft.\nFluorescent yellow light stabbing through the grating.\n\n        \n        ", name='get_reference_scenes', id='ead9831d-51ed-4c5f-9d76-f2bdf7863735', tool_call_id='call_k46gtuB7065u0hmAM2fVL7ND'), AIMessage(content="**INTRODUCTORY SCENE (SITCOM)**  \n*Theme: Kids must be taught they deserve respect, so they can become mature adults.*  \n*Tone: light, meaningful, funny.*\n\n---\n\n### INT. COMMUNITY CENTER – “ADULTING 101” CLASSROOM – MORNING\n\nA cheerful banner hangs crookedly: **ADULTING 101: RESPECT, BOUNDARIES & BASIC EMAILS**.\n\nA circle of folding chairs. A whiteboard reads:\n\n1) Say what you need  \n2) Don’t apologize for existing  \n3) Use subject lines\n\nAHMET (late 20s/early 30s), well-meaning but chronically unsure, hovers in the doorway clutching a notebook titled **HOW TO BE NORMAL (DRAFT 7)**.\n\nHe peeks inside like the room might yell at him.\n\nThe INSTRUCTOR, SELIN (30s, warm, efficient), spots him.\n\n**SELIN**  \nAhmet? Come in. You’re early.\n\nAhmet steps in too fast, bumps the doorframe, then overcompensates with a polite half-bow.\n\n**AHMET**  \nSorry. Sorry to the door. Sorry to you for the door. Sorry to myself for being born near doors.\n\nSelin blinks, then smiles like she’s seen this exact flavor of panic before.\n\n**SELIN**  \nGreat start. Take a seat—any seat you want.\n\nAhmet freezes. *Any seat* is too much power. He scans the chairs like they’re all booby-trapped.\n\nHe chooses one, sits, immediately stands.\n\n**AHMET**  \nIs this someone’s seat?\n\n**SELIN**  \nNo.\n\n**AHMET**  \nAre you sure? Because I can also stand the whole class. I’ve stood through worse things. Like… childhood.\n\nHe laughs at his own joke a beat too long. Selin gently takes control.\n\n**SELIN**  \nSit.\n\nAhmet sits instantly, like he’s been activated by a remote.\n\nTwo other attendees file in:\n\n- **MERVE** (late 20s, confident, amused), coffee in hand.  \n- **CEM** (30s, sarcastic, sleep-deprived), carrying a laptop like it’s his emotional support animal.\n\nMerve notices Ahmet’s notebook.\n\n**MERVE**  \n“HOW TO BE NORMAL.” Bold. Is there a chapter on saying “no”?\n\nAhmet flips the notebook open reflexively—pages filled with bullet points, diagrams, and sad question marks.\n\n**AHMET**  \nYes. But I wrote “no” in pencil in case it’s rude.\n\nCem snorts, sits, immediately opens his laptop like he’s about to file a complaint against life.\n\n**CEM**  \nThis class better teach me how to send an email without it ending with, “Sorry if this email exists.”\n\nAhmet raises his hand like he’s in school.\n\n**AHMET**  \nI do that.\n\nSelin claps once—bright, teacherly.\n\n**SELIN**  \nOkay! Welcome to Adulting 101. Today we’re starting with a skill most people never get taught properly: **respect.**\n\nAhmet nods too hard, like he’s trying to absorb it through his forehead.\n\n**SELIN (CONT'D)**  \nRespect for others… and respect for yourself.\n\nAt “yourself,” Ahmet’s smile wobbles.\n\n**SELIN (CONT'D)**  \nBecause if you grew up in a place where your feelings were dismissed—\n\nAhmet raises his hand again, urgent.\n\n**AHMET**  \nMy feelings were not dismissed.\n\nSelin waits.\n\nAhmet corrects himself.\n\n**AHMET (CONT'D)**  \nThey were… deported.\n\nMerve chuckles. Cem looks up from his laptop.\n\n**SELIN**  \nA lot of adults struggle because, as kids, they weren’t taught they deserved basic respect. So they grow up thinking boundaries are… aggressive.\n\nAhmet raises his hand, very small.\n\n**AHMET**  \nI thought boundaries were something rich people have. Like boats.\n\nSelin writes on the whiteboard: **BOUNDARIES = NOT RUDE.**\n\n**SELIN**  \nLet’s do a simple exercise. Ahmet—since you’re brave enough to speak—tell us something you need. Something small.\n\nAhmet’s eyes widen. He looks around, seeking permission from the walls.\n\n**AHMET**  \nSomething I need?\n\n**SELIN**  \nYes.\n\nHe thinks hard, like he’s trying to remember what humans require besides oxygen and apology.\n\n**AHMET**  \nI… need…  \n(quietly)  \nfor people to not get angry when I talk.\n\nSilence lands. Not awkward—just real.\n\nMerve’s expression softens. Even Cem pauses typing.\n\nSelin nods, gentle.\n\n**SELIN**  \nThat’s not small. But it’s important. And you deserve that.\n\nAhmet squints.\n\n**AHMET**  \nAre you allowed to say that to a stranger?\n\n**SELIN**  \nYes. Because it’s true.\n\nAhmet’s eyes water slightly—he panics, covers it with a laugh.\n\n**AHMET**  \nOkay, but if I cry, it’s not emotional. My eyes are just… social.\n\nCem leans in, deadpan.\n\n**CEM**  \nMy eyes are unemployed.\n\nMerve nudges Ahmet’s notebook.\n\n**MERVE**  \nWrite it down: “I deserve respect.” In pen.\n\nAhmet recoils like she suggested arson.\n\n**AHMET**  \nIn pen? That’s permanent. What if I change my mind later and decide I deserve… less?\n\nSelin walks over, places a marker in his hand like a ceremonial sword.\n\n**SELIN**  \nTry it. Worst case, you learn something. Best case, you start acting like you matter.\n\nAhmet stares at the marker. Then, with the trembling seriousness of someone signing a treaty, he writes:\n\n**I DESERVE RESPECT.**\n\nHe immediately underlines it three times.\n\nThen—without looking up—\n\n**AHMET**  \nDo I need to apologize to the page?\n\nMerve laughs. Cem shakes his head, but he’s smiling now.\n\nSelin points to the board.\n\n**SELIN**  \nLesson one: No.  \nLesson two: We’re going to practice saying what we mean—without fear.  \nLesson three: Nobody here is in trouble for having needs.\n\nAhmet exhales like he’s been holding his breath since childhood.\n\n**AHMET**  \nSo… I’m not in trouble right now?\n\n**SELIN**  \nNo.\n\nAhmet nods, relieved—then instinctively raises his hand.\n\n**AHMET**  \nCan I ask a question?\n\n**SELIN**  \nYes.\n\n**AHMET**  \nAm I allowed to be relieved?\n\nSelin smiles, heartfelt but playful.\n\n**SELIN**  \nToday? You’re required to be.\n\nAhmet tries to smile confidently. It comes out like a confused golden retriever.\n\n**AHMET**  \nOkay. I will do relief… respectfully.\n\nSelin turns to the class, energized.\n\n**SELIN**  \nAlright. Let’s begin.\n\nAhmet grips his notebook like it might finally tell him the secret everyone else got at birth.\n\n**CUT TO OPENING TITLES.**", additional_kwargs={'refusal': None}, response_metadata={'token_usage': {'completion_tokens': 1511, 'prompt_tokens': 818, 'total_tokens': 2329, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 0, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 0}}, 'model_provider': 'openai', 'model_name': 'gpt-5.2-2025-12-11', 'system_fingerprint': None, 'id': 'chatcmpl-Cqil7gE7bJc5HZcd00XmVLloJdSR8', 'service_tier': 'default', 'finish_reason': 'stop', 'logprobs': None}, id='lc_run--019b5666-eb39-7f51-ade9-1bf4f4e7ad07-0', usage_metadata={'input_tokens': 818, 'output_tokens': 1511, 'total_tokens': 2329, 'input_token_details': {'audio': 0, 'cache_read': 0}, 'output_token_details': {'audio': 0, 'reasoning': 0}})]} 
+
+
+write an introductory scene
+problem happened when printing. This: 'reasoning_content'
+
+
+        --- Style Reference 1 --
+        INT. BEDROOM
+Candles flicker on the dresser. A syringe on the bedside
+table, next to a sleeping figure curled up under the
+sheets.
+Both men starting to pull guns, but --
+DEX
+This one's personal.
+Dex's partner shrugs, holsters his weapon and steps back
+through the doorway, watching as --
+Dex spins and fires.Not the traditional booming gunfire, but rather the
+strange sound of electronic hissing as laser-fire rips the
+person to shreds.
+Dex finally stops firing and moves to the bed to verify
+the kill, only on close inspection he sees it's not a
+person.
+He's just blown the hell out of a MANNEQUIN.
+Dex smiles, blows out the candle and heads out of the
+room.
+CUT TO:
+
+        
+        
+        --- Style Reference 2 --
+        INT. APARTMENT - CONTINUOUS
+The men rush inside and straight into --
+
+        
+        
+        --- Style Reference 3 --
+        INT. HIGH RISE APARTMENT BUILDING - LOBBY - CONTINUOUS
+The doorman at his post flipping through a magazine, rap
+music pounding from his radio.
+Glass suddenly shatters as a gloved hand punches through
+the window, reaching in, unlocking the front door.
+Two men in dark suits blur inside. The doorman rushes to
+stop them, only --
+DEX, the taller of the two men, slams the barrel of his
+gun into the doorman's throat.
+DEX
+Life can be an illusion.
+(low and deadly)
+Sometimes we see what isn't there,
+and sometimes we don't see what is
+there.
+The doorman, wide eyed with terror, nods his consent.
+Dex removes the gun.
+Doorman plants himself in the chair, eyes glued to his
+magazine, making it clear he doesn't 'see' the men as they
+stroll into --
+
+        
+        
+        --- Style Reference 4 --
+        EXT. MANHATTAN - MIDDLE OF THE NIGHT
+Freezing wind shutters through the shadows. Relentless
+darkness. No sign of life, save for --
+The SOUND of determined footsteps.
+        
+        
+        --- Style Reference 5 --
+        INT. ELEVATOR - CONTINUOUS
+Old fashioned steel box struggling its way up the shaft.
+Fluorescent yellow light stabbing through the grating.
+
+        
+        
+**INTRODUCTORY SCENE (SITCOM)**  
+*Theme: Kids must be taught they deserve respect, so they can become mature adults.*  
+*Tone: light, meaningful, funny.*
+
+---
+
+### INT. COMMUNITY CENTER – “ADULTING 101” CLASSROOM – MORNING
+
+A cheerful banner hangs crookedly: **ADULTING 101: RESPECT, BOUNDARIES & BASIC EMAILS**.
+
+A circle of folding chairs. A whiteboard reads:
+
+1) Say what you need  
+2) Don’t apologize for existing  
+3) Use subject lines
+
+AHMET (late 20s/early 30s), well-meaning but chronically unsure, hovers in the doorway clutching a notebook titled **HOW TO BE NORMAL (DRAFT 7)**.
+
+He peeks inside like the room might yell at him.
+
+The INSTRUCTOR, SELIN (30s, warm, efficient), spots him.
+
+**SELIN**  
+Ahmet? Come in. You’re early.
+
+Ahmet steps in too fast, bumps the doorframe, then overcompensates with a polite half-bow.
+
+**AHMET**  
+Sorry. Sorry to the door. Sorry to you for the door. Sorry to myself for being born near doors.
+
+Selin blinks, then smiles like she’s seen this exact flavor of panic before.
+
+**SELIN**  
+Great start. Take a seat—any seat you want.
+
+Ahmet freezes. *Any seat* is too much power. He scans the chairs like they’re all booby-trapped.
+
+He chooses one, sits, immediately stands.
+
+**AHMET**  
+Is this someone’s seat?
+
+**SELIN**  
+No.
+
+**AHMET**  
+Are you sure? Because I can also stand the whole class. I’ve stood through worse things. Like… childhood.
+
+He laughs at his own joke a beat too long. Selin gently takes control.
+
+**SELIN**  
+Sit.
+
+Ahmet sits instantly, like he’s been activated by a remote.
+
+Two other attendees file in:
+
+- **MERVE** (late 20s, confident, amused), coffee in hand.  
+- **CEM** (30s, sarcastic, sleep-deprived), carrying a laptop like it’s his emotional support animal.
+
+Merve notices Ahmet’s notebook.
+
+**MERVE**  
+“HOW TO BE NORMAL.” Bold. Is there a chapter on saying “no”?
+
+Ahmet flips the notebook open reflexively—pages filled with bullet points, diagrams, and sad question marks.
+
+**AHMET**  
+Yes. But I wrote “no” in pencil in case it’s rude.
+
+Cem snorts, sits, immediately opens his laptop like he’s about to file a complaint against life.
+
+**CEM**  
+This class better teach me how to send an email without it ending with, “Sorry if this email exists.”
+
+Ahmet raises his hand like he’s in school.
+
+**AHMET**  
+I do that.
+
+Selin claps once—bright, teacherly.
+
+**SELIN**  
+Okay! Welcome to Adulting 101. Today we’re starting with a skill most people never get taught properly: **respect.**
+
+Ahmet nods too hard, like he’s trying to absorb it through his forehead.
+
+**SELIN (CONT'D)**  
+Respect for others… and respect for yourself.
+
+At “yourself,” Ahmet’s smile wobbles.
+
+**SELIN (CONT'D)**  
+Because if you grew up in a place where your feelings were dismissed—
+
+Ahmet raises his hand again, urgent.
+
+**AHMET**  
+My feelings were not dismissed.
+
+Selin waits.
+
+Ahmet corrects himself.
+
+**AHMET (CONT'D)**  
+They were… deported.
+
+Merve chuckles. Cem looks up from his laptop.
+
+**SELIN**  
+A lot of adults struggle because, as kids, they weren’t taught they deserved basic respect. So they grow up thinking boundaries are… aggressive.
+
+Ahmet raises his hand, very small.
+
+**AHMET**  
+I thought boundaries were something rich people have. Like boats.
+
+Selin writes on the whiteboard: **BOUNDARIES = NOT RUDE.**
+
+**SELIN**  
+Let’s do a simple exercise. Ahmet—since you’re brave enough to speak—tell us something you need. Something small.
+
+Ahmet’s eyes widen. He looks around, seeking permission from the walls.
+
+**AHMET**  
+Something I need?
+
+**SELIN**  
+Yes.
+
+He thinks hard, like he’s trying to remember what humans require besides oxygen and apology.
+
+**AHMET**  
+I… need…  
+(quietly)  
+for people to not get angry when I talk.
+
+Silence lands. Not awkward—just real.
+
+Merve’s expression softens. Even Cem pauses typing.
+
+Selin nods, gentle.
+
+**SELIN**  
+That’s not small. But it’s important. And you deserve that.
+
+Ahmet squints.
+
+**AHMET**  
+Are you allowed to say that to a stranger?
+
+**SELIN**  
+Yes. Because it’s true.
+
+Ahmet’s eyes water slightly—he panics, covers it with a laugh.
+
+**AHMET**  
+Okay, but if I cry, it’s not emotional. My eyes are just… social.
+
+Cem leans in, deadpan.
+
+**CEM**  
+My eyes are unemployed.
+
+Merve nudges Ahmet’s notebook.
+
+**MERVE**  
+Write it down: “I deserve respect.” In pen.
+
+Ahmet recoils like she suggested arson.
+
+**AHMET**  
+In pen? That’s permanent. What if I change my mind later and decide I deserve… less?
+
+Selin walks over, places a marker in his hand like a ceremonial sword.
+
+**SELIN**  
+Try it. Worst case, you learn something. Best case, you start acting like you matter.
+
+Ahmet stares at the marker. Then, with the trembling seriousness of someone signing a treaty, he writes:
+
+**I DESERVE RESPECT.**
+
+He immediately underlines it three times.
+
+Then—without looking up—
+
+**AHMET**  
+Do I need to apologize to the page?
+
+Merve laughs. Cem shakes his head, but he’s smiling now.
+
+Selin points to the board.
+
+**SELIN**  
+Lesson one: No.  
+Lesson two: We’re going to practice saying what we mean—without fear.  
+Lesson three: Nobody here is in trouble for having needs.
+
+Ahmet exhales like he’s been holding his breath since childhood.
+
+**AHMET**  
+So… I’m not in trouble right now?
+
+**SELIN**  
+No.
+
+Ahmet nods, relieved—then instinctively raises his hand.
+
+**AHMET**  
+Can I ask a question?
+
+**SELIN**  
+Yes.
+
+**AHMET**  
+Am I allowed to be relieved?
+
+Selin smiles, heartfelt but playful.
+
+**SELIN**  
+Today? You’re required to be.
+
+Ahmet tries to smile confidently. It comes out like a confused golden retriever.
+
+**AHMET**  
+Okay. I will do relief… respectfully.
+
+Selin turns to the class, energized.
+
+**SELIN**  
+Alright. Let’s begin.
+
+Ahmet grips his notebook like it might finally tell him the secret everyone else got at birth.
+
+**CUT TO OPENING TITLES.**
+
+
+Result:
+ **INTRODUCTORY SCENE (SITCOM)**  
+*Theme: Kids must be taught they deserve respect, so they can become mature adults.*  
+*Tone: light, meaningful, funny.*
+
+---
+
+### INT. COMMUNITY CENTER – “ADULTING 101” CLASSROOM – MORNING
+
+A cheerful banner hangs crookedly: **ADULTING 101: RESPECT, BOUNDARIES & BASIC EMAILS**.
+
+A circle of folding chairs. A whiteboard reads:
+
+1) Say what you need  
+2) Don’t apologize for existing  
+3) Use subject lines
+
+AHMET (late 20s/early 30s), well-meaning but chronically unsure, hovers in the doorway clutching a notebook titled **HOW TO BE NORMAL (DRAFT 7)**.
+
+He peeks inside like the room might yell at him.
+
+The INSTRUCTOR, SELIN (30s, warm, efficient), spots him.
+
+**SELIN**  
+Ahmet? Come in. You’re early.
+
+Ahmet steps in too fast, bumps the doorframe, then overcompensates with a polite half-bow.
+
+**AHMET**  
+Sorry. Sorry to the door. Sorry to you for the door. Sorry to myself for being born near doors.
+
+Selin blinks, then smiles like she’s seen this exact flavor of panic before.
+
+**SELIN**  
+Great start. Take a seat—any seat you want.
+
+Ahmet freezes. *Any seat* is too much power. He scans the chairs like they’re all booby-trapped.
+
+He chooses one, sits, immediately stands.
+
+**AHMET**  
+Is this someone’s seat?
+
+**SELIN**  
+No.
+
+**AHMET**  
+Are you sure? Because I can also stand the whole class. I’ve stood through worse things. Like… childhood.
+
+He laughs at his own joke a beat too long. Selin gently takes control.
+
+**SELIN**  
+Sit.
+
+Ahmet sits instantly, like he’s been activated by a remote.
+
+Two other attendees file in:
+
+- **MERVE** (late 20s, confident, amused), coffee in hand.  
+- **CEM** (30s, sarcastic, sleep-deprived), carrying a laptop like it’s his emotional support animal.
+
+Merve notices Ahmet’s notebook.
+
+**MERVE**  
+“HOW TO BE NORMAL.” Bold. Is there a chapter on saying “no”?
+
+Ahmet flips the notebook open reflexively—pages filled with bullet points, diagrams, and sad question marks.
+
+**AHMET**  
+Yes. But I wrote “no” in pencil in case it’s rude.
+
+Cem snorts, sits, immediately opens his laptop like he’s about to file a complaint against life.
+
+**CEM**  
+This class better teach me how to send an email without it ending with, “Sorry if this email exists.”
+
+Ahmet raises his hand like he’s in school.
+
+**AHMET**  
+I do that.
+
+Selin claps once—bright, teacherly.
+
+**SELIN**  
+Okay! Welcome to Adulting 101. Today we’re starting with a skill most people never get taught properly: **respect.**
+
+Ahmet nods too hard, like he’s trying to absorb it through his forehead.
+
+**SELIN (CONT'D)**  
+Respect for others… and respect for yourself.
+
+At “yourself,” Ahmet’s smile wobbles.
+
+**SELIN (CONT'D)**  
+Because if you grew up in a place where your feelings were dismissed—
+
+Ahmet raises his hand again, urgent.
+
+**AHMET**  
+My feelings were not dismissed.
+
+Selin waits.
+
+Ahmet corrects himself.
+
+**AHMET (CONT'D)**  
+They were… deported.
+
+Merve chuckles. Cem looks up from his laptop.
+
+**SELIN**  
+A lot of adults struggle because, as kids, they weren’t taught they deserved basic respect. So they grow up thinking boundaries are… aggressive.
+
+Ahmet raises his hand, very small.
+
+**AHMET**  
+I thought boundaries were something rich people have. Like boats.
+
+Selin writes on the whiteboard: **BOUNDARIES = NOT RUDE.**
+
+**SELIN**  
+Let’s do a simple exercise. Ahmet—since you’re brave enough to speak—tell us something you need. Something small.
+
+Ahmet’s eyes widen. He looks around, seeking permission from the walls.
+
+**AHMET**  
+Something I need?
+
+**SELIN**  
+Yes.
+
+He thinks hard, like he’s trying to remember what humans require besides oxygen and apology.
+
+**AHMET**  
+I… need…  
+(quietly)  
+for people to not get angry when I talk.
+
+Silence lands. Not awkward—just real.
+
+Merve’s expression softens. Even Cem pauses typing.
+
+Selin nods, gentle.
+
+**SELIN**  
+That’s not small. But it’s important. And you deserve that.
+
+Ahmet squints.
+
+**AHMET**  
+Are you allowed to say that to a stranger?
+
+**SELIN**  
+Yes. Because it’s true.
+
+Ahmet’s eyes water slightly—he panics, covers it with a laugh.
+
+**AHMET**  
+Okay, but if I cry, it’s not emotional. My eyes are just… social.
+
+Cem leans in, deadpan.
+
+**CEM**  
+My eyes are unemployed.
+
+Merve nudges Ahmet’s notebook.
+
+**MERVE**  
+Write it down: “I deserve respect.” In pen.
+
+Ahmet recoils like she suggested arson.
+
+**AHMET**  
+In pen? That’s permanent. What if I change my mind later and decide I deserve… less?
+
+Selin walks over, places a marker in his hand like a ceremonial sword.
+
+**SELIN**  
+Try it. Worst case, you learn something. Best case, you start acting like you matter.
+
+Ahmet stares at the marker. Then, with the trembling seriousness of someone signing a treaty, he writes:
+
+**I DESERVE RESPECT.**
+
+He immediately underlines it three times.
+
+Then—without looking up—
+
+**AHMET**  
+Do I need to apologize to the page?
+
+Merve laughs. Cem shakes his head, but he’s smiling now.
+
+Selin points to the board.
+
+**SELIN**  
+Lesson one: No.  
+Lesson two: We’re going to practice saying what we mean—without fear.  
+Lesson three: Nobody here is in trouble for having needs.
+
+Ahmet exhales like he’s been holding his breath since childhood.
+
+**AHMET**  
+So… I’m not in trouble right now?
+
+**SELIN**  
+No.
+
+Ahmet nods, relieved—then instinctively raises his hand.
+
+**AHMET**  
+Can I ask a question?
+
+**SELIN**  
+Yes.
+
+**AHMET**  
+Am I allowed to be relieved?
+
+Selin smiles, heartfelt but playful.
+
+**SELIN**  
+Today? You’re required to be.
+
+Ahmet tries to smile confidently. It comes out like a confused golden retriever.
+
+**AHMET**  
+Okay. I will do relief… respectfully.
+
+Selin turns to the class, energized.
+
+**SELIN**  
+Alright. Let’s begin.
+
+Ahmet grips his notebook like it might finally tell him the secret everyone else got at birth.
+
+**CUT TO OPENING TITLES.**
+(.scenarist_venv) (base) keremdede@Keremin-Bilgisayar scenarist % 

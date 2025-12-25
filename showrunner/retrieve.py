@@ -1,28 +1,30 @@
 from langchain_chroma import Chroma
 from langchain_ollama.embeddings import OllamaEmbeddings
-from pprint import pprint
+from langchain_core.documents import Document
 
-embedding_model = OllamaEmbeddings(model='nomic-embed-text', temperature=0)
-screenplays_vector_store_collection = Chroma(
-    collection_name="screenplays", 
-    embedding_function=embedding_model, 
-    persist_directory='./chroma')
+class SceneRetriever():
 
-query = "how can I create a suspense and tension?"
-# res_sim = screenplays_vector_store_collection.search(query, 'similarity')
-# res_mmr = screenplays_vector_store_collection.search(query, 'mmr')
-# sim_res = screenplays_vector_store_collection.similarity_search(query, k=2)
-mmr_res = screenplays_vector_store_collection.max_marginal_relevance_search(query, k=2, fetch_k=20)
+    def __init__(self) -> None:
+        self.embedding_model = OllamaEmbeddings(model='nomic-embed-text', temperature=0)
+        self.screenplays_vector_store_collection = Chroma(
+            collection_name="screenplays", 
+            embedding_function=self.embedding_model, 
+            persist_directory='./chroma')
 
-# print(res_sim)
-# print(res_mmr)
-# print(sim_res)
-# print(mmr_res)
+    def query(self, query_text: str, k: int = 5, fetch_k: int = 20) -> list[Document]:
+        # query = "how can I create a suspense and tension?"
+        mmr_res = self.screenplays_vector_store_collection.max_marginal_relevance_search(query_text, k=k, fetch_k=fetch_k)
 
-print("\n\nmmr_res:\n")
-for res in mmr_res:
-    pprint(res.model_dump_json())    
+        # put the original text inside the page_content 
+        for res in mmr_res:
+            original_text = res.metadata.get('original_text', '')
+            res.page_content = original_text
 
-# print("doc count: {}".format(screenplays_vector_store_collection._collection.count()))
-# print("first doc: {}".format(screenplays_vector_store_collection._collection.peek(1)))
+            if original_text == '':
+                mmr_res.remove(res)
+            
+        return mmr_res
+
+        # print("doc count: {}".format(screenplays_vector_store_collection._collection.count()))
+        # print("first doc: {}".format(screenplays_vector_store_collection._collection.peek(1)))
 

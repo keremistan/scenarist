@@ -1,0 +1,365 @@
+gpt-oss:20b - high reasoning level
+
+(.scenarist_venv) (base) keremdede@Keremin-Bilgisayar scenarist % python showrunner/writer.py
+{'messages': [HumanMessage(content='write an introductory scene', additional_kwargs={}, response_metadata={}, id='33c25c44-3b93-4a79-82dd-86927ec10c90'), AIMessage(content='', additional_kwargs={'reasoning_content': 'The user wants an introductory scene for a sitcom. Theme: kids must be taught that they deserve respect so they can become mature adults later. Genre: sitcom. Characters: Ahmet faces challenges when communicating with others, including friends, colleagues, and lovers. He is not taught to be an adult and cannot handle adult life. Tone: light but meaningful and funny.\n\nWe have the instruction that we can use reference scenes via the get_reference_scenes function. But we don\'t know what references we might use. The user wants an introductory scene.\n\nThe user didn\'t specify any particular setting or additional characters. But we can create a sitcom set in a community center, or a coffee shop, or a small office.\n\nWe must include the theme: kids must be taught that they deserve respect so that they become mature. So the introductory scene might revolve around Ahmet being in a parenting class or at a daycare or school.\n\nThe comedic element: Ahmet is a kid who is not yet an adult, maybe a 12-year-old? But the theme says kids must be taught that they deserve respect. The tone is light but meaningful. So we need to show Ahmet being misinterpreted, or being dismissed, but eventually learning that respect is earned. We can set it up as him trying to talk to his mother or teacher.\n\nWe need to write a scene that introduces the setting, characters, and conflict. The first line might be a narration or opening joke. The script should use the standard format: character names in all caps, followed by dialogue. Also some stage directions.\n\nWe need to keep it light but meaningful. The comedic element: Ahmet miscommunicates with his adult colleagues or friends. He may say something naive and be misunderstood.\n\nBut the theme is that kids must be taught that they deserve respect so that they can be mature individuals later. So perhaps the story revolves around Ahmet trying to teach his friends that he deserves respect. Or maybe he\'s at a school assembly where a teacher is ignoring him. He will try to show he deserves respect.\n\nAlternatively, we can have a comedic scenario where Ahmet is in a first job interview but fails because he doesn\'t know how to communicate. Then a mentor tries to teach him. That can be comedic but also meaningful.\n\nThe instruction: "You can use the reference scenes." That means we could incorporate references from other comedic scenes. But since we are not given references, we might skip that for now.\n\nWe need to be mindful of the guidelines: theme, genre, characters, tone. We can add extra characters like his teacher Ms. Lila, his friend Sam, his mom, a coworker, etc. But we need to keep the focus on Ahmet.\n\nWe also need to think of the structure: maybe an opening montage of kids being treated like kids, then a comedic moment where Ahmet gets dismissed.\n\nThe tone: light, meaningful, yet funny. So we can make jokes, but also have a moral.\n\nLet\'s decide a setting: a community center where Ahmet is a volunteer helping kids.\n\nOk, but we can also have him as a teenager trying to go to a job, but it\'s a sitcom, so comedic.\n\nWe can write a scene: Opening: the camera follows a group of kids in a playground. The voiceover says: "Kids deserve respect." Then the main character, Ahmet, is in a coffee shop. He\'s trying to order coffee but he says something inappropriate.\n\nWe can incorporate comedic bits: Ahmet uses old metaphors, uses outdated slang, or misinterprets instructions. He says "I\'ll be back" and it\'s not the expression.\n\nThe theme: He must learn to be mature and earn respect.\n\nWe need to create an intro scene that sets the tone. We can have the setting: a small, quirky coffee shop called "Brewed Awakenings" where the staff treat kids like grown-ups but it\'s actually the kids who treat them like kids.\n\nWe could have Ahmet as a teenager who wants to get a part-time job but he\'s naive. He\'s not taught to be an adult, can\'t handle adult life. So he enters the job interview at the coffee shop, but he miscommunicates. The manager, Mrs. Thompson, tries to handle it but is frustrated.\n\nWe could also incorporate a comedic cameo of his friend Sam, who is more adult-like.\n\nOk, let\'s write a scene: It\'s a Monday morning at "Brewed Awakenings" coffee shop. The manager, Mrs. Thompson, is on the phone, while the barista, Lisa, is making latte art. Ahmet enters, all nervous, and tries to get a job.\n\nWe can show a scene: Ahmet speaks to a coworker, Sam, and is dismissed. He attempts to ask for a raise but fails.\n\nBut we need to keep the tone comedic.\n\nAlternatively, we could set the scene at a school assembly. But a coffee shop offers more adult environment.\n\nWe can also incorporate the "Kids deserve respect" theme: Ahmet tries to get respect from his teacher.\n\nBut maybe a more comedic scenario: He goes to a "Kids\' Conference" where kids try to talk about respecting each other.\n\nBut since the theme says kids must be taught that they deserve respect so they become mature, we need to show the kids being taught by adults. But Ahmet is the one who is not taught properly.\n\nWe can use a comedic scenario: Ahmet is in a "Mature Kids" club. The club meets to talk about adult responsibilities. He is the outsider.\n\nOk, maybe a simpler: The setting is a community center "Learning Lounge". Ahmet goes to volunteer. He tries to help kids with homework but misleads them. The adult in charge, Ms. Lila, tries to teach him.\n\nWe can write a comedic scene where Ahmet says "Let me show you the \'how to\'." but it\'s wrong.\n\nAlright.\n\nWe have to incorporate some comedic beats: He uses outdated slang, his voice is naive, he says things like "I\'ll be back" but it\'s not what he means. He also cannot handle adult life, like when his manager tells him to "pull a shift" and he thinks it\'s a weightlifting challenge.\n\nWe can also show his friend Sam is an adult but supportive.\n\nOk, let\'s proceed.\n\nWe\'ll write the scene. We\'ll incorporate stage directions. We\'ll keep it short but complete.\n\nWe need to show that kids must be taught that they deserve respect. The scene can show a teacher telling kids that they deserve respect, but the teacher is a bit comedic. Then Ahmet, the protagonist, shows how miscommunication leads to him being dismissed.\n\nWe can start with an opening voiceover.\n\nAlright, let\'s write.\n\nWe also need to think about the writing style: It should read like a script. Use character names in uppercase. Use [Stage Directions] etc.\n\nWe must keep the theme. Let\'s include a "teacher" as an adult who is also comedic: Ms. Lila, 30s.\n\nThe scene starts with an opening montage: kids in a classroom. Then the main scene: Ms. Lila talking to Ahmet. He misinterprets. Then the teacher says "You deserve respect, but you need to respect yourself." He doesn\'t understand. Then a comedic moment: he tries to demonstrate respect by giving a gift.\n\nOk.\n\nLet\'s begin.\n\nWe can start with "FADE IN:" and then a description.\n\nLet\'s write a script for the introductory scene.\n\nWe can have some comedic subtext: The coffee shop, the manager telling him "We need someone who can handle the adult world." He thinks it\'s a game.\n\nWe also incorporate that the kids must be taught they deserve respect, so maybe the adult is encouraging the kids.\n\nAlright, let\'s commit to the coffee shop scenario because it\'s more adult environment.\n\nScene: The "Brewed Awakenings" coffee shop, early morning. The manager, Mrs. Thompson, is on the phone, the barista, Lisa, is doing latte art. Ahmet, 17, enters, nervous, tries to get a job.\n\nWe\'ll show a comedic miscommunication. He says "I\'ll take the job as a barista, if it\'s okay." The manager says "Sure, but it\'s a fast-paced environment." He thinks it\'s about speed.\n\nHe tries to say "I\'ll bring the coffee to the table." The manager is confused.\n\nWe can show him being dismissed because of his naive language.\n\nIn the end, the manager says "You deserve respect, but you must show respect for the job." He says "Maybe next time."\n\nThe theme: kids must be taught they deserve respect. The scene ends with a comedic joke about respect.\n\nOk, write the scene. Let\'s keep it relatively short but enough to illustrate the theme.\n\nWe\'ll also add a comedic twist: He misinterprets "pull a shift" as a physical exercise. He goes to the gym. The manager is perplexed.\n\nAlright, let\'s write the script. We\'ll use stage directions in brackets. We\'ll keep the comedic lines. We\'ll also incorporate a moral at the end. The theme is not spelled out, but it\'s implied.\n\nWe can start with a voiceover: "Ahmet always thought he could handle adult life like a kid with a superhero cape."\n\nOk, let\'s do it.'}, response_metadata={'model': 'gpt-oss:20b', 'created_at': '2025-12-25T16:26:17.029159Z', 'done': True, 'done_reason': 'stop', 'total_duration': 36955605833, 'load_duration': 132171333, 'prompt_eval_count': 273, 'prompt_eval_duration': 421611167, 'eval_count': 1926, 'eval_duration': 36008938274, 'logprobs': None, 'model_name': 'gpt-oss:20b', 'model_provider': 'ollama'}, id='lc_run--019b5654-8be8-7223-8034-de0e54eff386-0', tool_calls=[{'name': 'get_reference_scenes', 'args': {'scene_retrieval_query': 'sitcom comedic references kids respect teaching adult life intro scenes'}, 'id': 'e46d3d7b-b3dc-4cb8-866c-b90af0cc41ae', 'type': 'tool_call'}], usage_metadata={'input_tokens': 273, 'output_tokens': 1926, 'total_tokens': 2199}), ToolMessage(content="\n        --- Style Reference 1 --\n        INT. APARTMENT - CONTINUOUS\nThe men rush inside and straight into --\n\n        \n        \n        --- Style Reference 2 --\n        INT. BEDROOM\nCandles flicker on the dresser. A syringe on the bedside\ntable, next to a sleeping figure curled up under the\nsheets.\nBoth men starting to pull guns, but --\nDEX\nThis one's personal.\nDex's partner shrugs, holsters his weapon and steps back\nthrough the doorway, watching as --\nDex spins and fires.Not the traditional booming gunfire, but rather the\nstrange sound of electronic hissing as laser-fire rips the\nperson to shreds.\nDex finally stops firing and moves to the bed to verify\nthe kill, only on close inspection he sees it's not a\nperson.\nHe's just blown the hell out of a MANNEQUIN.\nDex smiles, blows out the candle and heads out of the\nroom.\nCUT TO:\n\n        \n        \n        --- Style Reference 3 --\n        INT. HIGH RISE APARTMENT BUILDING - LOBBY - CONTINUOUS\nThe doorman at his post flipping through a magazine, rap\nmusic pounding from his radio.\nGlass suddenly shatters as a gloved hand punches through\nthe window, reaching in, unlocking the front door.\nTwo men in dark suits blur inside. The doorman rushes to\nstop them, only --\nDEX, the taller of the two men, slams the barrel of his\ngun into the doorman's throat.\nDEX\nLife can be an illusion.\n(low and deadly)\nSometimes we see what isn't there,\nand sometimes we don't see what is\nthere.\nThe doorman, wide eyed with terror, nods his consent.\nDex removes the gun.\nDoorman plants himself in the chair, eyes glued to his\nmagazine, making it clear he doesn't 'see' the men as they\nstroll into --\n\n        \n        \n        --- Style Reference 4 --\n        INT. ELEVATOR - CONTINUOUS\nOld fashioned steel box struggling its way up the shaft.\nFluorescent yellow light stabbing through the grating.\n\n        \n        \n        --- Style Reference 5 --\n        EXT. MANHATTAN - MIDDLE OF THE NIGHT\nFreezing wind shutters through the shadows. Relentless\ndarkness. No sign of life, save for --\nThe SOUND of determined footsteps.\n        \n        ", name='get_reference_scenes', id='744dee5e-8f14-473f-a7fd-715808249adf', tool_call_id='e46d3d7b-b3dc-4cb8-866c-b90af0cc41ae'), AIMessage(content='**INT. AHMET\'S APARTMENT – MORNING**\n\n*A bright, cluttered kitchen. Morning light spills across a cereal box that reads “World’s Best Dad” (in big, hand‑written letters). Toys, books, and a half‑finished puzzle cover the counter. The TV is stuck on a cartoon about dinosaurs, but the sound is muted because Ahmet is trying to read a newspaper at the stove.*\n\n**AHMET**  \n*(to himself, grumbling)*  \n“Morning, Ahmet. Rise and shine. Time to show the world how you’re a dad.”  \n\n*He slips on a rubber duck floating in the sink, then grabs a bowl of cereal and a carton of milk.*\n\n**AHMET**  \n(to the kids, half‑sincere)  \n“Alright, kids! Breakfast is—”\n\n*The doorbell RINGS. Ahmet freezes, looking at the screen. His son, **EMIR** (6), stands with a block tower; his little sister, **LINA** (4), is drawing a smiley on the wall.*\n\n**EMIR**  \n“Dad, can we have cereal with milk? Cereal tastes better with milk.”\n\n**AHMET**  \n*(checking the fridge)*  \n“Milk? I think this is the new… milk?”  \n*He pulls out a carton of “Almond Milk” and squints at the label.*\n\n**LINA**  \n“Milk is milk, Dad. It’s not… it’s… it’s not the same.”\n\n**AHMET**  \n*(confused)*  \n“Almond milk is… not milk. That’s… good. We’ll do something else.”  \n*He tosses the cereal into the bowl as if he’s about to serve it.*\n\n**CUT TO:**\n\n*Ahmet opens the front door. His neighbor, **MRS. CENGIZ** (70), holds a stack of mail, her cardigan a bit too large.*\n\n**MRS. CENGIZ**  \nAhmet! You’ve been blowing your horn in the hallway. My neighbor’s hearing is worse than mine.  \n\n**AHMET**  \n*(shrugging, eyes wide)*  \nI was blowing a horn. I’m not sure. Are you blowing a horn?  \n\n**MRS. CENGIZ**  \nNo, I’m asking you to be respectful.  \n\n**AHMET**  \nRespectful? I’ve been respectful. I’ve—  \n\n*He pauses, a bead of sweat drops from his brow. He checks the calendar on the fridge – a doodle of a face with a clock.*\n\n**AHMET**  \n(continuing)  \nRespectful means no horn? Or does respectful mean I give you a hug?  \n\n**MRS. CENGIZ**  \n(softly)  \nIt means… you listen. You keep the noise down. You… (smiles) It’s not rocket science.  \n\n**AHMET**  \n*(relieved, whispering to himself)*  \nRocket science? No. I’ll be a rocket scientist now.\n\n*He slams the door, then goes back inside, wiping his hands on a towel.*\n\n**CUT TO:**\n\n*Ahmet is now in front of his laptop, in a full Zoom meeting with his boss, **MR. KAYA** (40). He is in his “professional” hoodie – a faded graphic tee of a cartoon bear.*\n\n**AHMET**  \n(cheerful, half‑nodding)  \nGood morning, boss. Yes, I’m on my way.  \n\n**MR. KAYA**  \nAhmet, are you going to be in the office tomorrow?\n\n**AHMET**  \nI… I think I’m not sure. I have the… a chore on my schedule.  \n\n**MR. KAYA**  \n(raises an eyebrow)  \nA chore? Ahmet, we’re talking about your role here, not your chores.  \n\n**AHMET**  \nGot it. So, a chore is like a job. I’m a job! I’m working at my job!  \n\n**MR. KAYA**  \n(trying not to laugh)  \nYou need to stay on track, Ahmet.  \n\n**AHMET**  \n(whispering to the camera)  \nStay on track? I have a track. I have a… track.  \n\n*He clicks the “mute” button but the camera turns on, revealing a mess of laundry in the background.*\n\n**CUT TO:**\n\n*Ahmet returns to the kitchen. He sees a pile of unsorted toys. He sighs dramatically.*\n\n**AHMET**  \n(to the kids, in a very adult voice)  \nListen, kids. Respect isn’t just about saying “please” or “thank you.” It’s about—  \n\n**EMIR**  \nDad! Why are you shouting?  \n\n**LINA**  \nYeah, it’s like a… a rocket!  \n\n**AHMET**  \n*(frustrated)*  \nIt’s not a rocket, Lina. I’m serious.  \n\n*He picks up a stack of wooden blocks, each letter labeled with a single alphabet. He arranges them into a tower spelling “RESPECT.”*\n\n**EMIR**  \nLook, Dad! I built it!  \n\n**AHMET**  \nExcellent! Now we’ll—  \n\n*Ahmet places the final block, and the tower trembles, then topples onto the floor with a comic *thud*. The kids giggle. He looks horrified.*\n\n**AHMET**  \n(voiceover, to himself)  \nMaybe respect is not about building towers.  \n\n*He turns to the kids, then to the camera.*\n\n**AHMET**  \nOkay, everybody. Remember: if you respect each other, you don’t let your block tower fall on the neighbor’s head.  \n\n**MRS. CENGIZ** (off-screen, muffled)  \nAhmet, can you please clean up after you?  \n\n**AHMET**  \n(cheerful, to camera)  \nSure thing! Kids deserve respect, and adults deserve a clear conscience.  \n\n*The camera zooms out to show the entire apartment – a messy living room, kids playing, Ahmet with a half‑finished tower still on the floor, and a small stack of books on "How to Be an Adult." The theme is set: a man who is still learning to respect himself and others, and a family that will learn that kids deserve respect if they’re to grow up mature.*\n\n**FADE OUT.**', additional_kwargs={'reasoning_content': 'The user wants: "write an introductory scene". We have constraints: \n- Theme: kids must be taught that they deserve respect so that they can be mature individuals later on in life\n- Genre: sitcom\n- Characters: [\'Ahmet faces challenges when communicating with others, including his friends, colleagues and lovers. He is not taught be an adult and cannot handle the adult life.\'] \n- Tone guidelines: [\'light, but meaningful and yet funny\']\n\nWe can use reference scenes. The references are not comedic references but rather a bunch of intense scenes. However, the references have different vibes, but we can extract general comedic sitcom style cues: e.g., INT. apartment, quick cuts, etc. But we should not copy them. The references appear to be from a script with a serious tone, but we can adapt some structural cues.\n\nWe must produce an introductory scene that sets up Ahmet and the theme. The scene should be a sitcom style, light and funny, but also meaningful about respect for kids. We have to incorporate kids. The theme is "kids must be taught that they deserve respect so that they can be mature individuals later on in life". So maybe we have a group of kids or a child who is being neglected or disrespectful. Ahmet is a main character. Maybe he\'s a single parent? But the description says Ahmet faces challenges when communicating with others, including his friends, colleagues, and lovers. He is not taught to be an adult and cannot handle the adult life. So he might be a middle-aged adult still acting like a kid. He has kids? But the theme says kids must be taught respect. So maybe he\'s the parent, or he might be teaching kids at school or daycare. Or he\'s at a coffee shop, but the kid is involved. The introductory scene should set up his character and the comedic situation.\n\nWe need to keep it sitcom style: likely open with a laugh track or comedic situation. It\'s an introductory scene, so we want to establish the main premise, character arcs, and the comedic conflict. Possibly set in an apartment or a school setting. The references have "INT. APARTMENT" and "INT. BEDROOM" etc. We can use an "INT. APARTMENT" to show Ahmet\'s living situation. The scene could open with him at breakfast prepping a meal for his kids. He misinterprets kids\' requests or something. Or he\'s at a PTA meeting where he tries to give a speech about respect but bungles it. But the scene should also show his difficulty with adult life: he\'s not comfortable with adult tasks like paying bills, cleaning, communicating with adult colleagues.\n\nWe can also include a comedic misunderstanding: maybe Ahmet is called "Ahmet" and is asked to "adult" in a conversation, and he misinterprets "adult" as a type of adult beverage. That could be comedic.\n\nAlso the theme: kids deserve respect so that they can mature. So maybe Ahmet\'s daughter is being bullied or is not respected by classmates. Ahmet tries to intervene but does something comedic.\n\nLet\'s decide: The scene opens with Ahmet in his apartment with his kids (maybe a 6-year-old boy and a 4-year-old girl). He tries to read them bedtime story but fails to understand their language. Meanwhile his neighbor, a serious adult neighbor, calls him about a neighbor dispute. He misinterprets the neighbor\'s instructions. That comedic scenario. Or he is at a PTA meeting and tries to speak about "respect" but he misuses adult jargon. That would illustrate his inability to handle adult life, but also the comedic situation.\n\nAlternatively, we could open with him at a coffee shop with his colleagues at a team meeting, where his manager says "we need to be responsible and mature", and he freaks out, misinterprets that as "responsible" meaning "responsible for my kids". The comedic.\n\nBut the theme is "kids must be taught that they deserve respect so that they can be mature individuals later on in life." So we could show Ahmet\'s kids lacking respect. For example, his son says "Dad, can I watch TV?" and Ahmet says "Sure, but you need to clean your room first." But the son might say "Why is your dad the boss of me?" Then Ahmet tries to explain but says "No, no, no... I\'m not a boss." But the kids are being comedic.\n\nWe want to show Ahmet is a middle-aged adult who is not a good adult. He may talk in a childish tone to kids, but to adults he also cannot articulate.\n\nAlso we want to show comedic misunderstandings and light humor.\n\nLet\'s outline:\n\nScene: INT. AHMET\'S APARTMENT - MORNING\n\n- We see a cluttered apartment with toys, a coffee maker, a TV with a kids\' cartoon playing.\n- Ahmet is standing in the kitchen with a stack of cereal boxes and a bowl of cereal. He is wearing a T-shirt that says "World\'s Best Dad" but the shirt is actually a tie-dye shirt that he made in his youth.\n- His kids, 6-year-old Emre and 4-year-old Lina, are playing on the floor, one is building a tower with blocks, the other is drawing on the wall.\n\n- Ahmet: "Alright, kids, time to eat breakfast!"\n\n- The kids look up: Emre: "Dad, can we have cereal with milk? Because cereal tastes better with milk." \n- Ahmet: "Sure, sure. I\'ll just... go get the milk." \n- He goes to the fridge, picks up a bag of "Dairy-Free Milk." \n- Emre: "Dad, is that milk? I thought you were supposed to use milk." \n- Ahmet: "Yes, but I guess this is the new \'milk\' they make." \n- Emre: "No! It\'s not real milk! It\'s \'something else\'." \n- Ahmet: "Okay, that\'s good. Let\'s do something else."\n\n- Meanwhile, the doorbell rings. \n- Ahmet looks at the door: "Who is it? I\'m not sure." \n- He opens the door to find his neighbor Mrs. Cengiz, a stern older lady. \n- Mrs. Cengiz: "Ahmet, we need to talk about the noise. The kids are always shouting, and it\'s disrupting the building." \n- Ahmet: "Noise? I thought you said noise is \'fun\'."\n\n- He goes to his desk to get his laptop for a work meeting: "Time to talk to my boss." \n- He logs into Zoom: "Hello, everyone, I am in my living room, I have a little bit of... no, wait." \n- He tries to speak with his boss: "Hi, boss! My day was busy. I had to go to the doctor." \n- The boss: "Are you going to be in the office tomorrow?" \n- Ahmet: "I don\'t know. I\'m not sure if I will be... oh wait, I have to check my calendar." \n- He looks at a calendar with scribbles of "Do chores" and "Pay rent." \n- He says "I think I have to do chores." \n- The boss: "What do you mean by \'chore\'? It is a serious job." \n- Ahmet: "Oh! Chore! It\'s like a \'work\'!"\n\n- He goes outside: "Maybe the neighbor can help. We need to be respectful." \n- He calls his mother on the phone: "Mum, can you please explain why I need to respect my neighbor?" \n- She says "Because if you don\'t, the building may be evicted." \n- Ahmet: "Oh! I didn\'t know." \n- He goes to the window and looks at the kids playing: "Hey, Emre, we need to respect our neighbors." \n- Emre: "But we just built a tower." \n- Ahmet: "I mean we need to keep it from falling on the neighbor\'s head." \n- He looks at the neighbor again: "Sorry, Mrs. Cengiz, I was being disrespectful." \n- She smiles: "That\'s alright. Let\'s just be respectful." \n- The scene ends with the kids building a tower out of blocks that reads "Respect" (with block letters spelled out). \n- Ahmet, in his comedic attempt to help, knocks over the tower. The camera pans out to show the entire apartment. The theme is introduced.\n\nBut this might be too long. But we can write it as a script. We must also incorporate the comedic tone. The theme is about kids deserve respect. So maybe the introduction includes a message that kids need to learn to respect others to mature.\n\nBut we must also incorporate the comedic misunderstandings about adult life. The scene must show that Ahmet is not a good adult. So comedic errors.\n\nWe need to keep the scene comedic but also meaningful.\n\nAlso the references have certain style: "INT. APARTMENT - CONTINUOUS" with description. We should use that style. The references show "INT. APARTMENT - CONTINUOUS" and "INT. BEDROOM" and others. So we can adopt the style: "INT. AHMET\'S APARTMENT - MORNING".\n\nWe\'ll show comedic bits: like Ahmet tries to pronounce "respect" but mispronounces it, or he uses "respect" incorrectly.\n\nOk. Let\'s write a scene.\n\nWe\'ll use a standard sitcom script format: scene heading, character names in caps, dialogues, parenthetical directions. We\'ll keep it comedic.\n\nWe also need to incorporate the theme. We might include a comedic line where Ahmet says "Kids deserve respect because if we don\'t respect them, they\'ll become something else." But maybe better to show a scene where a kid is being bullied or the kids need to respect their teacher or neighbors.\n\nBut the theme: "kids must be taught that they deserve respect so that they can be mature individuals later on in life". So maybe the story starts with a situation where a child is being bullied by a school bully. The child asks Ahmet for help. Ahmet says "we need to respect ourselves first." Then we show comedic misinterpretation.\n\nAlternatively, we could start with Ahmet at a community center, trying to teach the kids how to say "thank you" and "please". He goes wrong.\n\nLet\'s decide: He is at a community center. The scene opens with a group of kids in a circle, Ahmet is the "coach". He tries to demonstrate a respectful phrase: "Please". He says "Please" but the kids laugh. Then the kids are told that if we don\'t respect ourselves and others, we\'ll be considered worthless. That is the theme.\n\nBut we can also do the apartment scenario: kids in the apartment, neighbor complaining, father fails to respect neighbor. It\'s a comedic situation.\n\nOk, let\'s plan the scene:\n\n- Start with "INT. AHMET\'S APARTMENT - MORNING"\n\n- Setting: cluttered living room, kids playing. Dad is in the kitchen, making breakfast. He tries to do chores.\n\n- The doorbell rings, neighbor complains. He tries to answer but misinterprets. He then goes to his work.\n\n- He tries to have a Zoom meeting but miscommunicates.\n\n- He calls his mother.\n\n- He tries to teach kids about respect by building a tower out of blocks that says "RESPECT". He knocks it over. The kids laugh.\n\n- He tries to salvage the moment.\n\n- Then a voiceover or narrator says something like: "Welcome to the world of Ahmet, a man who is learning to respect himself and others."\n\nWe can add comedic lines like "The kids say \'Dad, can we have breakfast?\'. \'Sure, but you have to... what?\'"\n\nWe want to incorporate the theme.\n\nWe might also show the kids in the scene. The kids could be named "Emir" and "Lina". The mother is absent. The father is "Ahmet".\n\nWe should show him interacting with adult neighbor "Mrs. Cengiz". He tries to respect her but fails. This is a comedic portrayal of his challenge.\n\nOk, let\'s write it. We\'ll keep it script-like. We\'ll incorporate references to "INT." style.\n\nWe need to be careful with names: The references show names like "Dex" but we want "Ahmet". The references also have a comedic tone with lines like "We need to be respectful." We can incorporate similar.\n\nOk, start.\n\nWe\'ll write the scene heading:\n\nINT. AHMET\'S APARTMENT - MORNING\n\nThen we describe. Then we add the dialogues.\n\nWe\'ll incorporate the theme in a comedic but meaningful way.\n\nLet\'s write.\n\nWe need to use comedic cues: e.g., "Ahmet\'s attempt to do chores is like a circus."\n\nWe\'ll write.\n\nWe also need to keep the theme: kids must be taught respect. We show Ahmet inadvertently telling kids "Respect is when you don\'t push each other." The kids do not get it.\n\nOk, let\'s write:\n\nWe start with a comedic scene: "Ahmet wakes up, tries to do chores but fails." Then neighbor complaining, etc. Then we show kids. We\'ll end with a comedic moral.\n\nLet\'s write the scene in a style that shows the comedic miscommunications.\n\nWe\'ll ensure the scene is light but meaningful. We\'ll incorporate "kids deserve respect" at the end.\n\nOk, write:\n\n- The script format: [Scene heading], [Action], [Dialogue], [Parentheticals]. We\'ll use "CUT TO:" at the end.\n\nOk, write.\n\nAlso, we want to incorporate "tone guidelines" like "light, but meaningful and yet funny".\n\nOk, we can add comedic lines.\n\nOk, let\'s write.'}, response_metadata={'model': 'gpt-oss:20b', 'created_at': '2025-12-25T16:27:38.414347Z', 'done': True, 'done_reason': 'stop', 'total_duration': 80841374042, 'load_duration': 129941584, 'prompt_eval_count': 806, 'prompt_eval_duration': 598475250, 'eval_count': 4191, 'eval_duration': 79273644366, 'logprobs': None, 'model_name': 'gpt-oss:20b', 'model_provider': 'ollama'}, id='lc_run--019b5655-1e63-7703-a3b8-3b8a72d1ca58-0', usage_metadata={'input_tokens': 806, 'output_tokens': 4191, 'total_tokens': 4997})]} 
+
+
+write an introductory scene
+
+        --- Style Reference 1 --
+        INT. APARTMENT - CONTINUOUS
+The men rush inside and straight into --
+
+        
+        
+        --- Style Reference 2 --
+        INT. BEDROOM
+Candles flicker on the dresser. A syringe on the bedside
+table, next to a sleeping figure curled up under the
+sheets.
+Both men starting to pull guns, but --
+DEX
+This one's personal.
+Dex's partner shrugs, holsters his weapon and steps back
+through the doorway, watching as --
+Dex spins and fires.Not the traditional booming gunfire, but rather the
+strange sound of electronic hissing as laser-fire rips the
+person to shreds.
+Dex finally stops firing and moves to the bed to verify
+the kill, only on close inspection he sees it's not a
+person.
+He's just blown the hell out of a MANNEQUIN.
+Dex smiles, blows out the candle and heads out of the
+room.
+CUT TO:
+
+        
+        
+        --- Style Reference 3 --
+        INT. HIGH RISE APARTMENT BUILDING - LOBBY - CONTINUOUS
+The doorman at his post flipping through a magazine, rap
+music pounding from his radio.
+Glass suddenly shatters as a gloved hand punches through
+the window, reaching in, unlocking the front door.
+Two men in dark suits blur inside. The doorman rushes to
+stop them, only --
+DEX, the taller of the two men, slams the barrel of his
+gun into the doorman's throat.
+DEX
+Life can be an illusion.
+(low and deadly)
+Sometimes we see what isn't there,
+and sometimes we don't see what is
+there.
+The doorman, wide eyed with terror, nods his consent.
+Dex removes the gun.
+Doorman plants himself in the chair, eyes glued to his
+magazine, making it clear he doesn't 'see' the men as they
+stroll into --
+
+        
+        
+        --- Style Reference 4 --
+        INT. ELEVATOR - CONTINUOUS
+Old fashioned steel box struggling its way up the shaft.
+Fluorescent yellow light stabbing through the grating.
+
+        
+        
+        --- Style Reference 5 --
+        EXT. MANHATTAN - MIDDLE OF THE NIGHT
+Freezing wind shutters through the shadows. Relentless
+darkness. No sign of life, save for --
+The SOUND of determined footsteps.
+        
+        
+**INT. AHMET'S APARTMENT – MORNING**
+
+*A bright, cluttered kitchen. Morning light spills across a cereal box that reads “World’s Best Dad” (in big, hand‑written letters). Toys, books, and a half‑finished puzzle cover the counter. The TV is stuck on a cartoon about dinosaurs, but the sound is muted because Ahmet is trying to read a newspaper at the stove.*
+
+**AHMET**  
+*(to himself, grumbling)*  
+“Morning, Ahmet. Rise and shine. Time to show the world how you’re a dad.”  
+
+*He slips on a rubber duck floating in the sink, then grabs a bowl of cereal and a carton of milk.*
+
+**AHMET**  
+(to the kids, half‑sincere)  
+“Alright, kids! Breakfast is—”
+
+*The doorbell RINGS. Ahmet freezes, looking at the screen. His son, **EMIR** (6), stands with a block tower; his little sister, **LINA** (4), is drawing a smiley on the wall.*
+
+**EMIR**  
+“Dad, can we have cereal with milk? Cereal tastes better with milk.”
+
+**AHMET**  
+*(checking the fridge)*  
+“Milk? I think this is the new… milk?”  
+*He pulls out a carton of “Almond Milk” and squints at the label.*
+
+**LINA**  
+“Milk is milk, Dad. It’s not… it’s… it’s not the same.”
+
+**AHMET**  
+*(confused)*  
+“Almond milk is… not milk. That’s… good. We’ll do something else.”  
+*He tosses the cereal into the bowl as if he’s about to serve it.*
+
+**CUT TO:**
+
+*Ahmet opens the front door. His neighbor, **MRS. CENGIZ** (70), holds a stack of mail, her cardigan a bit too large.*
+
+**MRS. CENGIZ**  
+Ahmet! You’ve been blowing your horn in the hallway. My neighbor’s hearing is worse than mine.  
+
+**AHMET**  
+*(shrugging, eyes wide)*  
+I was blowing a horn. I’m not sure. Are you blowing a horn?  
+
+**MRS. CENGIZ**  
+No, I’m asking you to be respectful.  
+
+**AHMET**  
+Respectful? I’ve been respectful. I’ve—  
+
+*He pauses, a bead of sweat drops from his brow. He checks the calendar on the fridge – a doodle of a face with a clock.*
+
+**AHMET**  
+(continuing)  
+Respectful means no horn? Or does respectful mean I give you a hug?  
+
+**MRS. CENGIZ**  
+(softly)  
+It means… you listen. You keep the noise down. You… (smiles) It’s not rocket science.  
+
+**AHMET**  
+*(relieved, whispering to himself)*  
+Rocket science? No. I’ll be a rocket scientist now.
+
+*He slams the door, then goes back inside, wiping his hands on a towel.*
+
+**CUT TO:**
+
+*Ahmet is now in front of his laptop, in a full Zoom meeting with his boss, **MR. KAYA** (40). He is in his “professional” hoodie – a faded graphic tee of a cartoon bear.*
+
+**AHMET**  
+(cheerful, half‑nodding)  
+Good morning, boss. Yes, I’m on my way.  
+
+**MR. KAYA**  
+Ahmet, are you going to be in the office tomorrow?
+
+**AHMET**  
+I… I think I’m not sure. I have the… a chore on my schedule.  
+
+**MR. KAYA**  
+(raises an eyebrow)  
+A chore? Ahmet, we’re talking about your role here, not your chores.  
+
+**AHMET**  
+Got it. So, a chore is like a job. I’m a job! I’m working at my job!  
+
+**MR. KAYA**  
+(trying not to laugh)  
+You need to stay on track, Ahmet.  
+
+**AHMET**  
+(whispering to the camera)  
+Stay on track? I have a track. I have a… track.  
+
+*He clicks the “mute” button but the camera turns on, revealing a mess of laundry in the background.*
+
+**CUT TO:**
+
+*Ahmet returns to the kitchen. He sees a pile of unsorted toys. He sighs dramatically.*
+
+**AHMET**  
+(to the kids, in a very adult voice)  
+Listen, kids. Respect isn’t just about saying “please” or “thank you.” It’s about—  
+
+**EMIR**  
+Dad! Why are you shouting?  
+
+**LINA**  
+Yeah, it’s like a… a rocket!  
+
+**AHMET**  
+*(frustrated)*  
+It’s not a rocket, Lina. I’m serious.  
+
+*He picks up a stack of wooden blocks, each letter labeled with a single alphabet. He arranges them into a tower spelling “RESPECT.”*
+
+**EMIR**  
+Look, Dad! I built it!  
+
+**AHMET**  
+Excellent! Now we’ll—  
+
+*Ahmet places the final block, and the tower trembles, then topples onto the floor with a comic *thud*. The kids giggle. He looks horrified.*
+
+**AHMET**  
+(voiceover, to himself)  
+Maybe respect is not about building towers.  
+
+*He turns to the kids, then to the camera.*
+
+**AHMET**  
+Okay, everybody. Remember: if you respect each other, you don’t let your block tower fall on the neighbor’s head.  
+
+**MRS. CENGIZ** (off-screen, muffled)  
+Ahmet, can you please clean up after you?  
+
+**AHMET**  
+(cheerful, to camera)  
+Sure thing! Kids deserve respect, and adults deserve a clear conscience.  
+
+*The camera zooms out to show the entire apartment – a messy living room, kids playing, Ahmet with a half‑finished tower still on the floor, and a small stack of books on "How to Be an Adult." The theme is set: a man who is still learning to respect himself and others, and a family that will learn that kids deserve respect if they’re to grow up mature.*
+
+**FADE OUT.**
+
+
+Result:
+ **INT. AHMET'S APARTMENT – MORNING**
+
+*A bright, cluttered kitchen. Morning light spills across a cereal box that reads “World’s Best Dad” (in big, hand‑written letters). Toys, books, and a half‑finished puzzle cover the counter. The TV is stuck on a cartoon about dinosaurs, but the sound is muted because Ahmet is trying to read a newspaper at the stove.*
+
+**AHMET**  
+*(to himself, grumbling)*  
+“Morning, Ahmet. Rise and shine. Time to show the world how you’re a dad.”  
+
+*He slips on a rubber duck floating in the sink, then grabs a bowl of cereal and a carton of milk.*
+
+**AHMET**  
+(to the kids, half‑sincere)  
+“Alright, kids! Breakfast is—”
+
+*The doorbell RINGS. Ahmet freezes, looking at the screen. His son, **EMIR** (6), stands with a block tower; his little sister, **LINA** (4), is drawing a smiley on the wall.*
+
+**EMIR**  
+“Dad, can we have cereal with milk? Cereal tastes better with milk.”
+
+**AHMET**  
+*(checking the fridge)*  
+“Milk? I think this is the new… milk?”  
+*He pulls out a carton of “Almond Milk” and squints at the label.*
+
+**LINA**  
+“Milk is milk, Dad. It’s not… it’s… it’s not the same.”
+
+**AHMET**  
+*(confused)*  
+“Almond milk is… not milk. That’s… good. We’ll do something else.”  
+*He tosses the cereal into the bowl as if he’s about to serve it.*
+
+**CUT TO:**
+
+*Ahmet opens the front door. His neighbor, **MRS. CENGIZ** (70), holds a stack of mail, her cardigan a bit too large.*
+
+**MRS. CENGIZ**  
+Ahmet! You’ve been blowing your horn in the hallway. My neighbor’s hearing is worse than mine.  
+
+**AHMET**  
+*(shrugging, eyes wide)*  
+I was blowing a horn. I’m not sure. Are you blowing a horn?  
+
+**MRS. CENGIZ**  
+No, I’m asking you to be respectful.  
+
+**AHMET**  
+Respectful? I’ve been respectful. I’ve—  
+
+*He pauses, a bead of sweat drops from his brow. He checks the calendar on the fridge – a doodle of a face with a clock.*
+
+**AHMET**  
+(continuing)  
+Respectful means no horn? Or does respectful mean I give you a hug?  
+
+**MRS. CENGIZ**  
+(softly)  
+It means… you listen. You keep the noise down. You… (smiles) It’s not rocket science.  
+
+**AHMET**  
+*(relieved, whispering to himself)*  
+Rocket science? No. I’ll be a rocket scientist now.
+
+*He slams the door, then goes back inside, wiping his hands on a towel.*
+
+**CUT TO:**
+
+*Ahmet is now in front of his laptop, in a full Zoom meeting with his boss, **MR. KAYA** (40). He is in his “professional” hoodie – a faded graphic tee of a cartoon bear.*
+
+**AHMET**  
+(cheerful, half‑nodding)  
+Good morning, boss. Yes, I’m on my way.  
+
+**MR. KAYA**  
+Ahmet, are you going to be in the office tomorrow?
+
+**AHMET**  
+I… I think I’m not sure. I have the… a chore on my schedule.  
+
+**MR. KAYA**  
+(raises an eyebrow)  
+A chore? Ahmet, we’re talking about your role here, not your chores.  
+
+**AHMET**  
+Got it. So, a chore is like a job. I’m a job! I’m working at my job!  
+
+**MR. KAYA**  
+(trying not to laugh)  
+You need to stay on track, Ahmet.  
+
+**AHMET**  
+(whispering to the camera)  
+Stay on track? I have a track. I have a… track.  
+
+*He clicks the “mute” button but the camera turns on, revealing a mess of laundry in the background.*
+
+**CUT TO:**
+
+*Ahmet returns to the kitchen. He sees a pile of unsorted toys. He sighs dramatically.*
+
+**AHMET**  
+(to the kids, in a very adult voice)  
+Listen, kids. Respect isn’t just about saying “please” or “thank you.” It’s about—  
+
+**EMIR**  
+Dad! Why are you shouting?  
+
+**LINA**  
+Yeah, it’s like a… a rocket!  
+
+**AHMET**  
+*(frustrated)*  
+It’s not a rocket, Lina. I’m serious.  
+
+*He picks up a stack of wooden blocks, each letter labeled with a single alphabet. He arranges them into a tower spelling “RESPECT.”*
+
+**EMIR**  
+Look, Dad! I built it!  
+
+**AHMET**  
+Excellent! Now we’ll—  
+
+*Ahmet places the final block, and the tower trembles, then topples onto the floor with a comic *thud*. The kids giggle. He looks horrified.*
+
+**AHMET**  
+(voiceover, to himself)  
+Maybe respect is not about building towers.  
+
+*He turns to the kids, then to the camera.*
+
+**AHMET**  
+Okay, everybody. Remember: if you respect each other, you don’t let your block tower fall on the neighbor’s head.  
+
+**MRS. CENGIZ** (off-screen, muffled)  
+Ahmet, can you please clean up after you?  
+
+**AHMET**  
+(cheerful, to camera)  
+Sure thing! Kids deserve respect, and adults deserve a clear conscience.  
+
+*The camera zooms out to show the entire apartment – a messy living room, kids playing, Ahmet with a half‑finished tower still on the floor, and a small stack of books on "How to Be an Adult." The theme is set: a man who is still learning to respect himself and others, and a family that will learn that kids deserve respect if they’re to grow up mature.*
+
+**FADE OUT.**
+(.scenarist_venv) (base) keremdede@Keremin-Bilgisayar scenarist % 
