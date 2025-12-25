@@ -33,6 +33,7 @@ class SceneAnalysis(BaseModel):
 analyzer_model = ChatOllama(
     model="gpt-oss:20b", 
     temperature=0,
+    reasoning='low' # 'high' if production ;)
     ).with_structured_output(SceneAnalysis)
 
 def analyze_scene(scene: str) -> Optional[SceneAnalysis]:
@@ -44,6 +45,7 @@ def analyze_scene(scene: str) -> Optional[SceneAnalysis]:
             "Analyze the scene structurally. "
             "Do NOT use flowery or poetic language. "
             "Be concise and factual. "
+            "Leave out the names of characters"
             "Ignore the Scene Header (INT./EXT.) in your summary."
         )
     }
