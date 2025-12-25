@@ -19,10 +19,16 @@ from pprint import pprint
 # -- what can happen as subtext? following a dream, defending ego, proving someone wrong, etc.
 
 class SceneAnalysis(BaseModel):
-    happening: str = Field(description="what concrete actions are happening")
-    subtext_level_happening: str = Field(description="what is actually told regarding story within this scene")
-    reader_reaction: str = Field(description="how the reader should feel when reading this scene")
-    
+    happening: str = Field(
+        description="A 1-sentence summary of the PHYSICAL ACTION. Do not quote the Scene Header (INT/EXT). Example: 'Joker dances on the stairs while smoking.'"
+    )
+    subtext_level_happening: str = Field(
+        description="The psychological conflict or hidden meaning. Be analytical and dry, not poetic. Example: 'Character A seeks validation, but Character B ignores him.'"
+    )
+    reader_reaction: str = Field(
+        description="The emotional keywords. Example: 'Anxiety, Disgust, Tension'"
+    )    
+
 # model initialization is here because it should not be re-initialized at every function call
 analyzer_model = ChatOllama(
     model="gpt-oss:20b", 
@@ -33,7 +39,13 @@ def analyze_scene(scene: str) -> Optional[SceneAnalysis]:
 
     system_prompt = {
         "role": "system",
-        "content": "Analyze the given scene and extract the features from it. Especially take care of getting the subtext correct."
+        "content": (
+            "You are a dry, clinical Script Doctor. "
+            "Analyze the scene structurally. "
+            "Do NOT use flowery or poetic language. "
+            "Be concise and factual. "
+            "Ignore the Scene Header (INT./EXT.) in your summary."
+        )
     }
 
     analysis_response = analyzer_model.invoke(
@@ -46,7 +58,7 @@ def analyze_scene(scene: str) -> Optional[SceneAnalysis]:
         ]
     )
 
-    pprint("analysis_response: \n{}".format(analysis_response))
+    pprint(analysis_response)
     
     try:
         scene_analysis = SceneAnalysis.model_validate(analysis_response)
