@@ -1,0 +1,441 @@
+(.scenarist_venv) (base) keremdede@Keremin-Bilgisayar scenarist % python showrunner/writer.py
+chat model initialized.
+{'messages': [HumanMessage(content='write an introductory scene', additional_kwargs={}, response_metadata={}, id='ed6aebe3-d1f2-4c21-9076-9b328ee7eae0'), AIMessage(content='', additional_kwargs={'reasoning_content': 'We need to write an introductory scene of a sitcom titled maybe "Ahmet\'s Life" where theme: kids must be taught respect, but the main character Ahmet is not taught to be an adult. The scene should introduce Ahmet and set up his communication challenges. Tone light, meaningful, funny. We might use reference scenes to support? There\'s a function to get reference scenes. But we don\'t have a query. We can choose to include a reference scene? It\'s optional? The instruction: "You can use the reference scenes." So we can optionally retrieve scenes. Probably to give more context. Let\'s retrieve some scenes: maybe "Ahmet\'s first day at work"? Let\'s ask for some scenes to incorporate. Use function.'}, response_metadata={'model': 'gpt-oss:20b', 'created_at': '2025-12-26T12:10:40.249795Z', 'done': True, 'done_reason': 'stop', 'total_duration': 8929965000, 'load_duration': 4401425125, 'prompt_eval_count': 273, 'prompt_eval_duration': 1046280792, 'eval_count': 183, 'eval_duration': 3366317748, 'logprobs': None, 'model_name': 'gpt-oss:20b', 'model_provider': 'ollama'}, id='lc_run--019b5a91-5016-7223-a5b7-df411f74e5b7-0', tool_calls=[{'name': 'get_reference_scenes', 'args': {'scene_retrieval_query': 'Ahmet first day at work comedic scene'}, 'id': '74563874-a93e-4f18-9188-666e9bc2a67c', 'type': 'tool_call'}], usage_metadata={'input_tokens': 273, 'output_tokens': 183, 'total_tokens': 456}), ToolMessage(content="\n        --- Style Reference 1 --\n        INT. BEDROOM\nCandles flicker on the dresser. A syringe on the bedside\ntable, next to a sleeping figure curled up under the\nsheets.\nBoth men starting to pull guns, but --\nDEX\nThis one's personal.\nDex's partner shrugs, holsters his weapon and steps back\nthrough the doorway, watching as --\nDex spins and fires.Not the traditional booming gunfire, but rather the\nstrange sound of electronic hissing as laser-fire rips the\nperson to shreds.\nDex finally stops firing and moves to the bed to verify\nthe kill, only on close inspection he sees it's not a\nperson.\nHe's just blown the hell out of a MANNEQUIN.\nDex smiles, blows out the candle and heads out of the\nroom.\nCUT TO:\n\n        \n        \n        --- Style Reference 2 --\n        INT. APARTMENT - CONTINUOUS\nThe men rush inside and straight into --\n\n        \n        \n        --- Style Reference 3 --\n        INT. HIGH RISE APARTMENT BUILDING - LOBBY - CONTINUOUS\nThe doorman at his post flipping through a magazine, rap\nmusic pounding from his radio.\nGlass suddenly shatters as a gloved hand punches through\nthe window, reaching in, unlocking the front door.\nTwo men in dark suits blur inside. The doorman rushes to\nstop them, only --\nDEX, the taller of the two men, slams the barrel of his\ngun into the doorman's throat.\nDEX\nLife can be an illusion.\n(low and deadly)\nSometimes we see what isn't there,\nand sometimes we don't see what is\nthere.\nThe doorman, wide eyed with terror, nods his consent.\nDex removes the gun.\nDoorman plants himself in the chair, eyes glued to his\nmagazine, making it clear he doesn't 'see' the men as they\nstroll into --\n\n        \n        \n        --- Style Reference 4 --\n        INT. ELEVATOR - CONTINUOUS\nOld fashioned steel box struggling its way up the shaft.\nFluorescent yellow light stabbing through the grating.\n\n        \n        \n        --- Style Reference 5 --\n        EXT. MANHATTAN - MIDDLE OF THE NIGHT\nFreezing wind shutters through the shadows. Relentless\ndarkness. No sign of life, save for --\nThe SOUND of determined footsteps.\n        \n        ", name='get_reference_scenes', id='e37eb46d-b8d0-449b-b877-e31d20b62931', tool_call_id='74563874-a93e-4f18-9188-666e9bc2a67c'), AIMessage(content="**INT. COMMUNITY CENTER – DAY**\n\n*A bright, airy room filled with CHILDREN (ages 5‑10) who are giggling over a giant foam “world map.”  A large banner reads: “Welcome to the Kids’ Respect Workshop!”  The room buzzes with the chatter of parents and volunteers.  The front desk is manned by an enthusiastic VOLUNTEER, LISA (30s), clipboard in hand.*\n\n**LISA**  \n(cheery)  \nWelcome, everyone! I'm Lisa, and this is our mission: every child deserves respect, and we’re going to learn how to give it.\n\n*Enter AHMED (late 20s, slightly disheveled, a faint scar on his left eyebrow).  He holds a coffee cup, nervously checks his phone.  He is a fresh hire, a “Kids’ Engagement Officer” – a role he barely understands.*\n\n**AHMED**  \n(awkwardly)  \nUh… hi, Lisa? I’m Ahmed. I’m… uh… supposed to— \n\n**LISA**  \n(beaming)  \nAhmed! Great to have you. Your first task: greet the kids, explain why respect matters, and keep them engaged.  Ready?\n\n*Ahmed nods, forcing a grin.  He steps into the center of the circle.*\n\n**AHMED**  \n(trying to sound confident)  \nSo, uh… kids, you know respect is… important because…\n\n*The kids snicker, one little boy, JAMAL (7), nudges his friend.  The room is silent for a beat.*\n\n**JAMAL**  \n(whispering)  \nIs that… a “no talk” thing?  He’s saying “I’m not talking” to us?\n\n*Ahmed looks down at his hands, then back at the kids.  He clears his throat.*\n\n**AHMED**  \nSorry, sorry.  Right! Respect means listening to each other, not ignoring people.  If someone says something, you listen.  And, uh… it’s also about…\n\n*He pulls out a brightly colored foam finger from his pocket, holding it up like a trophy.  The kids stare, confused.*\n\n**LISA**  \n(giving a gentle smile)  \nAhmed, we’re talking about… well… respect for people, not… finger-picking.\n\n*Ahmed fumbles, drops the foam finger, which pops with a squeaky sound.  The kids erupt in giggles.  Lisa pulls him aside.*\n\n**LISA**  \n(whispering)  \nOkay, new rule: no foam fingers in the middle of a respect lesson.  Keep the finger in the “high five” zone.\n\n**AHMED**  \n(grinning)  \nGot it.  No fingers.  Respect the kids.  Right.\n\n*Ahmed turns back to the circle.  He pulls a handout from his bag—an oversized, crudely drawn “Respect” poster with cartoon children holding hands.  He flips it open like a comic book.*\n\n**AHMED**  \nAlright, look at this picture: a boy and a girl—uh… are you seeing that?  They’re holding hands.  That’s… like, showing you respect each other?\n\n*The kids nod, but a little girl, LUCY (6), looks puzzled.*\n\n**LUCY**  \nWhy does the boy have a… banana on his head?  Isn’t that weird?\n\n**AHMED**  \n(embarrassed)  \nIt’s a… banana hat.  Some kids wear bananas.  It’s, uh, fun.  And respect means you can wear a banana hat too.\n\n*Lisa sighs, then chuckles softly.*\n\n**LISA**  \nAhmed, maybe we can start with the basics: “Treat others how you want to be treated.”  Also, no banana hats in the workshop.\n\n**AHMED**  \n(leaning in)  \nYou want me to say that?  Okay.  “Treat other… uh… people like you like to be… liked.”  Okay, got it.\n\n*Ahmed starts a new line of speech.  He’s flustered, but the kids are amused.  Lisa watches, a smile creasing her face.*\n\n**LISA**  \n(to herself, amused)  \nKids deserve respect.  And a bit of humor.  Maybe Ahmed can learn a thing or two.\n\n*CUT TO:*\n\n**EXT. COMMUNITY CENTER – MOMENTS LATER**\n\n*Ahmed steps out onto the sidewalk, clutching the poster like a shield.  He looks up at the sky, breathes in a big, theatrical inhale.*\n\n**AHMED**  \n(to himself)  \nOne day I’ll be a master of respect.  Maybe I’ll even make them all smile… with banana hats.  (whispers)  Or maybe… just maybe.\n\n*The screen fades to black as the audience hears the sound of kids laughing in the distance.  The upbeat theme music kicks in.*\n\n**TITLE CARD**  \n*“Respectful Kids, Respectful Ahmed”*", additional_kwargs={'reasoning_content': 'The user wants an introductory scene for a sitcom with theme "kids must be taught that they deserve respect so that they can be mature individuals later on in life". Characters: Ahmet faces challenges when communicating with others, including his friends, colleagues and lovers. He is not taught be an adult and cannot handle the adult life. Tone: light, meaningful, funny. The assistant is to write an introductory scene. They can use reference scenes. They retrieved some reference scenes but those are unrelated. We need to create a sitcom intro scene. We can include a comedic scenario where Ahmet is starting a new job or interacting with kids and shows his lack of adult skills.\n\nThe guidelines: use the reference scenes. But references are weird. We can ignore them or incorporate some elements. The user likely just wants a scene. We\'ll produce a scene. We\'ll write in screenplay format: INT/EXT, character names, dialogue. Use comedic tone. Also incorporate theme of respect for kids. We could have Ahmet in a classroom or office. He might misinterpret the respect kids need.\n\nAlright. We\'ll produce an introduction where Ahmet is in a job interview, the interviewer gives a scenario involving children, he misinterprets. Then the coworkers or friends comment. Provide humor.\n\nWe\'ll include some comedic beats. We need to keep it short but descriptive. Let\'s write.'}, response_metadata={'model': 'gpt-oss:20b', 'created_at': '2025-12-26T12:11:06.33712Z', 'done': True, 'done_reason': 'stop', 'total_duration': 25640626041, 'load_duration': 113055583, 'prompt_eval_count': 803, 'prompt_eval_duration': 584762125, 'eval_count': 1322, 'eval_duration': 24634564055, 'logprobs': None, 'model_name': 'gpt-oss:20b', 'model_provider': 'ollama'}, id='lc_run--019b5a91-74b7-7960-920f-dcad6e4033d2-0', usage_metadata={'input_tokens': 803, 'output_tokens': 1322, 'total_tokens': 2125})]} 
+
+
+write an introductory scene
+
+        --- Style Reference 1 --
+        INT. BEDROOM
+Candles flicker on the dresser. A syringe on the bedside
+table, next to a sleeping figure curled up under the
+sheets.
+Both men starting to pull guns, but --
+DEX
+This one's personal.
+Dex's partner shrugs, holsters his weapon and steps back
+through the doorway, watching as --
+Dex spins and fires.Not the traditional booming gunfire, but rather the
+strange sound of electronic hissing as laser-fire rips the
+person to shreds.
+Dex finally stops firing and moves to the bed to verify
+the kill, only on close inspection he sees it's not a
+person.
+He's just blown the hell out of a MANNEQUIN.
+Dex smiles, blows out the candle and heads out of the
+room.
+CUT TO:
+
+        
+        
+        --- Style Reference 2 --
+        INT. APARTMENT - CONTINUOUS
+The men rush inside and straight into --
+
+        
+        
+        --- Style Reference 3 --
+        INT. HIGH RISE APARTMENT BUILDING - LOBBY - CONTINUOUS
+The doorman at his post flipping through a magazine, rap
+music pounding from his radio.
+Glass suddenly shatters as a gloved hand punches through
+the window, reaching in, unlocking the front door.
+Two men in dark suits blur inside. The doorman rushes to
+stop them, only --
+DEX, the taller of the two men, slams the barrel of his
+gun into the doorman's throat.
+DEX
+Life can be an illusion.
+(low and deadly)
+Sometimes we see what isn't there,
+and sometimes we don't see what is
+there.
+The doorman, wide eyed with terror, nods his consent.
+Dex removes the gun.
+Doorman plants himself in the chair, eyes glued to his
+magazine, making it clear he doesn't 'see' the men as they
+stroll into --
+
+        
+        
+        --- Style Reference 4 --
+        INT. ELEVATOR - CONTINUOUS
+Old fashioned steel box struggling its way up the shaft.
+Fluorescent yellow light stabbing through the grating.
+
+        
+        
+        --- Style Reference 5 --
+        EXT. MANHATTAN - MIDDLE OF THE NIGHT
+Freezing wind shutters through the shadows. Relentless
+darkness. No sign of life, save for --
+The SOUND of determined footsteps.
+        
+        
+**INT. COMMUNITY CENTER – DAY**
+
+*A bright, airy room filled with CHILDREN (ages 5‑10) who are giggling over a giant foam “world map.”  A large banner reads: “Welcome to the Kids’ Respect Workshop!”  The room buzzes with the chatter of parents and volunteers.  The front desk is manned by an enthusiastic VOLUNTEER, LISA (30s), clipboard in hand.*
+
+**LISA**  
+(cheery)  
+Welcome, everyone! I'm Lisa, and this is our mission: every child deserves respect, and we’re going to learn how to give it.
+
+*Enter AHMED (late 20s, slightly disheveled, a faint scar on his left eyebrow).  He holds a coffee cup, nervously checks his phone.  He is a fresh hire, a “Kids’ Engagement Officer” – a role he barely understands.*
+
+**AHMED**  
+(awkwardly)  
+Uh… hi, Lisa? I’m Ahmed. I’m… uh… supposed to— 
+
+**LISA**  
+(beaming)  
+Ahmed! Great to have you. Your first task: greet the kids, explain why respect matters, and keep them engaged.  Ready?
+
+*Ahmed nods, forcing a grin.  He steps into the center of the circle.*
+
+**AHMED**  
+(trying to sound confident)  
+So, uh… kids, you know respect is… important because…
+
+*The kids snicker, one little boy, JAMAL (7), nudges his friend.  The room is silent for a beat.*
+
+**JAMAL**  
+(whispering)  
+Is that… a “no talk” thing?  He’s saying “I’m not talking” to us?
+
+*Ahmed looks down at his hands, then back at the kids.  He clears his throat.*
+
+**AHMED**  
+Sorry, sorry.  Right! Respect means listening to each other, not ignoring people.  If someone says something, you listen.  And, uh… it’s also about…
+
+*He pulls out a brightly colored foam finger from his pocket, holding it up like a trophy.  The kids stare, confused.*
+
+**LISA**  
+(giving a gentle smile)  
+Ahmed, we’re talking about… well… respect for people, not… finger-picking.
+
+*Ahmed fumbles, drops the foam finger, which pops with a squeaky sound.  The kids erupt in giggles.  Lisa pulls him aside.*
+
+**LISA**  
+(whispering)  
+Okay, new rule: no foam fingers in the middle of a respect lesson.  Keep the finger in the “high five” zone.
+
+**AHMED**  
+(grinning)  
+Got it.  No fingers.  Respect the kids.  Right.
+
+*Ahmed turns back to the circle.  He pulls a handout from his bag—an oversized, crudely drawn “Respect” poster with cartoon children holding hands.  He flips it open like a comic book.*
+
+**AHMED**  
+Alright, look at this picture: a boy and a girl—uh… are you seeing that?  They’re holding hands.  That’s… like, showing you respect each other?
+
+*The kids nod, but a little girl, LUCY (6), looks puzzled.*
+
+**LUCY**  
+Why does the boy have a… banana on his head?  Isn’t that weird?
+
+**AHMED**  
+(embarrassed)  
+It’s a… banana hat.  Some kids wear bananas.  It’s, uh, fun.  And respect means you can wear a banana hat too.
+
+*Lisa sighs, then chuckles softly.*
+
+**LISA**  
+Ahmed, maybe we can start with the basics: “Treat others how you want to be treated.”  Also, no banana hats in the workshop.
+
+**AHMED**  
+(leaning in)  
+You want me to say that?  Okay.  “Treat other… uh… people like you like to be… liked.”  Okay, got it.
+
+*Ahmed starts a new line of speech.  He’s flustered, but the kids are amused.  Lisa watches, a smile creasing her face.*
+
+**LISA**  
+(to herself, amused)  
+Kids deserve respect.  And a bit of humor.  Maybe Ahmed can learn a thing or two.
+
+*CUT TO:*
+
+**EXT. COMMUNITY CENTER – MOMENTS LATER**
+
+*Ahmed steps out onto the sidewalk, clutching the poster like a shield.  He looks up at the sky, breathes in a big, theatrical inhale.*
+
+**AHMED**  
+(to himself)  
+One day I’ll be a master of respect.  Maybe I’ll even make them all smile… with banana hats.  (whispers)  Or maybe… just maybe.
+
+*The screen fades to black as the audience hears the sound of kids laughing in the distance.  The upbeat theme music kicks in.*
+
+**TITLE CARD**  
+*“Respectful Kids, Respectful Ahmed”*
+most recent message: 
+**INT. COMMUNITY CENTER – DAY**
+
+*A bright, airy room filled with CHILDREN (ages 5‑10) who are giggling over a giant foam “world map.”  A large banner reads: “Welcome to the Kids’ Respect Workshop!”  The room buzzes with the chatter of parents and volunteers.  The front desk is manned by an enthusiastic VOLUNTEER, LISA (30s), clipboard in hand.*
+
+**LISA**  
+(cheery)  
+Welcome, everyone! I'm Lisa, and this is our mission: every child deserves respect, and we’re going to learn how to give it.
+
+*Enter AHMED (late 20s, slightly disheveled, a faint scar on his left eyebrow).  He holds a coffee cup, nervously checks his phone.  He is a fresh hire, a “Kids’ Engagement Officer” – a role he barely understands.*
+
+**AHMED**  
+(awkwardly)  
+Uh… hi, Lisa? I’m Ahmed. I’m… uh… supposed to— 
+
+**LISA**  
+(beaming)  
+Ahmed! Great to have you. Your first task: greet the kids, explain why respect matters, and keep them engaged.  Ready?
+
+*Ahmed nods, forcing a grin.  He steps into the center of the circle.*
+
+**AHMED**  
+(trying to sound confident)  
+So, uh… kids, you know respect is… important because…
+
+*The kids snicker, one little boy, JAMAL (7), nudges his friend.  The room is silent for a beat.*
+
+**JAMAL**  
+(whispering)  
+Is that… a “no talk” thing?  He’s saying “I’m not talking” to us?
+
+*Ahmed looks down at his hands, then back at the kids.  He clears his throat.*
+
+**AHMED**  
+Sorry, sorry.  Right! Respect means listening to each other, not ignoring people.  If someone says something, you listen.  And, uh… it’s also about…
+
+*He pulls out a brightly colored foam finger from his pocket, holding it up like a trophy.  The kids stare, confused.*
+
+**LISA**  
+(giving a gentle smile)  
+Ahmed, we’re talking about… well… respect for people, not… finger-picking.
+
+*Ahmed fumbles, drops the foam finger, which pops with a squeaky sound.  The kids erupt in giggles.  Lisa pulls him aside.*
+
+**LISA**  
+(whispering)  
+Okay, new rule: no foam fingers in the middle of a respect lesson.  Keep the finger in the “high five” zone.
+
+**AHMED**  
+(grinning)  
+Got it.  No fingers.  Respect the kids.  Right.
+
+*Ahmed turns back to the circle.  He pulls a handout from his bag—an oversized, crudely drawn “Respect” poster with cartoon children holding hands.  He flips it open like a comic book.*
+
+**AHMED**  
+Alright, look at this picture: a boy and a girl—uh… are you seeing that?  They’re holding hands.  That’s… like, showing you respect each other?
+
+*The kids nod, but a little girl, LUCY (6), looks puzzled.*
+
+**LUCY**  
+Why does the boy have a… banana on his head?  Isn’t that weird?
+
+**AHMED**  
+(embarrassed)  
+It’s a… banana hat.  Some kids wear bananas.  It’s, uh, fun.  And respect means you can wear a banana hat too.
+
+*Lisa sighs, then chuckles softly.*
+
+**LISA**  
+Ahmed, maybe we can start with the basics: “Treat others how you want to be treated.”  Also, no banana hats in the workshop.
+
+**AHMED**  
+(leaning in)  
+You want me to say that?  Okay.  “Treat other… uh… people like you like to be… liked.”  Okay, got it.
+
+*Ahmed starts a new line of speech.  He’s flustered, but the kids are amused.  Lisa watches, a smile creasing her face.*
+
+**LISA**  
+(to herself, amused)  
+Kids deserve respect.  And a bit of humor.  Maybe Ahmed can learn a thing or two.
+
+*CUT TO:*
+
+**EXT. COMMUNITY CENTER – MOMENTS LATER**
+
+*Ahmed steps out onto the sidewalk, clutching the poster like a shield.  He looks up at the sky, breathes in a big, theatrical inhale.*
+
+**AHMED**  
+(to himself)  
+One day I’ll be a master of respect.  Maybe I’ll even make them all smile… with banana hats.  (whispers)  Or maybe… just maybe.
+
+*The screen fades to black as the audience hears the sound of kids laughing in the distance.  The upbeat theme music kicks in.*
+
+**TITLE CARD**  
+*“Respectful Kids, Respectful Ahmed”*
+style_ref_content_as_str: 
+        --- Style Reference 1 --
+        INT. BEDROOM
+Candles flicker on the dresser. A syringe on the bedside
+table, next to a sleeping figure curled up under the
+sheets.
+Both men starting to pull guns, but --
+DEX
+This one's personal.
+Dex's partner shrugs, holsters his weapon and steps back
+through the doorway, watching as --
+Dex spins and fires.Not the traditional booming gunfire, but rather the
+strange sound of electronic hissing as laser-fire rips the
+person to shreds.
+Dex finally stops firing and moves to the bed to verify
+the kill, only on close inspection he sees it's not a
+person.
+He's just blown the hell out of a MANNEQUIN.
+Dex smiles, blows out the candle and heads out of the
+room.
+CUT TO:
+
+        
+        
+        --- Style Reference 2 --
+        INT. APARTMENT - CONTINUOUS
+The men rush inside and straight into --
+
+        
+        
+        --- Style Reference 3 --
+        INT. HIGH RISE APARTMENT BUILDING - LOBBY - CONTINUOUS
+The doorman at his post flipping through a magazine, rap
+music pounding from his radio.
+Glass suddenly shatters as a gloved hand punches through
+the window, reaching in, unlocking the front door.
+Two men in dark suits blur inside. The doorman rushes to
+stop them, only --
+DEX, the taller of the two men, slams the barrel of his
+gun into the doorman's throat.
+DEX
+Life can be an illusion.
+(low and deadly)
+Sometimes we see what isn't there,
+and sometimes we don't see what is
+there.
+The doorman, wide eyed with terror, nods his consent.
+Dex removes the gun.
+Doorman plants himself in the chair, eyes glued to his
+magazine, making it clear he doesn't 'see' the men as they
+stroll into --
+
+        
+        
+        --- Style Reference 4 --
+        INT. ELEVATOR - CONTINUOUS
+Old fashioned steel box struggling its way up the shaft.
+Fluorescent yellow light stabbing through the grating.
+
+        
+        
+        --- Style Reference 5 --
+        EXT. MANHATTAN - MIDDLE OF THE NIGHT
+Freezing wind shutters through the shadows. Relentless
+darkness. No sign of life, save for --
+The SOUND of determined footsteps.
+        
+        
+
+calling the judge
+
+the judge's response:
+coherence=5 style_adherence=1 reasoning='The scene introduces a setting, characters, and a narrative hook—exactly what the user requested for an introductory scene. However, it has no overlap with the cinematic tone, visual language, or tension evident in the five style references, which are all dark, high‑energy, action‑driven moments. Because it satisfies the user intent but completely misses the stylistic cues, I’ll give it a mid‑range grade. 5/10 reflects full success on the intro goal but a total loss on style compliance.'
+
+
+
+
+response_of_judge: coherence=5 style_adherence=1 reasoning='The scene introduces a setting, characters, and a narrative hook—exactly what the user requested for an introductory scene. However, it has no overlap with the cinematic tone, visual language, or tension evident in the five style references, which are all dark, high‑energy, action‑driven moments. Because it satisfies the user intent but completely misses the stylistic cues, I’ll give it a mid‑range grade. 5/10 reflects full success on the intro goal but a total loss on style compliance.'
+
+
+
+
+Result:
+ **INT. COMMUNITY CENTER – DAY**
+
+*A bright, airy room filled with CHILDREN (ages 5‑10) who are giggling over a giant foam “world map.”  A large banner reads: “Welcome to the Kids’ Respect Workshop!”  The room buzzes with the chatter of parents and volunteers.  The front desk is manned by an enthusiastic VOLUNTEER, LISA (30s), clipboard in hand.*
+
+**LISA**  
+(cheery)  
+Welcome, everyone! I'm Lisa, and this is our mission: every child deserves respect, and we’re going to learn how to give it.
+
+*Enter AHMED (late 20s, slightly disheveled, a faint scar on his left eyebrow).  He holds a coffee cup, nervously checks his phone.  He is a fresh hire, a “Kids’ Engagement Officer” – a role he barely understands.*
+
+**AHMED**  
+(awkwardly)  
+Uh… hi, Lisa? I’m Ahmed. I’m… uh… supposed to— 
+
+**LISA**  
+(beaming)  
+Ahmed! Great to have you. Your first task: greet the kids, explain why respect matters, and keep them engaged.  Ready?
+
+*Ahmed nods, forcing a grin.  He steps into the center of the circle.*
+
+**AHMED**  
+(trying to sound confident)  
+So, uh… kids, you know respect is… important because…
+
+*The kids snicker, one little boy, JAMAL (7), nudges his friend.  The room is silent for a beat.*
+
+**JAMAL**  
+(whispering)  
+Is that… a “no talk” thing?  He’s saying “I’m not talking” to us?
+
+*Ahmed looks down at his hands, then back at the kids.  He clears his throat.*
+
+**AHMED**  
+Sorry, sorry.  Right! Respect means listening to each other, not ignoring people.  If someone says something, you listen.  And, uh… it’s also about…
+
+*He pulls out a brightly colored foam finger from his pocket, holding it up like a trophy.  The kids stare, confused.*
+
+**LISA**  
+(giving a gentle smile)  
+Ahmed, we’re talking about… well… respect for people, not… finger-picking.
+
+*Ahmed fumbles, drops the foam finger, which pops with a squeaky sound.  The kids erupt in giggles.  Lisa pulls him aside.*
+
+**LISA**  
+(whispering)  
+Okay, new rule: no foam fingers in the middle of a respect lesson.  Keep the finger in the “high five” zone.
+
+**AHMED**  
+(grinning)  
+Got it.  No fingers.  Respect the kids.  Right.
+
+*Ahmed turns back to the circle.  He pulls a handout from his bag—an oversized, crudely drawn “Respect” poster with cartoon children holding hands.  He flips it open like a comic book.*
+
+**AHMED**  
+Alright, look at this picture: a boy and a girl—uh… are you seeing that?  They’re holding hands.  That’s… like, showing you respect each other?
+
+*The kids nod, but a little girl, LUCY (6), looks puzzled.*
+
+**LUCY**  
+Why does the boy have a… banana on his head?  Isn’t that weird?
+
+**AHMED**  
+(embarrassed)  
+It’s a… banana hat.  Some kids wear bananas.  It’s, uh, fun.  And respect means you can wear a banana hat too.
+
+*Lisa sighs, then chuckles softly.*
+
+**LISA**  
+Ahmed, maybe we can start with the basics: “Treat others how you want to be treated.”  Also, no banana hats in the workshop.
+
+**AHMED**  
+(leaning in)  
+You want me to say that?  Okay.  “Treat other… uh… people like you like to be… liked.”  Okay, got it.
+
+*Ahmed starts a new line of speech.  He’s flustered, but the kids are amused.  Lisa watches, a smile creasing her face.*
+
+**LISA**  
+(to herself, amused)  
+Kids deserve respect.  And a bit of humor.  Maybe Ahmed can learn a thing or two.
+
+*CUT TO:*
+
+**EXT. COMMUNITY CENTER – MOMENTS LATER**
+
+*Ahmed steps out onto the sidewalk, clutching the poster like a shield.  He looks up at the sky, breathes in a big, theatrical inhale.*
+
+**AHMED**  
+(to himself)  
+One day I’ll be a master of respect.  Maybe I’ll even make them all smile… with banana hats.  (whispers)  Or maybe… just maybe.
+
+*The screen fades to black as the audience hears the sound of kids laughing in the distance.  The upbeat theme music kicks in.*
+
+**TITLE CARD**  
+*“Respectful Kids, Respectful Ahmed”*
+(.scenarist_venv) (base) keremdede@Keremin-Bilgisayar scenarist % 
