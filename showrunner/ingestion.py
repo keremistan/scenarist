@@ -5,8 +5,9 @@ from langchain_core.documents import Document
 from typing import Optional
 from langchain_ollama.embeddings import OllamaEmbeddings
 
-HOW_MANY_SCENES: Optional[int] = 5
-screenplay_address = 'metropolis.pdf'
+HOW_MANY_SCENES: Optional[int] = None
+SCENES_FROM_INDEX: Optional[int] = 5
+screenplay_address = 'showrunner/screenplays/metropolis.pdf'
 
 screenplay_loader = ScreenplayLoader(screenplay_address)
 
@@ -14,7 +15,11 @@ scene_docs: list[Document] = []
 scene_analysises: list[SceneAnalysis] = []
 
 for i, current_scene in enumerate(screenplay_loader.lazy_load()):
+    if i < SCENES_FROM_INDEX:
+        continue
+    
     scene_docs.append(current_scene)
+    
     if HOW_MANY_SCENES and i >= HOW_MANY_SCENES:
         break
 

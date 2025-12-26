@@ -60,7 +60,7 @@ def analyze_scene(scene: str) -> Optional[SceneAnalysis]:
         ]
     )
 
-    pprint(analysis_response)
+    pprint("{}\n".format(analysis_response))
     
     try:
         scene_analysis = SceneAnalysis.model_validate(analysis_response)

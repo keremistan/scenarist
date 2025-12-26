@@ -5,3 +5,7 @@ scenarist.ai*
 */__pycache__
 
 chroma/
+
+.DS_Store
+.vscode/
+showrunner/screenplays/*!.pdf
