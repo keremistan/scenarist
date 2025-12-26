@@ -6,7 +6,7 @@ class ScoreCard(BaseModel):
     style_adherence: int = Field(description="does the text adhere the style reference", ge=1, le=5)
     reasoning: str = Field(description="a short explanation of why you graded as you did")
 
-def judge(generated_scene: str,style_reference: str, user_intent: str):
+def evaluate(generated_scene: str,style_reference: str, user_intent: str):
     
     the_judge = ChatOllama(model='gpt-oss:20b', reasoning='high'
                            ).with_structured_output(ScoreCard)

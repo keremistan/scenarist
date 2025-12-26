@@ -10,7 +10,7 @@ import os
 from dotenv import load_dotenv
 import regex as re
 
-from judgement import judge
+from eval import evaluate
 
 has_anything_loaded = load_dotenv()
 
@@ -64,6 +64,11 @@ def write_scene(command: str, is_openai: bool = False, do_evaluate: bool = False
         You can use the reference scenes.
         Stick to this guideline when writing: {}
         """.format(my_series_reference)
+        # BEFORE CHANGING THE PROMPT, i want to see how the increase in reference scenes affects the model output
+        # You are an expert screenwriter.
+        # You can use the reference scenes.
+        # Stick to this guideline when writing: {}
+        # """.format(my_series_reference)
         )
     
     response = writer.invoke({
@@ -98,7 +103,7 @@ def write_scene(command: str, is_openai: bool = False, do_evaluate: bool = False
             print("style_ref_content_as_str: {}\n".format(style_ref_content_as_str))
         
             print('calling the judge\n')
-            response_of_judge = judge(most_recent_message, style_ref_content_as_str, command)
+            response_of_judge = evaluate(most_recent_message, style_ref_content_as_str, command)
             
             print("\nresponse_of_judge:\n {}\n\n".format(response_of_judge))
         

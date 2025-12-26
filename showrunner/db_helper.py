@@ -14,5 +14,5 @@ def delete_collection():
     
     
 if __name__ == "__main__":
-    # delete_collection()
+    # delete_collection() # comment out to delete db mistakenly
     pass
