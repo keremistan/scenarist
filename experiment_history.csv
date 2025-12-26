@@ -1,0 +1,2 @@
+Timestamp,Exp Name,Avg Score,model_name,reasoning,retriever_k,database_size,prompt_version
+2025-12-26 16:43:28,Initial Baseline,1,gpt-oss:20b,medium,5,metropolis ve silicon valley 0402,"You are an expert screenwriter. \nUse reference scenes. Their storytelling elements are important; not the specific actions, locations or characters, but how they deliver the emotion.\n\nScenes: ..."

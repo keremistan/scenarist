@@ -1,3 +1,4 @@
+from typing import Any, Union
 from langchain.agents import create_agent
 from langchain.messages import ToolMessage
 from langchain.chat_models import init_chat_model
@@ -38,7 +39,7 @@ def get_reference_scenes(scene_retrieval_query: str) -> str:
     scenes_as_single_text = ""
     for i, retrieved_scene in enumerate(retrieved_scenes):
         scenes_as_single_text += """
-        --- Style Reference {} --
+        --- Reference Scene {} --
         {}
         
         """.format(i+1, retrieved_scene.page_content)
@@ -47,7 +48,7 @@ def get_reference_scenes(scene_retrieval_query: str) -> str:
 
     return scenes_as_single_text
 
-def write_scene(command: str, is_openai: bool = False, do_evaluate: bool = False) -> str:
+def write_scene(command: str, is_openai: bool = False, do_evaluate: bool = False, return_model_response: bool = False) -> Union[str, tuple[str, Any]]:
     if is_openai:
         chat_model = init_chat_model('gpt-5.2', model_provider='openai')
     else:
@@ -61,8 +62,9 @@ def write_scene(command: str, is_openai: bool = False, do_evaluate: bool = False
         tools=[get_reference_scenes],
         system_prompt="""
         You are an expert screenwriter.
-        You can use the reference scenes.
-        Stick to this guideline when writing: {}
+        Use reference scenes. Their storytelling elements are important; not the specific actions, locations or characters, but how they deliver the emotion. 
+        
+        Scenes: {}
         """.format(my_series_reference)
         # BEFORE CHANGING THE PROMPT, i want to see how the increase in reference scenes affects the model output
         # You are an expert screenwriter.
@@ -86,34 +88,11 @@ def write_scene(command: str, is_openai: bool = False, do_evaluate: bool = False
     
     print("most recent message: \n{}".format(most_recent_message))
     
-    if do_evaluate:
-        try:
-            # get the tool message where 'style reference' is embedded
-            style_ref_message = [message for message in response['messages'] 
-                                if isinstance(message, ToolMessage) 
-                                and 
-                                len(re.findall(
-                                    '--- Style Reference ', message.content.__str__()
-                                    )) > 0 ].pop()
-
-            # extract the content of that style message
-            style_ref_content = style_ref_message.content
-            # convert it to string explicitly only if it's not a string already
-            style_ref_content_as_str = style_ref_content if isinstance(style_ref_content, str) else style_ref_content.__str__()
-            print("style_ref_content_as_str: {}\n".format(style_ref_content_as_str))
-        
-            print('calling the judge\n')
-            response_of_judge = evaluate(most_recent_message, style_ref_content_as_str, command)
-            
-            print("\nresponse_of_judge:\n {}\n\n".format(response_of_judge))
-        
-        except IndexError as ie:
-            print("no tool is called. Therefore, no style is retrieved or used.")        
-        except Exception as e:
-            print("a problem happened when searching for a tool message with '--- Style Reference'.\n{}".format(e))
-    
-    return most_recent_message
+    if return_model_response:
+        return (most_recent_message, response)
+    else:
+        return most_recent_message
     
     
-scene = write_scene("write an introductory scene", do_evaluate=True)
-print("\n\nResult:\n {}".format(scene))
+# scene = write_scene("write an introductory scene", do_evaluate=True)
+# print("\n\nResult:\n {}".format(scene))

@@ -10,6 +10,6 @@ with open('./sample outputs/openai gpt-5.2 - second time') as fp:
     file_content = fp.read()
     print("file_content: {}".format(file_content))
     
-    findings = re.findall('--- Style Reference ', file_content)
+    findings = re.findall('--- Reference Scene ', file_content)
     
     print("findings: {}".format(findings))
