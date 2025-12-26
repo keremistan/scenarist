@@ -1,0 +1,32 @@
+{
+  "name": "string",
+  "age": "number",
+  "personality": "string",
+  "motivation": "string",
+  "pastChildhood": "string",
+  "pastTeenage": "string | undefined",
+  "pastYoungUpUntilNow": "string | undefined",
+  "relationTo": {
+    "self": "string",
+    "family": "string",
+    "relatives": "string",
+    "friends": "string",
+    "coworkers": "string",
+    "strangers": "string",
+    "authorityFigures": "string",
+    "locations": "string"
+  },
+  "currentStateOf": {
+    "physical": "string",
+    "mental": "string",
+    "spiritual": "string"
+  },
+  "strength": "string",
+  "weakness": "string",
+  "dailyRoutine": "string",
+  "phobias": "string",
+  "illness": {
+    "physical": "string",
+    "mental": "string"
+  }
+}
