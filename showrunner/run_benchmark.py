@@ -1,5 +1,3 @@
-# can be used to save the experiments with their params noted down
-
 import csv
 import time
 from writer import write_scene
@@ -13,7 +11,7 @@ PARAMS = {
     "reasoning": "medium",
     "retriever_k": 5,
     "database_size": "metropolis ve silicon valley 0402",  # Just a label for your own reference
-    "prompt_version": """You are an expert screenwriter.\nUse reference scenes. Their storytelling elements are important; not the specific actions, locations or characters, but how they deliver the emotion. \n\nScenes: ..."""
+    "prompt_version": "You are an expert screenwriter.\nUse reference scenes. Their storytelling elements are important; not the specific actions, locations or characters, but how they deliver the emotion. \n\nScenes: ..." # this should be a single line
 }
 
 GOLDEN_PROMPTS = {

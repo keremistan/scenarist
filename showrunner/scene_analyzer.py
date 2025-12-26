@@ -19,13 +19,13 @@ from pprint import pprint
 # -- what can happen as subtext? following a dream, defending ego, proving someone wrong, etc.
 
 class SceneAnalysis(BaseModel):
-    happening: str = Field(
+    happening: Optional[str] = Field(
         description="A 1-sentence summary of the PHYSICAL ACTION. Do not quote the Scene Header (INT/EXT). Example: 'Joker dances on the stairs while smoking.'"
     )
-    subtext_level_happening: str = Field(
+    subtext_level_happening: Optional[str] = Field(
         description="The psychological conflict or hidden meaning. Be analytical and dry, not poetic. Example: 'Character A seeks validation, but Character B ignores him.'"
     )
-    reader_reaction: str = Field(
+    reader_reaction: Optional[str] = Field(
         description="The emotional keywords. Example: 'Anxiety, Disgust, Tension'"
     )    
 
