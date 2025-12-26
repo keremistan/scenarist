@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ValidationError
 from langchain_ollama import ChatOllama
 from typing import Optional
 from pprint import pprint
@@ -19,13 +19,13 @@ from pprint import pprint
 # -- what can happen as subtext? following a dream, defending ego, proving someone wrong, etc.
 
 class SceneAnalysis(BaseModel):
-    happening: Optional[str] = Field(
+    happening: str = Field(
         description="A 1-sentence summary of the PHYSICAL ACTION. Do not quote the Scene Header (INT/EXT). Example: 'Joker dances on the stairs while smoking.'"
     )
-    subtext_level_happening: Optional[str] = Field(
+    subtext_level_happening: str = Field(
         description="The psychological conflict or hidden meaning. Be analytical and dry, not poetic. Example: 'Character A seeks validation, but Character B ignores him.'"
     )
-    reader_reaction: Optional[str] = Field(
+    reader_reaction: str = Field(
         description="The emotional keywords. Example: 'Anxiety, Disgust, Tension'"
     )    
 
@@ -34,7 +34,7 @@ analyzer_model = ChatOllama(
     model="gpt-oss:20b", 
     temperature=0,
     reasoning='low' # 'high' if production ;)
-    ).with_structured_output(SceneAnalysis)
+    ).with_structured_output(SceneAnalysis).with_retry(retry_if_exception_type=(ValidationError,))
 
 def analyze_scene(scene: str) -> Optional[SceneAnalysis]:
 
@@ -47,9 +47,11 @@ def analyze_scene(scene: str) -> Optional[SceneAnalysis]:
             "Be concise and factual. "
             "Leave out the names of characters"
             "Ignore the Scene Header (INT./EXT.) in your summary."
+            "Use default values ONLY IN EMERGENCY cases"
         )
     }
 
+    print("\nscene to be analyzed:\n{}\n".format(scene))
     analysis_response = analyzer_model.invoke(
         [
             system_prompt,
@@ -59,8 +61,7 @@ def analyze_scene(scene: str) -> Optional[SceneAnalysis]:
             }
         ]
     )
-
-    pprint("{}\n".format(analysis_response))
+    print("analysis:\n{}\n\n".format(analysis_response))
     
     try:
         scene_analysis = SceneAnalysis.model_validate(analysis_response)
