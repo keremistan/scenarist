@@ -7,9 +7,17 @@ import regex as re
 class ScoreCard(BaseModel):
     coherence: int = Field(description="does the text make sense", ge=1, le=5)
     style_adherence: int = Field(description="does the text adhere the reference scene. The style adherence refers to the content and not the formatting of reference text", ge=1, le=5)
-    reasoning: str = Field(description="explanation of why you graded as you did")
+    critique: str = Field(description="The final evaluation text. Explain WHY you gave these scores based on the comparison.")
 
 def extract_tool_and_latest_message_from_model_response(model_response: Any) ->  Optional[tuple[str, str]]:
+    """
+    Docstring for extract_tool_and_latest_message_from_model_response
+    
+    :param model_response: whatever the writer model responded to its invocation
+    :type model_response: Any
+    :return: generated_scene and reference_scenes as a tuple
+    :rtype: tuple[str, str] | None
+    """
     try:
         generated_scene = model_response['messages'][-1].content
         

@@ -11,7 +11,7 @@ import os
 from dotenv import load_dotenv
 import regex as re
 
-from eval import evaluate
+from eval import evaluate, extract_tool_and_latest_message_from_model_response
 
 has_anything_loaded = load_dotenv()
 
@@ -25,14 +25,18 @@ retriever = SceneRetriever()
 @tool
 def get_reference_scenes(scene_retrieval_query: str) -> str:
     """
-    This function searches for relevant scenes in the database and retrieves them.
+    Call this tool to find screenplay examples.
+    
+    CRITICAL USAGE INSTRUCTION:
+    Do not just pass the user's topic. You must convert the topic into DRAMATIC KEYWORDS.
+    
+    Example:
+    - User: "A sad breakup" -> Query: "melancholy slow pacing silence heartbreak"
+    - User: "Funny argument" -> Query: "sitcom banter snappy fast-paced comedy"
     
     Args:
-        scene_retrieval_query: specifies what kind of scenes should be retrieved
-        
-    Return:
-        All the relevant scenes that are concatenated as a single text
-    """
+        scene_retrieval_query: A string of dramatic keywords (mood, pacing, subtext).
+    """    
     
     retrieved_scenes = retriever.query(scene_retrieval_query)
 
@@ -61,26 +65,41 @@ def write_scene(command: str, is_openai: bool = False, do_evaluate: bool = False
         checkpointer=InMemorySaver(),
         tools=[get_reference_scenes],
         system_prompt="""
-        You are an expert screenwriter.
-        Use reference scenes. Their storytelling elements are important; not the specific actions, locations or characters, but how they deliver the emotion. 
-        
-        Scenes: {}
+            You are a Ghostwriter. You must MIMIC the style of the reference scenes that you will fetch.
+
+            CRITICAL PROCESS:
+            Fetch the reference scenes
+            You are FORBIDDEN from writing the scene immediately.
+            You must first output a "LOGICAL PLAN" and then a "STYLE PLAN" where you analyze the reference scenes.
+            You have to write the scene while following the both plans.
+
+            FORMAT:
+            --- LOGICAL PLAN ---
+            1. Story arc: what the actual story is
+            2. Characters: who the characters are? what are their relations to each other? How are they moving the story forward?
+            3. Location: where the story takes place? why is it actually this place? how is this place relevant for the story?
+            --- STYLE PLAN ---
+            1. Pacing Analysis: (e.g. "Fast, short sentences" or "Slow, monologues")
+            2. Subtext Strategy: (How the characters hide their true feelings)
+            3. Vocabulary Rules: (Specific words or grammar to use/avoid)
+            ------------------
+            --- SCENE START ---
+            [Write the scene here, strictly following the plans above]
+
+
+            STORY GUIDELINE:
+            {}
         """.format(my_series_reference)
-        # BEFORE CHANGING THE PROMPT, i want to see how the increase in reference scenes affects the model output
-        # You are an expert screenwriter.
-        # You can use the reference scenes.
-        # Stick to this guideline when writing: {}
-        # """.format(my_series_reference)
         )
     
     response = writer.invoke({
         'messages': {'role': 'user', 'content': command}},  # type: ignore
                                {'configurable': {'thread_id': 7}})
-    print(response, "\n\n")
+    print("writer's response:\n{}\n\n".format(response))
 
     for message in response.get('messages', []):
         try:
-            print(message.content) if message.content != "" else message.additional_kwargs["reasoning_content"]
+            print(message.content) if message.content != "" else print(message.additional_kwargs["reasoning_content"])
         except Exception as e:
             print("problem happened when printing. This: {}\n".format(e))
             
@@ -88,6 +107,47 @@ def write_scene(command: str, is_openai: bool = False, do_evaluate: bool = False
     
     print("most recent message: \n{}".format(most_recent_message))
     
+    
+    model_output = extract_tool_and_latest_message_from_model_response(response)
+    if model_output:
+        draft_text, retrieved_references = model_output
+
+        editor_prompt = f"""
+        You are a ruthless Script Editor.
+        
+        ORIGINAL REFERENCES:
+        {retrieved_references}
+        
+        DRAFT SCENE:
+        {draft_text}
+        
+        TASK:
+        Compare the DRAFT to the REFERENCES.
+        1. Did the draft actually use the story telling elements to deliver the targeted feelings?
+        2. Did it use the subtext approach?
+        
+        If the draft is perfect, output: "PERFECT".
+        If not, output a REVISED VERSION of the scene that fixes the style issues.
+        """
+        print("calling the editor")
+        editor = ChatOllama(model='gpt-oss:20b', reasoning='medium')
+        editor_response = editor.invoke([{'role': 'system', 'content': editor_prompt}])
+        
+        print("editor_response: {}\n".format(editor_response))
+        
+        if editor_response.content != "PERFECT":
+            print("it is not perfect")
+            if isinstance(editor_response.content, str):
+                response_message = editor_response.content
+            else:
+                response_message = editor_response.content.__str__()
+                
+            print("revised draft: {}\n".format(response_message))
+            
+            # while the generated scene is from the editor, the response is still from the previous writer
+            return (response_message, response)
+    
+        
     if return_model_response:
         return (most_recent_message, response)
     else:

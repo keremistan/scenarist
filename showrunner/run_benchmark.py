@@ -5,13 +5,13 @@ from eval import evaluate
 from statistics import mean
 
 # 1. Define the parameters for THIS run (Change these manually before running)
-EXPERIMENT_NAME = "Initial Baseline"
+EXPERIMENT_NAME = "Used openai gpt 5.2 for the writer" 
 PARAMS = {
-    "model_name": "gpt-oss:20b",
-    "reasoning": "medium",
+    "model_name": "openai gpt 5.2",
+    "reasoning": "n/a",
     "retriever_k": 5,
-    "database_size": "metropolis ve silicon valley 0402",  # Just a label for your own reference
-    "prompt_version": "You are an expert screenwriter.\nUse reference scenes. Their storytelling elements are important; not the specific actions, locations or characters, but how they deliver the emotion. \n\nScenes: ..." # this should be a single line
+    "database_size": "491 entries from multiple genre",  # Just a label for your own reference
+    "prompt_version": "You are a Ghostwriter. You must MIMIC the style of the reference scenes that you will fetch.\\n\\nCRITICAL PROCESS:\\nFetch the reference scenes\\nYou are FORBIDDEN from writing the scene immediately.\\nYou must first output a \"LOGICAL PLAN\" and then a \"STYLE PLAN\" where you analyze the reference scenes.\\nYou have to write the scene while following the both plans.\\n\\nFORMAT:            --- LOGICAL PLAN ---\\n1. Story arc: what the actual story is\\n2. Characters: who the characters are? what are their relations to each other? How are they moving the story forward?\\n3. Location: where the story takes place? why is it actually this place? how is this place relevant for the story?\\n--- STYLE PLAN ---\\n1. Pacing Analysis: (e.g. \"Fast, short sentences\" or \"Slow, monologues\")\\n2. Subtext Strategy: (How the characters hide their true feelings)\\n3. Vocabulary Rules: (Specific words or grammar to use/avoid)\\n------------------\\n--- SCENE START ---\\n[Write the scene here, strictly following the plans above]\\n\\nSTORY GUIDELINE:..." # this should be a single line
 }
 
 GOLDEN_PROMPTS = {
@@ -30,7 +30,7 @@ def run_suite():
     
     for prompt in GOLDEN_PROMPTS:
         # Generate & Judge
-        draft, model_response = write_scene(prompt, return_model_response=True) # Ensure write_scene uses your global PARAMS if possible
+        draft, model_response = write_scene(prompt, return_model_response=True, is_openai=True) # Ensure write_scene uses your global PARAMS if possible
         score_card = evaluate(model_response, prompt)
         if score_card:
             scores.append(score_card.style_adherence)
@@ -38,9 +38,11 @@ def run_suite():
             print("an error happened with getting the score card. It is null.")
 
     avg_score = mean(scores)
+    print("avg_score: {}\n".format(avg_score))
     
     # 2. LOGGING: Save to CSV
     log_entry = [timestamp, EXPERIMENT_NAME, avg_score] + list(PARAMS.values())
+    print("log_entry: {}\n".format(log_entry))
     
     # Write header if file doesn't exist
     file_exists = False
