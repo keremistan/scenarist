@@ -8,7 +8,7 @@ class SeriesReference(BaseModel):
 
 
 
-my_series_reference = SeriesReference(
+story_guideline = SeriesReference(
     theme="kids must be taught that they deserve respect so that they can be mature individuals later on in life",
     genre="sitcom",
     characters=["Ahmet faces challenges when communicating with others, including his friends, colleagues and lovers. He is not taught be an adult and cannot handle the adult life."],

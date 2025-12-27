@@ -20,3 +20,16 @@ def setup_logging(script_name="script"):
     
     # Return a logger object
     return logging.getLogger(script_name)
+
+def handle_uncaught_exception(exc_type, exc_value, exc_traceback):
+    # Ignore KeyboardInterrupt (Ctrl+C) so we can exit normally
+    if issubclass(exc_type, KeyboardInterrupt):
+        sys.__excepthook__(exc_type, exc_value, exc_traceback)
+        return
+
+    # Create a special logger just for crashes
+    crit_log = setup_logging("CRITICAL")
+    crit_log.critical("Uncaught Exception", exc_info=(exc_type, exc_value, exc_traceback))
+
+# Register the crash handler
+sys.excepthook = handle_uncaught_exception

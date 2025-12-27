@@ -41,9 +41,9 @@ def extract_tool_and_latest_message_from_model_response(model_response: Any) -> 
         return generated_scene, reference_scenes
 
     except IndexError as ie:
-        logger.info("no tool is called. Therefore, no style is retrieved or used.")        
+        logger.error("no tool is called. Therefore, no style is retrieved or used.")        
     except Exception as e:
-        logger.info("a problem happened when searching for a tool message with '--- Reference Scene'.\n{}".format(e))
+        logger.error("a problem happened when searching for a tool message with '--- Reference Scene'.\n{}".format(e))
 
         
 def evaluate(model_response: Any, user_intent: str, is_openai: bool = False) -> Optional[ScoreCard]:
