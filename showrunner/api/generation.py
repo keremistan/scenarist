@@ -4,10 +4,10 @@ from langchain.chat_models import init_chat_model
 from langchain.agents import create_agent
 from langchain.tools import tool
 from langchain_ollama import ChatOllama
-from showrunner.api.models import SceneRequest, SceneResponse
-from logging_template import setup_logging
+from models import SceneRequest, SceneResponse
+from showrunner.logging_template import setup_logging
 from showrunner.retrieve import SceneRetriever
-from series_reference import story_guideline
+from showrunner.story_guidelines import story_guideline
 
 logger = setup_logging("generation")
 
@@ -52,7 +52,7 @@ def extract_generated_scene(writing_response: Any) -> str:
         try:
             logger.info(message.content) if message.content != "" else logger.info(message.additional_kwargs["reasoning_content"])
         except Exception as e:
-            logger.error("problem happened when logging. This: {}\n".format(e))
+            logger.error("problem happened when logging. This:\n {}\n".format(e))
             
     most_recent_message = writing_response['messages'][-1].content
     
@@ -78,7 +78,8 @@ def write_scene(
     user_prompt: str,
     writer_model: str = 'gpt-oss',
     temperature_of_writer: float = 0.7,
-    ) -> Union[dict[str, Any], Any]:
+    # ) -> Union[dict[str, Any], Any]:
+    ) -> str:
     
     logger.info("starting with writing the scene")
     
@@ -88,45 +89,103 @@ def write_scene(
         chat_model = ChatOllama(model='gpt-oss:20b', reasoning='medium')
 
     logger.info("chat model initialized.")
-
-    writer = create_agent(
-        chat_model,
-        # checkpointer=InMemorySaver(), # I'M REMOVING THIS. THIS CHANGE HASN'T BEEN BENCHMARKED
-        tools=[get_reference_scenes],
-        system_prompt="""
-            You are a Ghostwriter. You must MIMIC the style of the reference scenes that you will fetch.
-
-            CRITICAL PROCESS:
-            Fetch the reference scenes
-            You are FORBIDDEN from writing the scene immediately.
-            You must first output a "LOGICAL PLAN" and then a "STYLE PLAN" where you analyze the reference scenes.
-            You have to write the scene while following the both plans.
-
-            FORMAT:
-            --- LOGICAL PLAN ---
-            1. Story arc: what the actual story is
-            2. Characters: who the characters are? what are their relations to each other? How are they moving the story forward?
-            3. Location: where the story takes place? why is it actually this place? how is this place relevant for the story?
-            --- STYLE PLAN ---
-            1. Pacing Analysis: (e.g. "Fast, short sentences" or "Slow, monologues")
-            2. Subtext Strategy: (How the characters hide their true feelings)
-            3. Vocabulary Rules: (Specific words or grammar to use/avoid)
-            ------------------
-            --- SCENE START ---
-            [Write the scene here, strictly following the plans above]
-
-
-            STORY GUIDELINE:
-            {}
-        """.format(story_guideline)
-        )
     
-    response = writer.invoke({
-        'messages': {'role': 'user', 'content': user_prompt}})  # type: ignore
-    # Removed the configuration/thread-id; not benchmarked yet.
+    # get keywords that represent what emotion user wants to deliver in his story
+    scene_retrieval_response = chat_model.invoke([
+        {'role': 'system', 'content': """
+         Convert the topic into DRAMATIC KEYWORDS.
     
-    logger.info("writer's response:\n{}\n\n".format(response))
+            Example:
+            - User: "A sad breakup" -> Query: "melancholy slow pacing silence heartbreak"
+            - User: "Funny argument" -> Query: "sitcom banter snappy fast-paced comedy"
+         """},
+        {'role': 'user', 'content': user_prompt}
+    ])
+    
+    # if already string, use it. Else, convert it to string.
+    scene_retrieval_query = scene_retrieval_response.content if isinstance(scene_retrieval_response.content, str) else scene_retrieval_response.content.__str__()
+    logger.info("scene_retrieval_query:\n {}".format(scene_retrieval_query))
+    
+    # get the scenes
+    reference_scenes = get_reference_scenes(scene_retrieval_query)
+    logger.info("reference_scenes:\n {}".format(reference_scenes))
+    
+    
+    logical_plan_response = chat_model.invoke([
+        {'role': 'system', 'content': """
+         You are an expert in storytelling and screenwriting.
+         Analyze the REFERENCE SCENES and output a "LOGICAL PLAN" that make the story coherent and logical while adhering the STORY GUIDELINES
+         You will use this PLAN later to write the story.
+         Do NOT use specifics from REFERENCE SCENES such as character names, locations, objects, etc.
 
+         FORMAT:
+         --- LOGICAL PLAN ---
+         1. Story arc: what the actual story is
+         2. Characters: who the characters are? what are their relations to each other? How are they moving the story forward?
+         3. Location: where the story takes place? why is it actually this place? how is this place relevant for the story?
+    
+    
+         --- STORY GUIDELINES ---
+         {}
+         --- REFERENCE SCENES ---
+         {}
+         """.format(story_guideline, reference_scenes)},
+        {'role': 'user', 'content': user_prompt}
+    ])
+
+    # if already string, use it. Else, convert it to string.
+    logical_plan = logical_plan_response.content if isinstance(logical_plan_response.content, str) else logical_plan_response.content.__str__()
+    logger.info("logical_plan:\n {}".format(logical_plan))
+    
+
+
+    style_plan_response = chat_model.invoke([
+        {'role': 'system', 'content': """
+         You are an expert in storytelling and screenwriting.
+         Analyze the REFERENCE SCENES and output a "STYLE PLAN" that make the story similar to the REFERENCE SCENES while adhering the STORY GUIDELINES and LOGICAL PLAN
+         You will use this PLAN later to write the story.
+
+         FORMAT:
+         --- STYLE PLAN ---
+         1. Pacing Analysis: (e.g. "Fast, short sentences" or "Slow, monologues")
+         2. Subtext Strategy: (How the characters hide their true feelings)
+         3. Vocabulary Rules: (Specific words or grammar to use/avoid)
+    
+    
+         --- STORY GUIDELINES ---
+         {}
+         --- REFERENCE SCENES ---
+         {}
+         --- LOGICAL PLAN ---
+         {}         
+         """.format(story_guideline, reference_scenes, logical_plan)},
+        {'role': 'user', 'content': user_prompt}
+    ])
+
+    # if already string, use it. Else, convert it to string.
+    style_plan = style_plan_response.content if isinstance(style_plan_response.content, str) else style_plan_response.content.__str__()
+    logger.info("style_plan:\n {}".format(style_plan))
+
+    the_new_scene_response = chat_model.invoke([
+        {'role': 'system', 'content': """
+         You are an expert in storytelling and screenwriting.
+         WRITE the scene while following the LOGICAL PLAN and STYLE PLAN and STORY GUIDELINES
+
+
+         STORY GUIDELINES:
+         {}
+         LOGICAL PLAN:    
+         {}
+         STYLE PLAN:    
+         {}
+         """.format(story_guideline, logical_plan, style_plan)},
+        {'role': 'user', 'content': user_prompt}
+    ])
+
+    # if already string, use it. Else, convert it to string.
+    the_new_scene = the_new_scene_response.content if isinstance(the_new_scene_response.content, str) else the_new_scene_response.content.__str__()
+    logger.info("the_new_scene:\n {}".format(the_new_scene))
+    
 
     
     # model_output = extract_tool_and_latest_message_from_model_response(response)
@@ -154,7 +213,7 @@ def write_scene(
     #     editor = ChatOllama(model='gpt-oss:20b', reasoning='medium')
     #     editor_response = editor.invoke([{'role': 'system', 'content': editor_prompt}])
         
-    #     logger.info("editor_response: {}\n".format(editor_response))
+    #     logger.info("editor_response:\n {}\n".format(editor_response))
         
     #     if editor_response.content != "PERFECT":
     #         logger.info("it is not perfect")
@@ -163,16 +222,15 @@ def write_scene(
     #         else:
     #             response_message = editor_response.content.__str__()
                 
-    #         logger.info("revised draft: {}\n".format(response_message))
+    #         logger.info("revised draft:\n {}\n".format(response_message))
             
     #         # while the generated scene is from the editor, the response is still from the previous writer
     #         return (response_message, response)
     
         
-    return response
+    return the_new_scene
 
 
-@tool
 def get_reference_scenes(scene_retrieval_query: str) -> str:
     """
     Call this tool to find screenplay examples.
@@ -200,6 +258,10 @@ def get_reference_scenes(scene_retrieval_query: str) -> str:
         
         """.format(i+1, retrieved_scene.page_content)
 
-    # logger.info("This concatenated scenes string is returned: {}".format(scenes_as_single_text))
+    # logger.info("This concatenated scenes string is returned:\n {}".format(scenes_as_single_text))
 
     return scenes_as_single_text
+
+if __name__ == '__main__':
+    logger.info("added logical-conclusion field to the story guideline. inserted logical plan to the style creation.")
+    write_scene("An unexpected turn of events happen and raises the stakes")

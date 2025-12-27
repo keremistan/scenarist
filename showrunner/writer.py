@@ -6,7 +6,7 @@ from langgraph.checkpoint.memory import InMemorySaver
 from langchain.tools import tool
 from langchain_ollama import ChatOllama
 from retrieve import SceneRetriever
-from series_reference import story_guideline
+from showrunner.story_guidelines import story_guideline
 import os
 from dotenv import load_dotenv
 from logging_template import setup_logging
