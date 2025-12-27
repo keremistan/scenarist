@@ -9,9 +9,9 @@ from retrieve import SceneRetriever
 from series_reference import my_series_reference
 import os
 from dotenv import load_dotenv
-import regex as re
+from logging_template import setup_logging
 
-from eval import evaluate, extract_tool_and_latest_message_from_model_response
+logger = setup_logging("writer")
 
 has_anything_loaded = load_dotenv()
 
@@ -48,7 +48,7 @@ def get_reference_scenes(scene_retrieval_query: str) -> str:
         
         """.format(i+1, retrieved_scene.page_content)
 
-    # print("This concatenated scenes string is returned: {}".format(scenes_as_single_text))
+    # logger.info("This concatenated scenes string is returned: {}".format(scenes_as_single_text))
 
     return scenes_as_single_text
 
@@ -58,7 +58,7 @@ def write_scene(command: str, is_openai: bool = False, do_evaluate: bool = False
     else:
         chat_model = ChatOllama(model='gpt-oss:20b', reasoning='medium')
 
-    print("chat model initialized.")
+    logger.info("chat model initialized.")
 
     writer = create_agent(
         chat_model,
@@ -95,57 +95,57 @@ def write_scene(command: str, is_openai: bool = False, do_evaluate: bool = False
     response = writer.invoke({
         'messages': {'role': 'user', 'content': command}},  # type: ignore
                                {'configurable': {'thread_id': 7}})
-    print("writer's response:\n{}\n\n".format(response))
+    logger.info("writer's response:\n{}\n\n".format(response))
 
     for message in response.get('messages', []):
         try:
-            print(message.content) if message.content != "" else print(message.additional_kwargs["reasoning_content"])
+            logger.info(message.content) if message.content != "" else logger.info(message.additional_kwargs["reasoning_content"])
         except Exception as e:
-            print("problem happened when printing. This: {}\n".format(e))
+            logger.info("problem happened when logger.ing. This: {}\n".format(e))
             
     most_recent_message = response['messages'][-1].content
     
-    print("most recent message: \n{}".format(most_recent_message))
+    logger.info("most recent message: \n{}".format(most_recent_message))
     
     
-    model_output = extract_tool_and_latest_message_from_model_response(response)
-    if model_output:
-        draft_text, retrieved_references = model_output
+    # model_output = extract_tool_and_latest_message_from_model_response(response)
+    # if model_output:
+    #     draft_text, retrieved_references = model_output
 
-        editor_prompt = f"""
-        You are a ruthless Script Editor.
+    #     editor_prompt = f"""
+    #     You are a ruthless Script Editor.
         
-        ORIGINAL REFERENCES:
-        {retrieved_references}
+    #     ORIGINAL REFERENCES:
+    #     {retrieved_references}
         
-        DRAFT SCENE:
-        {draft_text}
+    #     DRAFT SCENE:
+    #     {draft_text}
         
-        TASK:
-        Compare the DRAFT to the REFERENCES.
-        1. Did the draft actually use the story telling elements to deliver the targeted feelings?
-        2. Did it use the subtext approach?
+    #     TASK:
+    #     Compare the DRAFT to the REFERENCES.
+    #     1. Did the draft actually use the story telling elements to deliver the targeted feelings?
+    #     2. Did it use the subtext approach?
         
-        If the draft is perfect, output: "PERFECT".
-        If not, output a REVISED VERSION of the scene that fixes the style issues.
-        """
-        print("calling the editor")
-        editor = ChatOllama(model='gpt-oss:20b', reasoning='medium')
-        editor_response = editor.invoke([{'role': 'system', 'content': editor_prompt}])
+    #     If the draft is perfect, output: "PERFECT".
+    #     If not, output a REVISED VERSION of the scene that fixes the style issues.
+    #     """
+    #     logger.info("calling the editor")
+    #     editor = ChatOllama(model='gpt-oss:20b', reasoning='medium')
+    #     editor_response = editor.invoke([{'role': 'system', 'content': editor_prompt}])
         
-        print("editor_response: {}\n".format(editor_response))
+    #     logger.info("editor_response: {}\n".format(editor_response))
         
-        if editor_response.content != "PERFECT":
-            print("it is not perfect")
-            if isinstance(editor_response.content, str):
-                response_message = editor_response.content
-            else:
-                response_message = editor_response.content.__str__()
+    #     if editor_response.content != "PERFECT":
+    #         logger.info("it is not perfect")
+    #         if isinstance(editor_response.content, str):
+    #             response_message = editor_response.content
+    #         else:
+    #             response_message = editor_response.content.__str__()
                 
-            print("revised draft: {}\n".format(response_message))
+    #         logger.info("revised draft: {}\n".format(response_message))
             
-            # while the generated scene is from the editor, the response is still from the previous writer
-            return (response_message, response)
+    #         # while the generated scene is from the editor, the response is still from the previous writer
+    #         return (response_message, response)
     
         
     if return_model_response:
@@ -155,4 +155,4 @@ def write_scene(command: str, is_openai: bool = False, do_evaluate: bool = False
     
     
 # scene = write_scene("write an introductory scene", do_evaluate=True)
-# print("\n\nResult:\n {}".format(scene))
+# logger.info("\n\nResult:\n {}".format(scene))

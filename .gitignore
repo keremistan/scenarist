@@ -9,3 +9,4 @@ chroma/
 .DS_Store
 .vscode/
 showrunner/screenplays/*!.pdf
+logs/

@@ -3,11 +3,14 @@ import time
 from writer import write_scene
 from eval import evaluate
 from statistics import mean
+from logging_template import setup_logging
+
+logger = setup_logging("run_benchmark")
 
 # 1. Define the parameters for THIS run (Change these manually before running)
-EXPERIMENT_NAME = "Used openai gpt 5.2 for the writer" 
+EXPERIMENT_NAME = "reverted back to gpt-oss"
 PARAMS = {
-    "model_name": "openai gpt 5.2",
+    "model_name": "gpt 5.2",
     "reasoning": "n/a",
     "retriever_k": 5,
     "database_size": "491 entries from multiple genre",  # Just a label for your own reference
@@ -26,23 +29,23 @@ def run_suite():
     timestamp = time.strftime("%Y-%m-%d %H:%M:%S")
     scores = []
     
-    print(f"--- STARTING EXPERIMENT: {EXPERIMENT_NAME} ---")
+    logger.info(f"--- STARTING EXPERIMENT: {EXPERIMENT_NAME} ---")
     
     for prompt in GOLDEN_PROMPTS:
         # Generate & Judge
-        draft, model_response = write_scene(prompt, return_model_response=True, is_openai=True) # Ensure write_scene uses your global PARAMS if possible
+        draft, model_response = write_scene(prompt, return_model_response=True) # Ensure write_scene uses your global PARAMS if possible
         score_card = evaluate(model_response, prompt)
         if score_card:
-            scores.append(score_card.style_adherence)
+            scores.extend([score_card.style_adherence, score_card.coherence])
         else:
-            print("an error happened with getting the score card. It is null.")
+            logger.info("an error happened with getting the score card. It is null.")
 
     avg_score = mean(scores)
-    print("avg_score: {}\n".format(avg_score))
+    logger.info("avg_score: {}\n".format(avg_score))
     
     # 2. LOGGING: Save to CSV
     log_entry = [timestamp, EXPERIMENT_NAME, avg_score] + list(PARAMS.values())
-    print("log_entry: {}\n".format(log_entry))
+    logger.info("log_entry: {}\n".format(log_entry))
     
     # Write header if file doesn't exist
     file_exists = False
@@ -58,7 +61,7 @@ def run_suite():
         
         writer.writerow(log_entry)
 
-    print(f"\n✅ Experiment Saved! Score: {avg_score:.2f}")
+    logger.info(f"\n✅ Experiment Saved! Score: {avg_score:.2f}")
 
 if __name__ == "__main__":
     run_suite()
