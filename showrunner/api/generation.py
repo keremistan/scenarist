@@ -2,11 +2,12 @@ from typing import Any
 from dotenv import load_dotenv
 from langchain.chat_models import init_chat_model
 from langchain_ollama import ChatOllama
-from models import SceneRequest, SceneResponse
+from statistics import mean
+from showrunner.api.models import SceneRequest, SceneResponse
 from showrunner.logging_template import setup_logging
 from showrunner.retrieve import SceneRetriever
 from showrunner.story_guidelines import story_guideline
-from evaluate import evaluate_scene
+from showrunner.api.evaluate import evaluate_scene
 
 logger = setup_logging("generation")
 
@@ -154,7 +155,7 @@ def write_scene(scene_request: SceneRequest) -> SceneResponse:
         style_plan=style_plan,
         logical_plan=logical_plan,
         referenced_scenes=reference_scenes,
-        critique_score= evaluation.coherence + evaluation.style_adherence / 2,
+        critique_score= mean([evaluation.coherence, evaluation.style_adherence]),
         critique_text=evaluation.critique
     )
 

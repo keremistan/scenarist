@@ -1,9 +1,6 @@
-from typing import Any, Optional
-from pydantic import BaseModel, Field
+from typing import Optional
 from langchain_ollama import ChatOllama
-from langchain.messages import ToolMessage
 from langchain.chat_models import init_chat_model
-import regex as re
 from showrunner.logging_template import setup_logging
 from showrunner.api.models import ScoreCard
 
