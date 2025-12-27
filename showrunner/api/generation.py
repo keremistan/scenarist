@@ -1,13 +1,12 @@
-from typing import Any, Union
+from typing import Any
 from dotenv import load_dotenv
 from langchain.chat_models import init_chat_model
-from langchain.agents import create_agent
-from langchain.tools import tool
 from langchain_ollama import ChatOllama
 from models import SceneRequest, SceneResponse
 from showrunner.logging_template import setup_logging
 from showrunner.retrieve import SceneRetriever
 from showrunner.story_guidelines import story_guideline
+from evaluate import evaluate_scene
 
 logger = setup_logging("generation")
 
@@ -16,77 +15,27 @@ has_anything_loaded = load_dotenv()
 if not has_anything_loaded:
     raise ValueError("No .env file found")
 
-
-# a catcher/handler from the API call
-# it might use model response for further processing --> it would extract the style plan, logical plan, reference scenes used and generated scene
-# or not.
-
-def catch_api_request():
-    pass
-
-def process_response_of_writer_model(scene_request: SceneRequest) -> SceneResponse:
-    # it might use model response for further processing --> it would extract 
-    # the style plan, 
-    # logical plan, 
-    # reference scenes used,
-    # generated scene,
-    # evaluate the response
-    
-    writing_response = write_scene(scene_request.user_prompt, scene_request.writer_model)
-    
-    generated_scene = extract_generated_scene(writing_response)
-
-    return SceneResponse(
-        generated_scene=generated_scene,
-        style_plan="todo",
-        logical_plan="todo",
-        referenced_scenes=[],
-        critique_score=0.0,
-        critique_text="todo"
-    )
-
-def extract_generated_scene(writing_response: Any) -> str:
-    logger.info("starting the extraction of generated scene")
-    
-    for message in writing_response.get('messages', []):
-        try:
-            logger.info(message.content) if message.content != "" else logger.info(message.additional_kwargs["reasoning_content"])
-        except Exception as e:
-            logger.error("problem happened when logging. This:\n {}\n".format(e))
-            
-    most_recent_message = writing_response['messages'][-1].content
-    
-    logger.info("most recent message: \n{}".format(most_recent_message))
-    
-    return most_recent_message
-    
-
-def extract_style_plan_from_generated_scene():
-    pass
-
-def extract_logical_plan_from_generated_scene():
-    pass
-
-def extract_reference_scenes_from_generated_scene():
-    pass
-
-def evaluate_the_generated_scene():
-    pass
-
-
-def write_scene(
-    user_prompt: str,
-    writer_model: str = 'gpt-oss',
-    temperature_of_writer: float = 0.7,
-    # ) -> Union[dict[str, Any], Any]:
-    ) -> str:
+def write_scene(scene_request: SceneRequest) -> SceneResponse:    
+    """
+    This function accepts a scene_request and does the followings:
+    1. choose the writer model
+    2. generate keywords that describe the emotional aspect of user's prompt
+    3. retrieve the most relevant scenes from vector store
+    4. create a logical plan using story guidelines and reference scenes
+    5. on top, create a style plan
+    6. write the scene
+    7. return it
+    """
+    user_prompt = scene_request.user_prompt
+    writer_model = scene_request.writer_model
+    temperature_of_writer = scene_request.temperature_of_writer
     
     logger.info("starting with writing the scene")
     
     if writer_model == 'gpt-5.2':
-        chat_model = init_chat_model('gpt-5.2', model_provider='openai')
+        chat_model = init_chat_model('gpt-5.2', model_provider='openai', temparature=temperature_of_writer)
     else:
-        chat_model = ChatOllama(model='gpt-oss:20b', reasoning='medium')
+        chat_model = ChatOllama(model='gpt-oss:20b', reasoning='medium', temperature=temperature_of_writer)
 
     logger.info("chat model initialized.")
     
@@ -110,6 +59,14 @@ def write_scene(
     reference_scenes = get_reference_scenes(scene_retrieval_query)
     logger.info("reference_scenes:\n {}".format(reference_scenes))
     
+    # combine the scenes inside a single str
+    reference_scenes_as_single_text = ""
+    for i, retrieved_scene in enumerate(reference_scenes):
+        reference_scenes_as_single_text += """
+        --- Reference Scene {} --
+        {}
+        
+        """.format(i+1, retrieved_scene)
     
     logical_plan_response = chat_model.invoke([
         {'role': 'system', 'content': """
@@ -129,7 +86,7 @@ def write_scene(
          {}
          --- REFERENCE SCENES ---
          {}
-         """.format(story_guideline, reference_scenes)},
+         """.format(story_guideline, reference_scenes_as_single_text)},
         {'role': 'user', 'content': user_prompt}
     ])
 
@@ -158,7 +115,7 @@ def write_scene(
          {}
          --- LOGICAL PLAN ---
          {}         
-         """.format(story_guideline, reference_scenes, logical_plan)},
+         """.format(story_guideline, reference_scenes_as_single_text, logical_plan)},
         {'role': 'user', 'content': user_prompt}
     ])
 
@@ -186,52 +143,23 @@ def write_scene(
     the_new_scene = the_new_scene_response.content if isinstance(the_new_scene_response.content, str) else the_new_scene_response.content.__str__()
     logger.info("the_new_scene:\n {}".format(the_new_scene))
     
-
+    evaluation = evaluate_scene(the_new_scene, user_prompt, reference_scenes_as_single_text)
     
-    # model_output = extract_tool_and_latest_message_from_model_response(response)
-    # if model_output:
-    #     draft_text, retrieved_references = model_output
-
-    #     editor_prompt = f"""
-    #     You are a ruthless Script Editor.
-        
-    #     ORIGINAL REFERENCES:
-    #     {retrieved_references}
-        
-    #     DRAFT SCENE:
-    #     {draft_text}
-        
-    #     TASK:
-    #     Compare the DRAFT to the REFERENCES.
-    #     1. Did the draft actually use the story telling elements to deliver the targeted feelings?
-    #     2. Did it use the subtext approach?
-        
-    #     If the draft is perfect, output: "PERFECT".
-    #     If not, output a REVISED VERSION of the scene that fixes the style issues.
-    #     """
-    #     logger.info("calling the editor")
-    #     editor = ChatOllama(model='gpt-oss:20b', reasoning='medium')
-    #     editor_response = editor.invoke([{'role': 'system', 'content': editor_prompt}])
-        
-    #     logger.info("editor_response:\n {}\n".format(editor_response))
-        
-    #     if editor_response.content != "PERFECT":
-    #         logger.info("it is not perfect")
-    #         if isinstance(editor_response.content, str):
-    #             response_message = editor_response.content
-    #         else:
-    #             response_message = editor_response.content.__str__()
-                
-    #         logger.info("revised draft:\n {}\n".format(response_message))
-            
-    #         # while the generated scene is from the editor, the response is still from the previous writer
-    #         return (response_message, response)
+    if evaluation is None:
+        logger.error("scene evaluation failed")
+        raise RuntimeError("scene evaluation result could not be obtained")
     
-        
-    return the_new_scene
+    return SceneResponse(
+        generated_scene=the_new_scene,
+        style_plan=style_plan,
+        logical_plan=logical_plan,
+        referenced_scenes=reference_scenes,
+        critique_score= evaluation.coherence + evaluation.style_adherence / 2,
+        critique_text=evaluation.critique
+    )
 
 
-def get_reference_scenes(scene_retrieval_query: str) -> str:
+def get_reference_scenes(scene_retrieval_query: str) -> list[str]:
     """
     Call this tool to find screenplay examples.
     
@@ -250,18 +178,25 @@ def get_reference_scenes(scene_retrieval_query: str) -> str:
     
     retrieved_scenes = retriever.query(scene_retrieval_query)
 
-    scenes_as_single_text = ""
-    for i, retrieved_scene in enumerate(retrieved_scenes):
-        scenes_as_single_text += """
-        --- Reference Scene {} --
-        {}
-        
-        """.format(i+1, retrieved_scene.page_content)
+    return [scene.page_content for scene in retrieved_scenes]
 
-    # logger.info("This concatenated scenes string is returned:\n {}".format(scenes_as_single_text))
 
-    return scenes_as_single_text
+def extract_generated_scene(writing_response: Any) -> str:
+    logger.info("starting the extraction of generated scene")
+    
+    for message in writing_response.get('messages', []):
+        try:
+            logger.info(message.content) if message.content != "" else logger.info(message.additional_kwargs["reasoning_content"])
+        except Exception as e:
+            logger.error("problem happened when logging. This:\n {}\n".format(e))
+            
+    most_recent_message = writing_response['messages'][-1].content
+    
+    logger.info("most recent message: \n{}".format(most_recent_message))
+    
+    return most_recent_message
+    
 
 if __name__ == '__main__':
-    logger.info("added logical-conclusion field to the story guideline. inserted logical plan to the style creation.")
-    write_scene("An unexpected turn of events happen and raises the stakes")
+    logger.info("added evaluation to the api. adjusted it so that it works with a chain output.")
+    write_scene(SceneRequest(user_prompt="An unexpected turn of events happen and raises the stakes"))

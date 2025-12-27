@@ -5,13 +5,9 @@ from langchain.messages import ToolMessage
 from langchain.chat_models import init_chat_model
 import regex as re
 from logging_template import setup_logging
+from showrunner.api.models import ScoreCard
 
 logger = setup_logging("eval")
-
-class ScoreCard(BaseModel):
-    coherence: int = Field(description="does the text make sense. 1 is bad and 5 is great.", ge=1, le=5)
-    style_adherence: int = Field(description="does the text adhere the reference scene. The style adherence refers to the content and not the formatting of reference text. 1 means no adherence and 5 means a great mimicry", ge=1, le=5)
-    critique: str = Field(description="The final evaluation text. Explain WHY you gave these scores based on the comparison.")
 
 def extract_tool_and_latest_message_from_model_response(model_response: Any) ->  Optional[tuple[str, str]]:
     """
