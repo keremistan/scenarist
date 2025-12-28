@@ -1,7 +1,6 @@
 from pydantic import BaseModel, Field, ValidationError
 from langchain_ollama import ChatOllama
 from typing import Optional
-from pprint import pprint
 
 # when searching for a scene, what would i need it to reference by?
 # - type? whether it is a comedic, tragic, action, --introductory,--, 

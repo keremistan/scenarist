@@ -1,16 +1,16 @@
 import csv
 import time
-from writer import write_scene
-from eval import evaluate
 from statistics import mean
-from logging_template import setup_logging
+from showrunner.tools.logging_template import setup_logging
+from showrunner.api.models import SceneRequest
+from showrunner.api.generation import write_scene
 
 logger = setup_logging("run_benchmark")
 
 # 1. Define the parameters for THIS run (Change these manually before running)
-EXPERIMENT_NAME = "reverted back to gpt-oss"
+EXPERIMENT_NAME = "removed the extra evaluation and using the score that also is being returned to the user"
 PARAMS = {
-    "model_name": "gpt 5.2",
+    "model_name": "gpt-oss:20b",
     "reasoning": "n/a",
     "retriever_k": 5,
     "database_size": "491 entries from multiple genre",  # Just a label for your own reference
@@ -33,12 +33,8 @@ def run_suite():
     
     for prompt in GOLDEN_PROMPTS:
         # Generate & Judge
-        draft, model_response = write_scene(prompt, return_model_response=True) # Ensure write_scene uses your global PARAMS if possible
-        score_card = evaluate(model_response, prompt)
-        if score_card:
-            scores.extend([score_card.style_adherence, score_card.coherence])
-        else:
-            logger.info("an error happened with getting the score card. It is null.")
+        scene_response = write_scene(scene_request=SceneRequest(user_prompt=prompt))
+        scores.extend([scene_response.critique_score])
 
     avg_score = mean(scores)
     logger.info("avg_score: {}\n".format(avg_score))
