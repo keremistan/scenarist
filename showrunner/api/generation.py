@@ -16,7 +16,7 @@ has_anything_loaded = load_dotenv()
 if not has_anything_loaded:
     raise ValueError("No .env file found")
 
-def write_scene(scene_request: SceneRequest) -> SceneResponse:    
+def write_scene(scene_request: SceneRequest, test_response: bool = False) -> SceneResponse:    
     """
     This function accepts a scene_request and does the followings:
     1. choose the writer model
@@ -30,6 +30,16 @@ def write_scene(scene_request: SceneRequest) -> SceneResponse:
     user_prompt = scene_request.user_prompt
     writer_model = scene_request.writer_model
     temperature_of_writer = scene_request.temperature_of_writer
+    
+    if test_response:
+        return SceneResponse(
+            generated_scene="the_new_scene",
+            style_plan="style_plan",
+            logical_plan="logical_plan",
+            referenced_scenes=["reference_scenes", "reference_scenes", "reference_scenes"],
+            critique_score= mean([4, 5]),
+            critique_text="evaluation.critique"
+        )
     
     logger.info("starting with writing the scene")
     

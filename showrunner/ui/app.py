@@ -111,7 +111,8 @@ if generate_btn and user_prompt:
                 # --- RIGHT COLUMN (The Script) ---
                 with col_script:
                     st.subheader("📝 The Script")
-                    st.text_area("Final Output", value=data['generated_scene'], height=800)
+                    # st.text_area("Final Output", value=data['generated_scene'], height=800)
+                    st.markdown(data['generated_scene'])
             
             else:
                 st.error(f"API Error: {response.text}")
