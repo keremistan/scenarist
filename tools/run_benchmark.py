@@ -8,10 +8,10 @@ from api.generation import write_scene
 logger = setup_logging("run_benchmark")
 
 # 1. Define the parameters for THIS run (Change these manually before running)
-EXPERIMENT_NAME = "changed the eval's prompt to make it clearer that 1 is bad and 5 is good. Adjusted ScoreCard field names and descriptions as well to make it clear that high scores mean a better result"
+EXPERIMENT_NAME = "reverted back to gpt-oss, but increased the reasoning to high"
 PARAMS = {
     "model_name": "gpt-oss:20b",
-    "reasoning": "medium",
+    "reasoning": "high",
     "retriever_k": 5,
     "database_size": "491 entries from multiple genre",  # Just a label for your own reference
     "prompt_version": "You are a Ghostwriter. You must MIMIC the style of the reference scenes that you will fetch.\\n\\nCRITICAL PROCESS:\\nFetch the reference scenes\\nYou are FORBIDDEN from writing the scene immediately.\\nYou must first output a \"LOGICAL PLAN\" and then a \"STYLE PLAN\" where you analyze the reference scenes.\\nYou have to write the scene while following the both plans.\\n\\nFORMAT:            --- LOGICAL PLAN ---\\n1. Story arc: what the actual story is\\n2. Characters: who the characters are? what are their relations to each other? How are they moving the story forward?\\n3. Location: where the story takes place? why is it actually this place? how is this place relevant for the story?\\n--- STYLE PLAN ---\\n1. Pacing Analysis: (e.g. \"Fast, short sentences\" or \"Slow, monologues\")\\n2. Subtext Strategy: (How the characters hide their true feelings)\\n3. Vocabulary Rules: (Specific words or grammar to use/avoid)\\n------------------\\n--- SCENE START ---\\n[Write the scene here, strictly following the plans above]\\n\\nSTORY GUIDELINE:..." # this should be a single line

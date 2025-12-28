@@ -44,9 +44,9 @@ def write_scene(scene_request: SceneRequest, test_response: bool = False) -> Sce
     logger.info("starting with writing the scene")
     
     if writer_model == 'gpt-5.2':
-        chat_model = init_chat_model('gpt-5.2', model_provider='openai', temparature=temperature_of_writer)
+        chat_model = init_chat_model('gpt-5.2', model_provider='openai', temperature=temperature_of_writer)
     else:
-        chat_model = ChatOllama(model='gpt-oss:20b', reasoning='medium', temperature=temperature_of_writer)
+        chat_model = ChatOllama(model='gpt-oss:20b', reasoning='high', temperature=temperature_of_writer)
 
     logger.info("chat model initialized.")
     
