@@ -8,7 +8,7 @@ chroma/
 
 .DS_Store
 .vscode/
-showrunner/screenplays/*!.pdf
+screenplays/*!.pdf
 logs/
 
 .historical_artifacts/

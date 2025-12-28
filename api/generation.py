@@ -3,11 +3,11 @@ from dotenv import load_dotenv
 from langchain.chat_models import init_chat_model
 from langchain_ollama import ChatOllama
 from statistics import mean
-from showrunner.api.models import SceneRequest, SceneResponse
-from showrunner.tools.logging_template import setup_logging
-from showrunner.tools.retrieve import SceneRetriever
-from showrunner.tools.story_guidelines import story_guideline
-from showrunner.tools.evaluate import evaluate_scene
+from api.models import SceneRequest, SceneResponse
+from tools.logging_template import setup_logging
+from tools.retrieve import SceneRetriever
+from tools.story_guidelines import story_guideline
+from tools.evaluate import evaluate_scene
 
 logger = setup_logging("generation")
 

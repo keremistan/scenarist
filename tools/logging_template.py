@@ -5,7 +5,7 @@ import sys
 def setup_logging(script_name="script"):
     # Generate timestamp
     timestamp = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
-    log_filename = f"./showrunner/logs/log_{timestamp}.txt"
+    log_filename = f"./logs/log_{timestamp}.txt"
 
     # Configure the root logger
     logging.basicConfig(

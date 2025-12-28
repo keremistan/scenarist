@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException
 
-from showrunner.api.models import SceneRequest, SceneResponse
-from showrunner.api.generation import write_scene
+from api.models import SceneRequest, SceneResponse
+from api.generation import write_scene
 
 app = FastAPI()
 

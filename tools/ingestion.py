@@ -54,14 +54,14 @@ def ingest(
 
     
 if __name__ == "__main__":
-    # screenplay_address = 'showrunner/screenplays/Zootopia!.pdf'
+    # screenplay_address = 'screenplays/Zootopia!.pdf'
 
     # for screenplay_address in [
-    #     # 'showrunner/screenplays/Up!.pdf',
-    #     # 'showrunner/screenplays/Wall-e!.pdf',
-    #     'showrunner/screenplays/the-substance-2024!.pdf',
-    #     'showrunner/screenplays/The silence of the lambs!.pdf',
+    #     # 'screenplays/Up!.pdf',
+    #     # 'screenplays/Wall-e!.pdf',
+    #     'screenplays/the-substance-2024!.pdf',
+    #     'screenplays/The silence of the lambs!.pdf',
     #     ]:
     #     ingest(screenplay_address)
     
-    ingest('showrunner/screenplays/the-substance-2024!.pdf', scenes_from_index=75)
+    ingest('screenplays/the-substance-2024!.pdf', scenes_from_index=75)

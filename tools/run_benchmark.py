@@ -1,14 +1,14 @@
 import csv
 import time
 from statistics import mean
-from showrunner.tools.logging_template import setup_logging
-from showrunner.api.models import SceneRequest
-from showrunner.api.generation import write_scene
+from tools.logging_template import setup_logging
+from api.models import SceneRequest
+from api.generation import write_scene
 
 logger = setup_logging("run_benchmark")
 
 # 1. Define the parameters for THIS run (Change these manually before running)
-EXPERIMENT_NAME = "removed the extra evaluation and using the score that also is being returned to the user"
+EXPERIMENT_NAME = "all moved from showrunner to project's root"
 PARAMS = {
     "model_name": "gpt-oss:20b",
     "reasoning": "n/a",

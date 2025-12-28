@@ -118,4 +118,4 @@ if generate_btn and user_prompt:
                 st.error(f"API Error: {response.text}")
                 
         except requests.exceptions.ConnectionError:
-            st.error("❌ Could not connect to API. Is the server running? (`uvicorn showrunner.api.main:app`)")
+            st.error("❌ Could not connect to API. Is the server running? (`uvicorn api.main:app`)")
