@@ -6,7 +6,7 @@ from statistics import mean
 from showrunner.api.models import SceneRequest, SceneResponse
 from showrunner.logging_template import setup_logging
 from showrunner.retrieve import SceneRetriever
-from showrunner.story_guidelines import story_guideline
+from showrunner.tools.story_guidelines import story_guideline
 from showrunner.api.evaluate import evaluate_scene
 
 logger = setup_logging("generation")

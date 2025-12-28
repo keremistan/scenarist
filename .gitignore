@@ -10,3 +10,5 @@ chroma/
 .vscode/
 showrunner/screenplays/*!.pdf
 logs/
+
+.historical_artifacts/
