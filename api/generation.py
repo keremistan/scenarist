@@ -165,7 +165,7 @@ def write_scene(scene_request: SceneRequest, test_response: bool = False) -> Sce
         style_plan=style_plan,
         logical_plan=logical_plan,
         referenced_scenes=reference_scenes,
-        critique_score= mean([evaluation.coherence, evaluation.style_adherence]),
+        critique_score= mean([evaluation.coherence_score, evaluation.style_adherence_score]),
         critique_text=evaluation.critique
     )
 

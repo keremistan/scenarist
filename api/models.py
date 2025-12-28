@@ -18,6 +18,6 @@ class SceneResponse(BaseModel):
 
 
 class ScoreCard(BaseModel):
-    coherence: int = Field(description="does the text make sense. 1 is bad and 5 is great.", ge=1, le=5)
-    style_adherence: int = Field(description="does the text adhere the reference scene. The style adherence refers to the content and not the formatting of reference text. 1 means no adherence and 5 means a great mimicry", ge=1, le=5)
-    critique: str = Field(description="The final evaluation text. Explain WHY you gave these scores based on the comparison.")
+    coherence_score: int = Field(description="does the text make sense. 5 means that the scene makes perfect sense and 1 means that the scene makes no sense.", ge=1, le=5)
+    style_adherence_score: int = Field(description="does the text adhere the reference scene. The style adherence refers to the content and not the formatting of reference text. 5 means a great adherence and 1 means no adherence", ge=1, le=5)
+    critique: str = Field(description="The final evaluation text. Explain shortly WHY you gave these scores based on the comparison.")

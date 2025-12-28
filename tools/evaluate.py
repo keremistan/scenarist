@@ -17,17 +17,11 @@ def evaluate_scene(generated_scene: str, user_intent: str, reference_scenes: str
     
     system_prompt = {
         "role": "system",
-        "content": """You are a Film Critic. Compare the GENERATED SCENE to the REFERENCE SCENES.
-
-            SCORING RULES:
-            - The scale is 1 to 5.
-            - 5 = MASTERPIECE (Matches style perfectly).
-            - 1 = GARBAGE (Completely ignores style).
-            - Do NOT use the German grading system (where 1 is good). Use the Standard 5-Star system.
+        "content": """You are a Film Critic. Compare the GENERATED SCENE to the REFERENCE SCENES. This comparison must be based on the storytelling quality and not surface level content.
 
             TASK:
             1. Write a critique.
-            2. Assign scores based on the 1 (Low) - 5 (High) scale.
+            2. Depending on how successful the GENERATED SCENE is assign coherence_score and style_adherence_score where 5 mean High/Succeded and 1 means Low/Failed.
         """
     }
     
