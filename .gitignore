@@ -6,6 +6,7 @@ scenarist.ai*
 
 chroma/
 
+.idea/
 .DS_Store
 .vscode/
 screenplays/*!.pdf
@@ -13,3 +14,5 @@ logs/
 
 .historical_artifacts/
 sample_outputs/
+.road_map.md
+mlflow.db
