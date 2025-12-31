@@ -27,23 +27,41 @@ training_set = [
     dspy.Example({"scene_gist": "An unexpected turn of events happen and raises the stakes"}).with_inputs("scene_gist"),
 ]
 
+@mlflow.trace(name="scene_metric")
 def scene_metric(example, pred, trace=None):
-    #todo
-    logger.info("example: {}\npred: {}\ntrace: {}\n".format(example, pred, trace))
-    return 1
+    logger.info("the start of metric function - args of scene-metric func: \nexample: {}\npred: {}\ntrace: {}\n".format(example, pred, trace))
 
-optimizer = dspy.BootstrapFewShot(scene_metric)
+    # use the llm-as-judge pattern
+    judge = dspy.ChainOfThought(dspy.make_signature("generated_scene -> score: float", instructions="score should be between 0.0 and 1.0. 0.0 means that the quality of generated scene is terrible. While 1.0 means that the quality of generated scene is perfect."))
+    judgement = judge(generated_scene=pred.get("full_scene", "n/a"))
+    logger.info("judge's response: \n{}\n".format(judgement))
+    score = judgement.get("score")
+
+    return score
+
+# optimizer = dspy.BootstrapFewShot(scene_metric)
+optimizer = dspy.MIPROv2(scene_metric)
 
 # before optimizing, let's just evaluate it
-from dspy.evaluate import evaluate
-evaluator = evaluate.Evaluate(devset=training_set, metric=scene_metric)
-evaluation_result = evaluator(scene_generator)
-logger.info("evaluation_result: {}".format(evaluation_result))
+# from dspy.evaluate import evaluate
+# evaluator = evaluate.Evaluate(devset=training_set, metric=scene_metric)
+# evaluation_result = evaluator(scene_generator)
+# logger.info("evaluation_result: {}".format(evaluation_result))
+# logger.info("evaluation score: {}".format(evaluation_result.get("score", "unknown")))
+# logger.info("getting the results from the evaluation")
+# for current_evaluation_res in evaluation_result.get("results", []):
+#     logger.info("current_evaluation_res: {}".format(current_evaluation_res))
 
-# optimized_scene_generator = optimizer.compile(scene_generator, trainset=training_set)
-#
-# optimized_response = optimized_scene_generator(scene_gist="a man whose life changes for the better but the new circumstances bring their own challenges that he hasn't faced before")
-# logger.info(optimized_response.get("full_scene", "optimized response contains no keyword 'full_scene'"))
-#
-# optimized_scene_generator.save("./optimized_scene_generator")
-#
+
+logger.info("starting the optimization")
+optimized_scene_generator = optimizer.compile(scene_generator, trainset=training_set)
+logger.info("optimized model")
+
+optimized_response = optimized_scene_generator(scene_gist="a man whose life changes for the better but the new circumstances bring their own challenges that he hasn't faced before")
+logger.info(optimized_response.get("full_scene", "optimized response contains no keyword 'full_scene'"))
+
+
+logger.info("saving the optimized model")
+optimized_scene_generator.save("./optimized_scene_generator.json")
+
+logger.info("completing...")
