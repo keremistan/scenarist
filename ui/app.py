@@ -2,8 +2,17 @@ import streamlit as st
 import requests
 import requests as req
 import json
+from dotenv import load_dotenv
+from os import getenv
 
-scene_generate_address = "http://localhost:8000/generate"
+has_anything_loaded = load_dotenv()
+
+if not has_anything_loaded:
+    raise ValueError("No .env file found")
+
+api_service_address = getenv("FASTAPI_DOCKER_SERVICE")
+
+scene_generate_address = "http://{}:8000/generate".format(api_service_address)
 
 if "in_progress" not in st.session_state:
     st.session_state.in_progress = False

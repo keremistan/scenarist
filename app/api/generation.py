@@ -53,7 +53,11 @@ def write_scene(scene_request: SceneRequest, test_response: bool = False) -> Sce
     #     chat_model = ChatOllama(model='gpt-oss:20b', reasoning='high', temperature=temperature_of_writer)
 
     chat_model = SceneWriter()
-    chat_model.load("./data/optimized_scene_generator.json")
+
+    import os
+    logger.info("current working dir: {}\n".format(os.getcwd()))
+
+    chat_model.load("../data/optimized_scene_generator.json") #todo: docker cant find the json module
     logger.info("chat model initialized.")
 
     generated_scene = chat_model(scene_gist=user_prompt).generated_scene

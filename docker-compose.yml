@@ -1,0 +1,28 @@
+name: "senarist7"
+services:
+  fast_api:
+    build: . # not sure yet whether an explicit build step is necessary
+    command: bash -c "mkdir -p logs && fastapi run app/api/main.py"
+#    volumes:
+#      - ./app:/usr/src/app # this type of specific volume mapping might cause errors - WATCH OUT. Else, to be deleted
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    develop:
+      watch:
+        - action: sync
+          path: ./app
+          target: /usr/src/app
+  streamlit_ui:
+    build: .
+    command: bash -c "mkdir -p logs && streamlit run ui/app.py"
+#    volumes:
+#      - ./ui/:/usr/src/ui
+    env_file:
+      - .env
+    depends_on:
+      fast_api:
+        condition: service_started
+    ports:
+      - "8501:8501" # binds the default port of streamlit to the container's port
