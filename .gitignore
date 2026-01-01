@@ -4,16 +4,16 @@ scenarist.ai*
 
 *__pycache__
 
-chroma/
+app/chroma/
 
 .idea/
 .DS_Store
 .vscode/
-screenplays/*!.pdf
+app/screenplays/*!.pdf
 logs/
 
 .historical_artifacts/
 sample_outputs/
 .road_map.md
 mlflow.db
-optimized_scene_generator.json
+app/data/optimized_scene_generator.json

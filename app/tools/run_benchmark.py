@@ -1,9 +1,9 @@
 import csv
 import time
 from statistics import mean
-from tools.logging_template import setup_logging
-from api.models import SceneRequest
-from api.generation import write_scene
+from app.tools.logging_template import setup_logging
+from app.api.models import SceneRequest
+from app.api.generation import write_scene
 
 logger = setup_logging("run_benchmark")
 

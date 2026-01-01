@@ -1,7 +1,7 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
 
-from api.models import SceneRequest, SceneResponse
-from api.generation import write_scene
+from app.api.models import SceneRequest, SceneResponse
+from app.api.generation import write_scene
 
 app = FastAPI()
 

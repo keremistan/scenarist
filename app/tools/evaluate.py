@@ -1,8 +1,8 @@
 from typing import Optional
 from langchain_ollama import ChatOllama
 from langchain.chat_models import init_chat_model
-from tools.logging_template import setup_logging
-from api.models import ScoreCard
+from app.tools.logging_template import setup_logging
+from app.api.models import ScoreCard
 
 logger = setup_logging("eval")
 
