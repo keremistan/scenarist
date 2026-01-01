@@ -2,7 +2,7 @@ from langchain_chroma import Chroma
 from langchain_ollama.embeddings import OllamaEmbeddings
 from langchain_core.documents import Document
 
-class SceneRetriever():
+class SceneRetriever:
 
     def __init__(self) -> None:
         self.embedding_model = OllamaEmbeddings(model='nomic-embed-text', temperature=0)

@@ -16,3 +16,4 @@ logs/
 sample_outputs/
 .road_map.md
 mlflow.db
+optimized_scene_generator.json

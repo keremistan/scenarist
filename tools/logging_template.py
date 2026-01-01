@@ -10,7 +10,7 @@ def setup_logging(script_name="script"):
     # Configure the root logger
     logging.basicConfig(
         level=logging.INFO,
-        format='%(asctime)s - %(name)-15s - %(message)s', # Adds time to every line
+        format='%(asctime)s.%(msecs)03d - %(name)-15s - %(message)s', # Adds time to every line
         datefmt='%H:%M:%S',
         handlers=[
             logging.FileHandler(log_filename),
