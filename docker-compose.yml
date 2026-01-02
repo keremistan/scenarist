@@ -1,8 +1,8 @@
-name: "senarist7"
+name: "senarist9"
 services:
   fast_api:
     build: . # not sure yet whether an explicit build step is necessary
-    command: bash -c "mkdir -p logs && fastapi run app/api/main.py"
+    command: bash -c "mkdir -p logs && uvicorn app.api.main:app --host 0.0.0.0 --port 8000 --reload --reload-dir app/api"
 #    volumes:
 #      - ./app:/usr/src/app # this type of specific volume mapping might cause errors - WATCH OUT. Else, to be deleted
     env_file:
@@ -14,6 +14,18 @@ services:
         - action: sync
           path: ./app
           target: /usr/src/app
+          ignore:
+            - .venv/
+            - .git/
+            - __pycache__/
+            - logs/
+            - chroma/
+            - "*.pyc"
+            - "*.pyo"
+            - "*.pyd"
+            - .DS_Store
+    depends_on:
+      - ollama
   streamlit_ui:
     build: .
     command: bash -c "mkdir -p logs && streamlit run ui/app.py"
@@ -26,3 +38,9 @@ services:
         condition: service_started
     ports:
       - "8501:8501" # binds the default port of streamlit to the container's port
+  ollama:
+    image: ollama/ollama:latest
+    volumes:
+      - ~/.ollama:/root/.ollama
+    ports:
+      - "11434:11434"

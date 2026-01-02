@@ -1,3 +1,4 @@
+import os
 from typing import Any
 
 import dspy
@@ -14,8 +15,9 @@ has_anything_loaded = load_dotenv()
 if not has_anything_loaded:
     raise ValueError("No .env file found")
 
+ollama_base_url = os.getenv("OLLAMA_DOCKER_SERVICE")
 
-lm = dspy.LM("ollama_chat/gpt-oss:20b", api_base="http://localhost:11434", api_key="")
+lm = dspy.LM("ollama_chat/gpt-oss:20b", api_base="http://{}:11434".format(ollama_base_url), api_key="")
 
 dspy.configure(lm=lm)
 
@@ -57,7 +59,7 @@ def write_scene(scene_request: SceneRequest, test_response: bool = False) -> Sce
     import os
     logger.info("current working dir: {}\n".format(os.getcwd()))
 
-    chat_model.load("../data/optimized_scene_generator.json") #todo: docker cant find the json module
+    chat_model.load("app/data/optimized_scene_generator.json")
     logger.info("chat model initialized.")
 
     generated_scene = chat_model(scene_gist=user_prompt).generated_scene
@@ -74,42 +76,42 @@ def write_scene(scene_request: SceneRequest, test_response: bool = False) -> Sce
     )
 
 
-def get_reference_scenes(scene_retrieval_query: str) -> list[str]:
-    """
-    Call this tool to find screenplay examples.
-    
-    CRITICAL USAGE INSTRUCTION:
-    Do not just pass the user's topic. You must convert the topic into DRAMATIC KEYWORDS.
-    
-    Example:
-    - User: "A sad breakup" -> Query: "melancholy slow pacing silence heartbreak"
-    - User: "Funny argument" -> Query: "sitcom banter snappy fast-paced comedy"
-    
-    Args:
-        scene_retrieval_query: A string of dramatic keywords (mood, pacing, subtext).
-    """    
+# def get_reference_scenes(scene_retrieval_query: str) -> list[str]:
+#     """
+#     Call this tool to find screenplay examples.
+#
+#     CRITICAL USAGE INSTRUCTION:
+#     Do not just pass the user's topic. You must convert the topic into DRAMATIC KEYWORDS.
+#
+#     Example:
+#     - User: "A sad breakup" -> Query: "melancholy slow pacing silence heartbreak"
+#     - User: "Funny argument" -> Query: "sitcom banter snappy fast-paced comedy"
+#
+#     Args:
+#         scene_retrieval_query: A string of dramatic keywords (mood, pacing, subtext).
+#     """
+#
+#     retriever = SceneRetriever()
+#
+#     retrieved_scenes = retriever.query(scene_retrieval_query)
+#
+#     return [scene.page_content for scene in retrieved_scenes]
+#
 
-    retriever = SceneRetriever()
-    
-    retrieved_scenes = retriever.query(scene_retrieval_query)
-
-    return [scene.page_content for scene in retrieved_scenes]
-
-
-def extract_generated_scene(writing_response: Any) -> str:
-    logger.info("starting the extraction of generated scene")
-    
-    for message in writing_response.get('messages', []):
-        try:
-            logger.info(message.content) if message.content != "" else logger.info(message.additional_kwargs["reasoning_content"])
-        except Exception as e:
-            logger.error("problem happened when logging. This:\n {}\n".format(e))
-            
-    most_recent_message = writing_response['messages'][-1].content
-    
-    logger.info("most recent message: \n{}".format(most_recent_message))
-    
-    return most_recent_message
+# def extract_generated_scene(writing_response: Any) -> str:
+#     logger.info("starting the extraction of generated scene")
+#
+#     for message in writing_response.get('messages', []):
+#         try:
+#             logger.info(message.content) if message.content != "" else logger.info(message.additional_kwargs["reasoning_content"])
+#         except Exception as e:
+#             logger.error("problem happened when logging. This:\n {}\n".format(e))
+#
+#     most_recent_message = writing_response['messages'][-1].content
+#
+#     logger.info("most recent message: \n{}".format(most_recent_message))
+#
+#     return most_recent_message
     
 
 if __name__ == '__main__':

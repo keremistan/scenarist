@@ -17,7 +17,8 @@ RUN echo "copying the .env"
 COPY .env ./
 
 RUN echo "installing the requirements"
-RUN pip3 install --no-cache-dir -r ./requirements.txt
+# RUN pip3 install --no-cache-dir -r ./requirements.txt
+RUN pip3 install -r ./requirements.txt
 
 #RUN echo "running fastapi dev command on api/main.py"
 #CMD ["fastapi", "dev", "api/main.py"]
