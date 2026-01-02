@@ -5,7 +5,7 @@ scenarist.ai*
 *__pycache__
 
 app/chroma/
-
+chroma
 .idea/
 .DS_Store
 .vscode/

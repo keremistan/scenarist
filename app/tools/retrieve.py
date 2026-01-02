@@ -3,6 +3,12 @@ import os
 from langchain_chroma import Chroma
 from langchain_ollama.embeddings import OllamaEmbeddings
 from langchain_core.documents import Document
+from dotenv import load_dotenv
+
+has_anything_loaded = load_dotenv()
+
+if not has_anything_loaded:
+    raise ValueError("No .env file found")
 
 class SceneRetriever:
 
