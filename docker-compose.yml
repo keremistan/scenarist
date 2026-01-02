@@ -38,6 +38,11 @@ services:
         condition: service_started
     ports:
       - "8501:8501" # binds the default port of streamlit to the container's port
+    develop:
+      watch:
+        - action: sync
+          path: ./ui
+          target: /usr/src/ui
 #  ollama:
 #    image: ollama/ollama:latest
 #    volumes:

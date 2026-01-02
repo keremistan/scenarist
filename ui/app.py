@@ -81,7 +81,7 @@ if generate_btn and user_prompt:
                 "temperature": temp
             }
             # Note: We use http://127.0.0.1:8000 because 'localhost' sometimes fails on Mac
-            response = requests.post("http://127.0.0.1:8000/generate", json=payload)
+            response = requests.post(scene_generate_address, json=payload)
             
             if response.status_code == 200:
                 data = response.json()

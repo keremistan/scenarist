@@ -13,7 +13,7 @@ def index():
 @app.get("/chroma")
 def get_scenes():
     # to test the chroma and ollama (embedding) connection
-    print("in main.py the ollama base ->  http://{}:11434".format(os.getenv("OLLAMA_DOCKER_SERVICE")))
+    print("in main.py the ollama base -> http://{}:11434".format(os.getenv("OLLAMA_DOCKER_SERVICE")))
     topics = ['heated argument', 'love confession', 'emotional conflict', 'tension', 'reconciliation attempt', 'intense emotion', 'contradictory feelings', 'fragile affection', 'heartbreak', 'understanding', 'conflict resolution', 'passionate dispute']
 
     scene_retriever = SceneRetriever()
