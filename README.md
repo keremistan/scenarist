@@ -1,77 +1,45 @@
 # 🎬 Scenarist: Eval-Driven Narrative Engine
-*a.k.a. Ghostwriter*
-### An autonomous agentic workflow for consistent, high-fidelity narrative generation using Local LLMs.
+a.k.a. Ghostwriter
+### An autonomous agentic platform for consistent, high-fidelity narrative generation.
+**Built with DSPy, FastAPI, and Docker.**
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
-![FastAPI](https://img.shields.io/badge/FastAPI-0.95%2B-green)
-![Streamlit](https://img.shields.io/badge/Streamlit-1.22%2B-red)
-![Architecture](https://img.shields.io/badge/Architecture-Chain--of--Thought-orange)
+![Python](https://img.shields.io/badge/Python-3.11%2B-blue)
+![DSPy](https://img.shields.io/badge/AI-DSPy_Optimized-purple)
+![Docker](https://img.shields.io/badge/Deploy-Docker_Compose-blue)
+![Architecture](https://img.shields.io/badge/Architecture-Microservices-orange)
 
 ---
 
 ## 🚀 The Problem
-Standard LLMs suffer from **Context Drift** and **Hallucination** when generating long-form content. They often forget established facts, ignore stylistic guidelines, or produce generic, "lazy" output. "Prompt and pray" strategies are insufficient for production-grade creative applications.
+Standard LLMs suffer from **Context Drift** and **Hallucination** when generating long-form content. They often forget established facts, ignore stylistic guidelines, or produce generic, "lazy" output.
+Manual prompt engineering is brittle; changing one word in a prompt can break the entire pipeline.
 
-## 🛠 The Solution: Deterministic Chains > Agents
-Scenarist replaces the black-box generation approach with a **Structured Logic Chain**. Instead of generating a scene in one shot, the system decomposes the creative process into discrete, verifiable steps.
+## 🛠 The Solution: Compiled Logic > Prompt Engineering
+Scenarist replaces fragile string manipulation with **DSPy (Declarative Self-Improving Python)**.
+Instead of manually tweaking prompts, we define **Signatures** (Inputs/Outputs) and **Modules** (Logic). We then use an **Optimizer** (MIPROv2/BootstrapFewShot) to "compile" the best possible prompts by learning from a feedback metric.
 
 **The Pipeline:**
 1.  **Keyword Extraction:** Converts user intent into dramatic search queries.
-2.  **RAG (Retrieval):** Fetches semantic references from a curated vector store of screenplay datasets.
-3.  **Logical Planning:** Generates a structural blueprint (Beats, Characters, Location) *before* writing dialogue.
-4.  **Style Planning:** Analyzes reference scenes to enforce specific pacing and vocabulary rules.
-5.  **Drafting:** Generates the scene adhering strictly to the Logical and Style plans.
-6.  **Auto-Critique (The Guardrail):** A separate evaluator model scores the draft (1.0 - 5.0) on coherence and style adherence.
+2.  **RAG (Retrieval):** Fetches semantic references from a curated vector store.
+3.  **Chain-of-Thought:** The agent plans the scene structure (Beats, Characters, Subtext) *before* generation.
+4.  **Auto-Critique:** A separate "Judge" model evaluates the draft against a rubric.
+5.  **Optimization Loop:** The system learns from its best outputs, automatically injecting successful few-shot examples into future prompts.
 
-## ✨ Key Features
+## 🏗 Architecture
 
-* **Structured Outputs:** Uses **Pydantic** to enforce strict JSON schemas, preventing the "markdown bleed" common in LLM outputs.
-* **Local LLM Optimization:** Tuned to run on `gpt-oss:20b` (Ollama), reducing dependency on expensive proprietary models like GPT-4 while maintaining structural integrity.
-* **Automated Evaluation:** Every generation is scored against a rubric. This allows for **Eval-Driven Development**—we measure improvements via benchmarks, not "vibes."
-* **Decoupled Architecture:**
-* **Frontend:** Streamlit (UI/Visualization)
-* **Backend:** FastAPI (Stateless logic)
-* **Core:** Python/LangChain (Orchestration)
-
-
-## ⚡️ Quick Start
-
-### Prerequisites
-
-* Python 3.10+
-* [Ollama](https://ollama.com/) running locally (for local inference)
-
-### Installation
-
-```bash
-# 1. Clone the repo
-git clone [https://github.com/keremistan/scenarist.git](https://github.com/keremistan/scenarist.git)
-cd scenarist
-
-# 2. Install dependencies
-pip install -r requirements.txt
-
-# 3. Create .env file
-echo "OPENAI_API_KEY=your_key_here" > .env
-```
-
-### Running the System
-
-**1. Start the API Server:**
-
-```bash
-uvicorn showrunner.api.main:app --reload
-```
-
-**2. Start the UI:**
-
-```bash
-streamlit run ui/app.py
-```
-
-## 🔮 Roadmap
-
-* [x] Deterministic Generation Chain
-* [x] Automated Critique Loop
-* [ ] **DSPy Implementation:** Replacing manual prompt templates with automated prompt optimization.
-* [ ] **Knowledge Graph:** Integrating Neo4j to track character relationships across multiple scenes.
+```mermaid
+graph TD
+    subgraph Docker Cluster
+        UI[Frontend Service<br/>Streamlit] --> API[Backend Service<br/>FastAPI]
+        API --> Engine[DSPy Engine]
+        
+        subgraph "AI Core"
+            Engine --> Optimizer[Compiler<br/>MIPROv2]
+            Optimizer -->|Trains| CompiledProgram[Optimized JSON]
+            CompiledProgram -->|Inference| LLM
+        end
+        
+        Engine --> DB[(Vector Store)]
+    end
+    
+    User --> UI
