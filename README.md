@@ -1,5 +1,7 @@
 # 🎬 Scenarist: Eval-Driven Narrative Engine
+
 a.k.a. Ghostwriter
+
 ### An autonomous agentic platform for consistent, high-fidelity narrative generation.
 **Built with DSPy, FastAPI, and Docker.**
 
@@ -43,3 +45,66 @@ graph TD
     end
     
     User --> UI
+
+```
+
+## ✨ Key Features
+
+* **Self-Optimizing Prompts:** The system improves its own instructions by compiling successful traces into the prompt context.
+* **Microservices Architecture:** Fully containerized backend (FastAPI) and frontend (Streamlit) orchestrated via Docker Compose.
+* **Structured Outputs:** Enforced strict JSON schemas for predictable downstream integration.
+* **Local-First Design:** Optimized to run with local models (Ollama/Llama-3) or OpenAI, interchangeable via environment variables.
+
+## 📂 Project Structure
+
+```text
+scenarist/
+├── app/                 # Backend Service
+│   ├── main.py          # FastAPI Entrypoint
+│   └── engine.py        # DSPy Logic & Signatures
+├── ui/                  # Frontend Service
+│   └── app.py           # Streamlit Interface
+├── data/                # Artifacts
+│   └── scenarist_v1.json # The Compiled/Optimized Model
+├── docker-compose.yml   # Orchestration
+└── Dockerfile           # Multi-stage build definition
+
+```
+
+## ⚡️ Quick Start
+
+### Prerequisites
+
+* Docker & Docker Compose
+* Local Ollama instance with `gpt-oss:20b` and `nomic-embed-text` models
+* OpenAI API Key
+
+### Installation & Run
+
+No need to install Python dependencies manually. The entire stack is containerized.
+
+```bash
+# 1. Clone the repo
+git clone [https://github.com/keremistan/scenarist.git](https://github.com/keremistan/scenarist.git)
+cd scenarist
+
+# 2. Configure Environment
+# Rename .env.example to .env and add your keys
+echo "OPENAI_API_KEY=sk-..." > .env
+
+# 3. Launch the Platform
+docker compose up --build
+
+```
+
+**Access the Application:**
+
+* **Frontend:** `http://localhost:8501`
+* **API Docs:** `http://localhost:8000/docs`
+
+## 🔮 Roadmap
+
+* [x] **Phase 1: Architecture** (DSPy Implementation, Dockerization)
+* [ ] **Phase 2: Observability** (Langfuse Integration for Tracing & Cost Tracking)
+* [ ] **Phase 3: Advanced RAG** (Hybrid Search with Cross-Encoder Re-ranking)
+* [ ] **Phase 4: Fine-Tuning** (Distilling the DSPy agent into a custom Llama-3-8B model)
