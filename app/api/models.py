@@ -29,6 +29,7 @@ class ScoreCard(BaseModel):
 class SceneWriter(dspy.Module):
 
     def __init__(self):
+        super().__init__()
         self.keyword_extractor = dspy.Predict(dspy.make_signature("scene_gist -> dramatic_keywords: list[str]",
                                                                   instructions="dramatic_keywords describe the scene_gist and these are to be used for document retrieval."))
         self.document_retriever = SceneRetriever()

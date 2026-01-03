@@ -1,25 +1,23 @@
-import os
-from typing import Any
-
-import dspy
-from dotenv import load_dotenv
+# import dspy
+# from dotenv import load_dotenv
 from statistics import mean
 from app.api.models import SceneRequest, SceneResponse, SceneWriter
 from app.tools.logging_template import setup_logging
-from app.tools.retrieve import SceneRetriever
+# from app.tools.retrieve import SceneRetriever
+from app.tools.configs import config
 
 logger = setup_logging("generation")
 
-has_anything_loaded = load_dotenv()
+# has_anything_loaded = load_dotenv()
+#
+# if not has_anything_loaded:
+#     raise ValueError("No .env file found")
 
-if not has_anything_loaded:
-    raise ValueError("No .env file found")
-
-ollama_base_url = os.getenv("OLLAMA_DOCKER_SERVICE")
-
-lm = dspy.LM("ollama_chat/gpt-oss:20b", api_base="http://{}:11434".format(ollama_base_url), api_key="")
-
-dspy.configure(lm=lm)
+# ollama_base_url = os.environ["OLLAMA_DOCKER_SERVICE"]
+#
+# lm = dspy.LM("ollama_chat/gpt-oss:20b", api_base="http://{}:11434".format(ollama_base_url), api_key="")
+#
+# dspy.configure(lm=lm)
 
 
 def write_scene(scene_request: SceneRequest, test_response: bool = False) -> SceneResponse:    

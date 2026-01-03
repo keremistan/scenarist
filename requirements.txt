@@ -100,6 +100,7 @@ langchain-core==1.2.5
 langchain-ollama==1.0.1
 langchain-openai==1.1.5
 langchain-text-splitters==1.1.0
+langfuse==3.11.2
 langgraph==1.0.5
 langgraph-checkpoint==3.0.1
 langgraph-checkpoint-sqlite==3.0.1
@@ -129,9 +130,14 @@ oauthlib==3.3.1
 ollama==0.6.1
 onnxruntime==1.23.2
 openai==2.13.0
+openinference-instrumentation==0.1.42
+openinference-instrumentation-dspy==0.1.32
+openinference-semantic-conventions==0.1.25
 opentelemetry-api==1.39.1
 opentelemetry-exporter-otlp-proto-common==1.39.1
 opentelemetry-exporter-otlp-proto-grpc==1.39.1
+opentelemetry-exporter-otlp-proto-http==1.39.1
+opentelemetry-instrumentation==0.60b1
 opentelemetry-proto==1.39.1
 opentelemetry-sdk==1.39.1
 opentelemetry-semantic-conventions==0.60b1
@@ -224,6 +230,7 @@ wcwidth==0.2.14
 websocket-client==1.9.0
 websockets==15.0.1
 Werkzeug==3.1.4
+wrapt==1.17.3
 xxhash==3.6.0
 yarl==1.22.0
 zipp==3.23.0

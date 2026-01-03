@@ -8,10 +8,11 @@ app = FastAPI()
 
 @app.get("/")
 def index():
-    return "Hello"
+    return "Hello "
 
 @app.get("/chroma")
 def get_scenes():
+    # todo: enable access to this endpoint only in dev
     # to test the chroma and ollama (embedding) connection
     print("in main.py the ollama base -> http://{}:11434".format(os.getenv("OLLAMA_DOCKER_SERVICE")))
     topics = ['heated argument', 'love confession', 'emotional conflict', 'tension', 'reconciliation attempt', 'intense emotion', 'contradictory feelings', 'fragile affection', 'heartbreak', 'understanding', 'conflict resolution', 'passionate dispute']
