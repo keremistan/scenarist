@@ -85,15 +85,25 @@ No need to install Python dependencies manually. The entire stack is containeriz
 
 ```bash
 # 1. Clone the repo
-git clone [https://github.com/keremistan/scenarist.git](https://github.com/keremistan/scenarist.git)
-cd scenarist
+`git clone [https://github.com/keremistan/scenarist.git](https://github.com/keremistan/scenarist.git)
+cd scenarist`
 
 # 2. Configure Environment
-# Rename .env.example to .env and add your keys
-# Keys to be updated are marked with "#UPDATE"
+Rename .env.example to .env and add your keys
+Keys to be updated are marked with "#UPDATE"
 
 # 3. Launch the Platform
-docker compose up --build
+`docker compose up --build`
+
+# Optional, but preferred
+# 4. If you want to use langfuse, 
+Go to the localhost:3000
+and 'signup' to generate a public and secret key
+paste them into the .env file
+
+# 5. Restart the docker compose
+Everything should be working now (streamlit ui, fastapi backend and langfuse)
+
 
 ```
 

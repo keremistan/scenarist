@@ -6,7 +6,7 @@ embedding_model = OllamaEmbeddings(model='nomic-embed-text', temperature=0)
 screenplays_vector_store_collection = Chroma(
     collection_name="screenplays", 
     embedding_function=embedding_model, 
-    persist_directory='./chroma')
+    persist_directory='app/chroma')
 
 
 def delete_collection():

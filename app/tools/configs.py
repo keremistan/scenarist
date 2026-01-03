@@ -1,5 +1,6 @@
 from app.tools.logging_template import setup_logging
 from langfuse import get_client
+from langfuse.langchain import CallbackHandler
 from dotenv import load_dotenv
 import dspy
 import os
@@ -23,6 +24,7 @@ class Config:
         # set up the langfuse
         self.langfuse = get_client()
         DSPyInstrumentor().instrument() # langfuse config to trace dspy activities
+        self.langfuse_callback_handler = CallbackHandler()
 
         # set up the dspy
         lm_model = kwargs.get("lm_model", "ollama_chat/gpt-oss:20b")

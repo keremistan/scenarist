@@ -4,6 +4,7 @@ from langchain_chroma import Chroma
 from langchain_ollama.embeddings import OllamaEmbeddings
 from langchain_core.documents import Document
 from dotenv import load_dotenv
+from langfuse import observe
 
 has_anything_loaded = load_dotenv()
 
@@ -19,6 +20,7 @@ class SceneRetriever:
             embedding_function=self.embedding_model, 
             persist_directory='app/chroma')
 
+    @observe(as_type='embedding')
     def query(self, query_text: str, k: int = 5, fetch_k: int = 20) -> list[Document]:
         # query = "how can I create a suspense and tension?"
         print("query_text from llm: {}\n".format(query_text))

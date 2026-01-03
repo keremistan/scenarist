@@ -4,8 +4,10 @@ from langchain_chroma import Chroma
 from langchain_core.documents import Document
 from typing import Optional
 from langchain_ollama.embeddings import OllamaEmbeddings
+from langfuse import observe
 import os
 
+@observe(as_type='embedding')
 def ingest(
     screenplay_address: str, 
     scenes_to_index: Optional[int] = None, 
@@ -16,7 +18,10 @@ def ingest(
     scene_docs: list[Document] = []
 
     # define the vector store 
-    embedding_model = OllamaEmbeddings(model="nomic-embed-text", base_url="http://{}:11434".format(os.environ["OLLAMA_DOCKER_SERVICE"]))
+    embedding_model = OllamaEmbeddings(
+        model="nomic-embed-text",
+        base_url="http://{}:11434".format(os.environ["OLLAMA_DOCKER_SERVICE"]),
+    )
     screenplays_vector_store_collection = Chroma(
         collection_name="screenplays", 
         embedding_function=embedding_model, 
@@ -52,6 +57,8 @@ def ingest(
             screenplays_vector_store_collection.add_documents(
                 [current_scene_doc]
             )
+
+    return scene_docs
 
     
 if __name__ == "__main__":
