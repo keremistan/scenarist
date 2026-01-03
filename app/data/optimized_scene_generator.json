@@ -1,0 +1,85 @@
+{
+  "keyword_extractor": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "scene_gist": "An unexpected turn of events happen and raises the stakes",
+        "dramatic_keywords": [
+          "surprise",
+          "twist",
+          "high stakes",
+          "unforeseen",
+          "intensifying conflict",
+          "dramatic escalation",
+          "tension",
+          "suspense",
+          "climax"
+        ]
+      }
+    ],
+    "signature": {
+      "instructions": "You are given a brief narrative description of a key moment in a story, called the \"scene gist.\" Your task is to extract and list the most important dramatic keywords that capture the emotional beat, tension, and potential twists of that moment. The keywords should be concise, one‑ or two‑word phrases, and should be directly relevant to the gist. Output only a JSON array of strings, with no additional explanation or commentary. For example, if the scene gist is \"An unexpected turn of events happens and raises the stakes,\" your output might be `['surprise', 'twist', 'high stakes', 'intensifying conflict', 'suspense']`.",
+      "fields": [
+        {
+          "prefix": "Scene Gist:",
+          "description": "${scene_gist}"
+        },
+        {
+          "prefix": "Dramatic Keywords:",
+          "description": "${dramatic_keywords}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "scene_writer.predict": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "scene_gist": "An unexpected turn of events happen and raises the stakes",
+        "reference_scenes": [
+          "INT. FIFTH FLOOR CATWALK\nLasers carve the air around Tanner.\nHissing and popping as chunks of metal disintegrate.\nTanner dives across the catwalk, throwing himself down\ninto the relative safety of --\n",
+          "INT. APARTMENT - CONTINUOUS\nThe men rush inside and straight into --\n",
+          "EXT. MANHATTAN SKY - A LITTLE LATER\nThe storm has finally arrived. The jet-copter slashing\nthrough the dark rain.\n",
+          "INT. MR. BIG'S RESIDENCE - MOMENTS LATER\nNick and Hopps are shoved into a room that's right out of The\nGodfather. A POLAR BEAR enters...\n55.\nHOPPS\n(sotto)\nIs that Mr. Big?\nNICK\n(sotto)\nNo.\nNow an even BIGGER POLAR BEAR enters...\nHOPPS\nWhat about him? Is that him?\nNICK\n(sotto, frustrated)\nNo.\n...and then another. The BIGGEST POLAR BEAR yet...\nHOPPS\nThat's gotta be him.NICK\nStop talking stop talking stop\ntalking--\nThe huge polar bear growls at Nick, then reveals a tiny chair\nupon which sits... a TEENY, TINY ARCTIC SHREW... this is MR.\nBIG. He sounds like Marlon Brando sped up to 78 rpm.\nNICK (CONT'D)\nMr. Big, sir, this is a simple\nmisunder-\nMr. Big holds out a TINY FINGER for NICK to KISS HIS RING.\nNick painstakingly does so.\nNICK (CONT'D)\nThis is a simple misunderstanding.\nMr. Big motions for Nick to shut up.\nMR. BIG\nYou come here unannounced... on the\nday my daughter is to be married?\nNICK\nWell actually we were brought here\nagainst our will, so...\n(Mr. Big is not impressed)\nPoint is, I did not know it was\nyour car, and I certainly did not\nknow about your daughter's wedding.\n56.\nMR. BIG\nI trusted you, Nicky... I welcomed\nyou into my home... we broke bread\ntogether... Gram-mama made you her\ncannoli. And how did you repay my\ngenerosity? With a rug... made from\nthe butt of a skunk. A skunk butt\nrug. You disrespected me. You\ndisrespected my gram-mama who I\nburied in that skunk butt rug. I\ntold you never to show your face\nhere again, but here you are,\nsnooping around with this...\n(re. Hopps)\nWhat are you, a performer? What'swith the costume?\nHOPPS\nSir, I am a c--\nNICK\nMime! She is a mime. This mime,\ncannot speak. You can't speak if\nyou're a mime.\nHOPPS\nNo. I am a cop. And I'm on the\nEmmitt Otterton case, and my\nevidence puts him in your car, so\nintimidate me all you want, I'm\ngoing to find out what you did to\nthat otter if it's the last thing I\ndo.\nMr. Big considers this and makes that little grunt.\nMR. BIG\nThen I have only one request: say\nhello to Gram-mama. Ice `em!\nThe Polar Bears snatch Nick and Hopps.\nNICK\nWhoa-- I didn't see nothing-- I'm\nnot saying nothing--\nMR. BIG\nAnd you never will--\nThe polar bears open a hidden door on the floor, revealing an\nicy pool beneath.\n57.\nNICK\nPlease! No no no! If you're mad at\nme about the rug I've got more\nrugs!\nNick and Hopps are about to be dumped in, when--\nFRU FRU SHREW\nOh, Daddy, it's time for our dance.\n(sees them trying to kill\nNick)What did we say? No icing anyone at\nmy wedding!\nMR. BIG\nI have to, baby. Daddy has to.\n(to Thugs)\nIce `em.\nNick and Hopps scream and--\nFRU FRU SHREW\nWait. WAIT! She's the bunny that\nsaved my life yesterday. From that\ngiant donut.\nMR. BIG\nThis bunny?\nFRU FRU SHREW\nYeah. Hi!\nHOPPS\nHi.\n(warm, whisper)\nI love your dress.\nFRU FRU SHREW\nAw, thank you.\nMr. Big motions for the Polar Bears to put Hopps down.\nMR. BIG\nPut `em down.\n(then, to Hopps)\nYou have done me a great service.\nI will help you find the otter. I\nwill take your kindness... and pay\nit forward.\nHopps and Mr. Big kiss on the cheeks. Nick stares at them...\nWhat is happening?\n58.\n",
+          "INT. SECRET ROOM - NIGHT 93\nThe last drops are sucked up from the I.V Bag. They go\nthrough the perfusion pipe and up into Elisabeth's arm.\nA beat.\nWe hear the sound of the front door opening and closing.\nFootsteps amplifying, which start to run then slow down.\nSounds of chairs moving. Glasses chiming.\nA low voice. A high pitched voice. The sound of laughter.\nSuddenly, SMASH! The sound of broken glass.\nCUT TO\n94 "
+        ],
+        "reasoning": "I wanted to craft a scene that mirrors the cinematic, high‑stakes feel of the reference scenes while introducing an unexpected twist that ups the tension. I chose a dark, claustrophobic setting (an abandoned subway station) to give a sense of urgency and isolation. The characters are about to pull off a heist, and the audience is primed to think they will succeed. The unexpected turn comes when the \"villain\" actually reveals that the entire city is already under a hidden surveillance system – a reveal that raises the stakes dramatically. Dialogue is concise, punchy, and includes some humor to keep the pacing fast, while stage directions echo the terse, action‑driven language of the reference material. The scene ends with a countdown, signaling imminent danger, leaving the reader on edge.",
+        "generated_scene": "INT. ABANDONED SUBWAY STATION – NIGHT  \n\nThe fluorescent tubes hum, throwing harsh orange bars across graffiti‑stained walls. RUMBLE of passing trains echoes from the tunnel. JAX (30s, quick‑witted, grizzled) flicks a compact lockpick in front of LARA (late 20s, cool, sarcastic). RYU (early 20s, nervous, tech‑savvy) hovers over a battered laptop, eyes flicking over the map on the screen.  \n\n**JAX**  \n(whisper)  \nOkay, the vault’s a 5‑digit code. You ready?  \n\n**LARA**  \n(mutters)  \nIf we’re doing this the old‑school way, I’m bringing my shotgun.  \n\n**RYU**  \n(half‑smiling)  \nI’d rather stick to the “silent” method. Trust me.  \n\nThey slide the lockpick into the vault’s keyhole. The tumblers click. The heavy door groans open to reveal a stark, sterile room with a single glowing console.  \n\n**JAX**  \n(smiles)  \nHeh, just like the good old days.  \n\nA sudden LOUD THUMP reverberates. The console’s lights flicker. A shadow slides across the floor. A figure steps out of the darkness: VIKTOR (40s, slick, menacing).  \n\n**VIKTOR**  \n(smiling, casual)  \nYou guys are running on schedule.  \n\n**LARA**  \n(angry)  \nI’ve heard it’s a trick.  \n\nVIKTOR’s grin widens. He pulls a small, matte black box from his coat and presses a key on the console. A series of blue light pulses burst from the wall.  \n\n**VIKTOR**  \n(calm)  \nNo trick, sweetheart. The city’s already in the loop.  \n\nA HOVERING DRONE whirs overhead, its camera lenses scanning the trio. The console’s display lights up: a grid of cameras, a countdown timer.  \n\n**VIKTOR**  \n(leaning closer)  \nYou think you can stop me? The algorithm has already activated.  \n\n**JAX**  \n(takes a breath)  \nWe… what did we miss?  \n\n**VIKTOR**  \n(laughs softly)  \nYou’re still on the surface, Jax. The real game begins below.  \n\nThe countdown hits **00:10:57**.  \n\n**RYU**  \n(panicking)  \nIt’s… it’s a 10‑minute buffer. I can hack it!  \n\n**LARA**  \n(breathing heavily)  \nI’m not letting you kill the city, Viktor.  \n\nVIKTOR turns, a flicker of amusement crossing his face.  \n\n**VIKTOR**  \nThen help me finish the loop, or we’ll both be trapped in the same damn mess.  \n\nA distant explosion rattles the platform. The screen flashes, revealing a shadowy silhouette of a giant mechanical beast. The trio freezes, the stakes suddenly impossibly high.  \n\nCUT TO:  \n\nThe timer ticking relentlessly.  \n\n**VIKTOR**  \n(to the trio, menacing)  \nYour move.  \n\nThe scene ends on the looming drone’s lens, a silent, cold eye watching."
+      }
+    ],
+    "signature": {
+      "instructions": "You are an advanced screenplay generation assistant.  \nGiven two inputs:  \n\n* **scene_gist** – a one‑sentence description of a single event that should be expanded into a cinematic scene.  \n* **reference_scenes** – a list of full or partial screenplay excerpts that illustrate the desired tone, pacing, and stylistic conventions.  \n\nYour task is to produce two output fields in the order required by the dataset:  \n\n1. **Reasoning** – a concise chain‑of‑thought paragraph that explains how you will use the gist and the reference scenes to choose a setting, characters, a surprise twist that raises the stakes, and how you will maintain the fast‑paced, dramatic style of the references.  \n2. **Generated Scene** – a complete screenplay block that follows the formatting conventions of the training data (INT./EXT heading, present‑tense stage directions, character names in caps with brief descriptors, dialogue in double asterisks, parentheses for asides, and a dramatic hook or twist that heightens tension).  \n\nMake sure the reasoning is clear, logically structured, and directly informs the scene content. The generated scene should be immersive, tightly written, and end with an impactful moment that leaves the reader on edge.  \n\nRespond with the two fields, each prefixed by its name (e.g., `[[ ## Reasoning ## ]]` and `[[ ## Generated Scene ## ]]`), and conclude with the marker `[[ ## completed ## ]]`.",
+      "fields": [
+        {
+          "prefix": "Scene Gist:",
+          "description": "${scene_gist}"
+        },
+        {
+          "prefix": "Reference Scenes:",
+          "description": "${reference_scenes}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Generated Scene:",
+          "description": "${generated_scene}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

@@ -3,12 +3,20 @@ from fastapi import FastAPI
 from app.api.models import SceneRequest, SceneResponse
 from app.api.generation import write_scene
 from app.tools.retrieve import SceneRetriever
+from app.tools.ingestion import ingest
 import os
 app = FastAPI()
 
 @app.get("/")
 def index():
     return "Hello "
+
+@app.get("/ingest")
+def do_ingest(screenplay_name: str = "metropolis.pdf", scenes_to: int = 5, scenes_from: int = 0):
+    screenplay_name = screenplay_name if "app/screenplays/" in screenplay_name else "app/screenplays/{}".format(screenplay_name) #todo: to be improved
+    ingest(screenplay_name, scenes_to, scenes_from)
+
+    return "Ingestion of {}'s scenes within [{}-{}] is completed".format(screenplay_name, scenes_from, scenes_to)
 
 @app.get("/chroma")
 def get_scenes():

@@ -1,9 +1,10 @@
-from loader import ScreenplayLoader
-from scene_analyzer import analyze_scene, SceneAnalysis
+from app.tools.loader import ScreenplayLoader
+from app.tools.scene_analyzer import analyze_scene, SceneAnalysis
 from langchain_chroma import Chroma
 from langchain_core.documents import Document
 from typing import Optional
 from langchain_ollama.embeddings import OllamaEmbeddings
+import os
 
 def ingest(
     screenplay_address: str, 
@@ -15,11 +16,11 @@ def ingest(
     scene_docs: list[Document] = []
 
     # define the vector store 
-    embedding_model = OllamaEmbeddings(model="nomic-embed-text")
+    embedding_model = OllamaEmbeddings(model="nomic-embed-text", base_url="http://{}:11434".format(os.environ["OLLAMA_DOCKER_SERVICE"]))
     screenplays_vector_store_collection = Chroma(
         collection_name="screenplays", 
         embedding_function=embedding_model, 
-        persist_directory='./chroma')
+        persist_directory='app/chroma')
 
     # extract text from pdf
     for i, current_scene in enumerate(screenplay_loader.lazy_load()):

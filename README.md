@@ -90,7 +90,7 @@ cd scenarist
 
 # 2. Configure Environment
 # Rename .env.example to .env and add your keys
-echo "OPENAI_API_KEY=sk-..." > .env
+# Keys to be updated are marked with "#UPDATE"
 
 # 3. Launch the Platform
 docker compose up --build
@@ -105,6 +105,6 @@ docker compose up --build
 ## 🔮 Roadmap
 
 * [x] **Phase 1: Architecture** (DSPy Implementation, Dockerization)
-* [ ] **Phase 2: Observability** (Langfuse Integration for Tracing & Cost Tracking)
+* [x] **Phase 2: Observability** (Langfuse Integration for Tracing & Cost Tracking)
 * [ ] **Phase 3: Advanced RAG** (Hybrid Search with Cross-Encoder Re-ranking)
 * [ ] **Phase 4: Fine-Tuning** (Distilling the DSPy agent into a custom Llama-3-8B model)

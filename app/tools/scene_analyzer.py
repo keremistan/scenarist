@@ -1,6 +1,7 @@
 from pydantic import BaseModel, Field, ValidationError
 from langchain_ollama import ChatOllama
 from typing import Optional
+import os
 
 # when searching for a scene, what would i need it to reference by?
 # - type? whether it is a comedic, tragic, action, --introductory,--, 
@@ -32,7 +33,8 @@ class SceneAnalysis(BaseModel):
 analyzer_model = ChatOllama(
     model="gpt-oss:20b", 
     temperature=0,
-    reasoning='low' # 'high' if production ;)
+    reasoning='low', # 'high' if production ;)
+    base_url="http://{}:11434".format(os.environ["OLLAMA_DOCKER_SERVICE"]),
     ).with_structured_output(SceneAnalysis).with_retry(retry_if_exception_type=(ValidationError,))
 
 def analyze_scene(scene: str) -> Optional[SceneAnalysis]:
