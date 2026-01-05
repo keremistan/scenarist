@@ -1,4 +1,4 @@
-from typing import Literal
+from typing import Literal, Optional
 from pydantic import BaseModel, Field
 import dspy
 from app.tools.logging_template import setup_logging
@@ -37,15 +37,20 @@ class SceneWriter(dspy.Module):
 
         self.logger = setup_logging("SceneWriter")
 
+        self.dramatic_keywords = []
+        self.reference_scenes = []
+        self.generated_scene: Optional[str] = None
 
     def forward(self, scene_gist):
         # keyword extraction
         dramatic_keywords: list[str] = self.keyword_extractor(scene_gist=scene_gist).dramatic_keywords
         self.logger.info("dramatic_keywords: {}".format(dramatic_keywords))
+        self.dramatic_keywords = dramatic_keywords
 
         # reference scene retrieval
         reference_scenes = [doc.page_content for doc in self.document_retriever.query(query_text=", ".join(dramatic_keywords))]
         self.logger.info("reference_scenes: {}".format(reference_scenes))
+        self.reference_scenes = reference_scenes
 
         # writing the scene
         scene_writer_response = self.scene_writer(scene_gist=scene_gist, reference_scenes=reference_scenes)
@@ -54,5 +59,6 @@ class SceneWriter(dspy.Module):
         # log the written scene
         generated_scene = scene_writer_response.generated_scene
         self.logger.info("generated_scene: {}".format(generated_scene[:25]))
+        self.generated_scene = generated_scene
 
         return scene_writer_response

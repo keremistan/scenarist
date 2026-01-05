@@ -1,6 +1,6 @@
-from app.tools.configs import config
 from statistics import mean
 from app.api.models import SceneRequest, SceneResponse, SceneWriter
+from app.tools.evaluate import evaluate_scene
 from app.tools.logging_template import setup_logging
 
 logger = setup_logging("generation")
@@ -48,6 +48,9 @@ def write_scene(scene_request: SceneRequest, test_response: bool = False) -> Sce
     generated_scene = chat_model(scene_gist=user_prompt).generated_scene
     logger.info("generated the scene")
 
+    evaluation = evaluate_scene(chat_model.generated_scene, user_prompt, chat_model.reference_scenes)
+    logger.info("evaluation results: {}".format(evaluation))
+
     # todo: the api is filled with placeholders. Either change the api or fill the values
     return SceneResponse(
         generated_scene=generated_scene,
@@ -55,7 +58,7 @@ def write_scene(scene_request: SceneRequest, test_response: bool = False) -> Sce
         logical_plan="logical_plan",
         referenced_scenes=["reference_scenes"],
         critique_score= 1,
-        critique_text="critique"
+        critique_text=str(evaluation)
     )
 
 
