@@ -1,8 +1,8 @@
 from langchain_chroma import Chroma
-from langchain_ollama.embeddings import OllamaEmbeddings
-from pprint import pprint
 
-embedding_model = OllamaEmbeddings(model='nomic-embed-text', temperature=0)
+from app.tools.traced_embeddings import TracedEmbeddings
+
+embedding_model = TracedEmbeddings()
 screenplays_vector_store_collection = Chroma(
     collection_name="screenplays", 
     embedding_function=embedding_model, 
