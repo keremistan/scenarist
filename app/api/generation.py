@@ -1,10 +1,13 @@
+from app.tools.configs import config #do not delete. needs to be here.
 from statistics import mean
 from app.api.models import SceneRequest, SceneResponse, SceneWriter
 from app.tools.evaluate import evaluate_scene
 from app.tools.logging_template import setup_logging
+from langfuse import observe
 
 logger = setup_logging("generation")
 
+@observe(name="Writing scene")
 def write_scene(scene_request: SceneRequest, test_response: bool = False) -> SceneResponse:    
     """
     This function accepts a scene_request and does the followings:
