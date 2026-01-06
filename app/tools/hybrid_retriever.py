@@ -4,6 +4,7 @@ from langchain_chroma import Chroma
 from langchain_core.documents import Document
 from rank_bm25 import BM25Okapi
 import numpy as np
+from sentence_transformers import CrossEncoder
 
 class HybridRetriever:
     def __init__(self, chroma_client: Chroma, k: int = 5, fetch_k: int = 20):
@@ -41,11 +42,17 @@ class HybridRetriever:
         sorted_scores = sorted(scores, key=lambda x: x[1] ,reverse=True)
 
         # filter out the docs according to their ranking
-        ranked_docs = []
+        ranked_docs: list[Document] = []
         for current_score in sorted_scores:
             for current_doc in both_lists:
                 if current_score == current_doc.id:
                     ranked_docs.append(current_doc)
 
+        # re-rank using cross encoder
+        rerank_model = CrossEncoder("cross-encoder/ms-marco-MiniLM-L6-v2")
+        rerank_scores = rerank_model.predict([(query, doc.page_content) for doc in ranked_docs])
+        rerank_scores_indexes = np.argsort(rerank_scores)[::-1]
+        reranked_docs = [ranked_docs[rerank_score_index] for rerank_score_index in rerank_scores_indexes]
+
         # return only as much as required
-        return ranked_docs[:self.k]
+        return reranked_docs[:self.k]

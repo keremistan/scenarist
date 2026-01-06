@@ -24,9 +24,6 @@ class SceneRetriever:
 
     @observe(name="querying_in_scene_retriever", as_type="retriever")
     def query(self, query_text: str, k: int = 5, fetch_k: int = 20) -> list[Document]:
-        # query = "how can I create a suspense and tension?"
-        print("query_text from llm: {}\n".format(query_text))
-        
         # mmr_res = self.screenplays_vector_store_collection.max_marginal_relevance_search(query_text, k=k, fetch_k=fetch_k)
         hybrid_res = self.hybrid_retriever.forward(query_text)
 
@@ -39,7 +36,3 @@ class SceneRetriever:
                 hybrid_res.remove(res)
             
         return hybrid_res
-
-        # print("doc count: {}".format(screenplays_vector_store_collection._collection.count()))
-        # print("first doc: {}".format(screenplays_vector_store_collection._collection.peek(1)))
-

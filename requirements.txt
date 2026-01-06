@@ -70,7 +70,7 @@ httptools==0.7.1
 httpx==0.28.1
 httpx-sse==0.4.3
 huey==2.5.5
-huggingface_hub==1.2.3
+huggingface-hub==0.36.0
 humanfriendly==10.0
 idna==3.11
 importlib_metadata==8.7.1
@@ -125,6 +125,7 @@ multidict==6.7.0
 mypy_extensions==1.1.0
 narwhals==2.14.0
 nest-asyncio==1.6.0
+networkx==3.6.1
 numpy==2.3.5
 oauthlib==3.3.1
 ollama==0.6.1
@@ -194,9 +195,12 @@ rich-toolkit==0.17.1
 rignore==0.7.6
 rpds-py==0.30.0
 rsa==4.9.1
+safetensors==0.7.0
 scikit-learn==1.8.0
 scipy==1.16.3
+sentence-transformers==5.2.0
 sentry-sdk==2.48.0
+setuptools==80.9.0
 shellingham==1.5.4
 six==1.17.0
 smmap==5.0.2
@@ -213,9 +217,11 @@ threadpoolctl==3.6.0
 tiktoken==0.12.0
 tokenizers==0.22.1
 toml==0.10.2
+torch==2.9.1
 tornado==6.5.4
 tqdm==4.67.1
 traitlets==5.14.3
+transformers==4.57.3
 typer==0.20.1
 typer-slim==0.20.1
 typing-inspect==0.9.0
