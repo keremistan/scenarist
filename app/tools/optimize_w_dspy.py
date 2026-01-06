@@ -2,7 +2,7 @@ import dspy
 import mlflow
 import datetime
 
-from app.api.models import SceneWriter
+from app.api.scene_writer import SceneWriter
 from app.tools.logging_template import setup_logging
 
 mlflow.dspy.autolog()

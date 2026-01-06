@@ -1,6 +1,7 @@
 from app.tools.configs import config #do not delete. needs to be here.
 from statistics import mean
-from app.api.models import SceneRequest, SceneResponse, SceneWriter
+from app.api.models import SceneRequest, SceneResponse
+from app.api.scene_writer import SceneWriter
 from app.tools.evaluate import evaluate_scene
 from app.tools.logging_template import setup_logging
 from langfuse import observe
@@ -41,9 +42,6 @@ def write_scene(scene_request: SceneRequest, test_response: bool = False) -> Sce
     #     chat_model = ChatOllama(model='gpt-oss:20b', reasoning='high', temperature=temperature_of_writer)
 
     chat_model = SceneWriter()
-
-    import os
-    logger.info("current working dir: {}\n".format(os.getcwd()))
 
     chat_model.load("app/data/optimized_scene_generator.json")
     logger.info("chat model initialized.")
