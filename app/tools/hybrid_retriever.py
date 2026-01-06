@@ -12,53 +12,40 @@ class HybridRetriever:
 
         self.chroma_client = chroma_client
         self.all_documents_with_metadata = self.chroma_client.get()
-        self.all_documents = self.all_documents_with_metadata['documents']
 
-        # print "all_documents: {}".format(self.all_documents))
-        # print "all_documents_with_metadata: {}".format(self.all_documents_with_metadata))
+        # use original scene text instead of the subtext/analysis of it when doing bm25 search
+        self.all_original_scene_text = [metadata['original_text'] for metadata in self.all_documents_with_metadata['metadatas']]
 
-        # get all documents and create an index on them
+        # create an index on them within BM25
         self.tokenized_documents = []
-        for doc in self.all_documents:
-            # print("current doc: {}".format(doc))
-            doc_tokenized = doc.split(" ")
-            # print("doc_tokenized: {}".format(doc_tokenized))
-
+        for og_scene in self.all_original_scene_text:
+            doc_tokenized = og_scene.split(" ")
             self.tokenized_documents.append(doc_tokenized)
 
-        # self.tokenized_documents = [doc.metadata.original_text for doc in all_documents]
         self.bm25_okapi = BM25Okapi(self.tokenized_documents)
 
     def forward(self, query: str):
         # query the chroma client
         vector_res = self.chroma_client.max_marginal_relevance_search(query)
-        # print("vector_res: {}".format(vector_res))
 
         # query the bm25
         bm25_scores = np.flip(np.argsort(self.bm25_okapi.get_scores(query.split(" "))))[:self.k]
         bm25_vector_docs_ids = [self.all_documents_with_metadata['ids'][bm25_current_index] for bm25_current_index in bm25_scores]
         bm25_vector_docs = self.chroma_client.get_by_ids(bm25_vector_docs_ids)
-        # print("bm25_res: {}".format(bm25_vector_docs))
 
         # merge results from both using rrf
-        scores = defaultdict(float)
         both_lists: list[Document] = [*bm25_vector_docs, *vector_res] #unpack both lists into a single one.
-        # print("both_lists: {}".format(both_lists))
-
+        scores = defaultdict(float)
         for ind, current_doc in enumerate(both_lists, 1):
             scores[current_doc.id] += 1 / (ind + 60)
-
-        # print("scores: {}".format(scores))
         sorted_scores = sorted(scores, key=lambda x: x[1] ,reverse=True)
-        # print("sorted_scores: {}".format(sorted_scores))
 
+        # filter out the docs according to their ranking
         ranked_docs = []
         for current_score in sorted_scores:
             for current_doc in both_lists:
                 if current_score == current_doc.id:
                     ranked_docs.append(current_doc)
 
-
-        # print("ranked_docs: {}".format(ranked_docs))
-
+        # return only as much as required
         return ranked_docs[:self.k]
