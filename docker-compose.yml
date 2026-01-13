@@ -51,6 +51,19 @@ services:
 #      - ~/.ollama:/root/.ollama
 #    ports:
 #      - "11434:11434"
+  neo4j:
+    image: neo4j:latest
+    volumes:
+        - /$HOME/neo4j/logs:/logs
+        - /$HOME/neo4j/config:/config
+        - /$HOME/neo4j/data:/data
+        - /$HOME/neo4j/plugins:/plugins
+    environment:
+        - NEO4J_AUTH=${NEO4J_AUTH:-neo4j/your_password}
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    restart: always
 
 # COPIED FROM: https://github.com/langfuse/langfuse/blob/main/docker-compose.yml
 # Make sure to update the credential placeholders with your own secrets.
